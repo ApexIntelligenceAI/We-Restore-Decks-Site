@@ -1,0 +1,837 @@
+<div class="w-embed wrd-page-embed"><style>
+/* ================= TOKENS ================= */
+:root {
+  --deep: #3A2A22;
+  --darkest: #241812;
+  --off: #F9F9F8;
+  --caramel: #B76F3F;
+  --cyan: #33AAC9;
+  --rust: #974E31;
+  --taupe: #70635E;
+  --paper: #FFFFFF;
+  --navy: var(--deep);
+  --cream: var(--off);
+  --wood: var(--rust);
+  --sage: var(--cyan);
+  --gold: var(--caramel);
+  --slate: var(--taupe);
+  --ink: var(--deep);
+  --ink-soft: var(--taupe);
+  --line-light: rgba(255, 255, 255, 0.16);
+  --radius: 14px;
+  --maxw: 1200px;
+  --pad: 24px;
+}
+.wrd-page-embed, .wrd-page-embed * { box-sizing: border-box; }
+.wrd-page-embed { scroll-behavior: smooth; }
+.wrd-page-embed {
+  font-family: "Inter", system-ui, sans-serif;
+  color: var(--ink);
+  background: var(--off);
+  line-height: 1.5;
+  -webkit-font-smoothing: antialiased;
+}
+img { display: block; max-width: 100%; }
+a { text-decoration: none; color: inherit; }
+.wrd-container { width: 100%; max-width: var(--maxw); margin: 0 auto; padding-inline: var(--pad); }
+h1, h2, h3 {
+  font-family: "Archivo", sans-serif;
+  letter-spacing: -0.02em;
+  line-height: 1.03;
+}
+.wrd-eyebrow {
+  font-family: "Archivo", sans-serif;
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  color: var(--caramel);
+  margin-bottom: 14px;
+}
+.wrd-service-hero .wrd-eyebrow {
+  background: rgba(255, 255, 255, 0.92);
+  padding: 5px 12px;
+  border-radius: 6px;
+  display: inline-block;
+}
+.wrd-eyebrow-light { color: var(--caramel); }
+.wrd-section-title {
+  font-size: clamp(30px, 4.2vw, 50px);
+  font-weight: 800;
+  max-width: 16ch;
+  color: #000;
+}
+.wrd-section-title.wrd-light { color: #fff; }
+.wrd-section-copy {
+  max-width: 54ch;
+  color: var(--taupe);
+  font-size: 16px;
+  margin-top: 14px;
+}
+.wrd-section-copy.light { color: rgba(249, 249, 248, 0.84); }
+.wrd-section-white { background: var(--paper); }
+/* ================= BUTTONS ================= */
+.wrd-btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  font-family: "Archivo", sans-serif;
+  font-weight: 700;
+  font-size: 14px;
+  border: 1.5px solid transparent;
+  border-radius: 8px;
+  padding: 12px 22px;
+  cursor: pointer;
+  transition: 0.2s ease;
+  white-space: nowrap;
+}
+.wrd-btn-cream { background: var(--off); color: var(--ink); }
+.wrd-btn-cream:hover { background: #fff; }
+.wrd-btn-ghost { background: transparent; color: #fff; border-color: rgba(255, 255, 255, 0.35); }
+.wrd-btn-ghost:hover { background: rgba(255, 255, 255, 0.08); }
+.wrd-btn-green { background: var(--cyan); border-color: var(--cyan); color: #fff; }
+.wrd-btn-green:hover { background: #2a92ae; border-color: #2a92ae; }
+.wrd-btn-gold { background: var(--caramel); border-color: var(--caramel); color: #fff; }
+.wrd-btn-gold:hover { background: var(--rust); border-color: var(--rust); }
+.wrd-btn-block { width: 100%; }
+/* ================= SERVICE HERO ================= */
+.wrd-service-hero {
+  color: #fff;
+  background-image: linear-gradient(rgba(58, 42, 34, 0.55) 0%, rgba(58, 42, 34, 0.55) 100%),
+    url("https://cdn.prod.website-files.com/6a443b24edea4ec6b8c93e11/6a49011b4272910c41f595cc_hero-waterfront.png");
+  background-size: cover;
+  background-position: center;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+.wrd-service-hero-inner {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+width: 100%;
+  max-width: var(--maxw);
+  margin: 0 auto;
+  padding: clamp(100px, 12vw, 140px) var(--pad) 0;
+  box-sizing: border-box;
+}
+.wrd-hero-main {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: flex-start;
+  text-align: left;
+}
+.wrd-hero-title {
+  font-size: clamp(40px, 6vw, 74px);
+  max-width: 12ch;
+  color: #fff;
+  margin-bottom: 18px;
+}
+.wrd-hero-sub {
+  max-width: 50ch;
+  color: rgba(249, 249, 248, 0.92);
+  font-size: 17px;
+  margin-bottom: 28px;
+}
+.wrd-hero-actions { display: flex; gap: 12px; flex-wrap: wrap; }
+.wrd-hero-stats {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  border-top: 1px solid var(--line-light);
+  background: transparent;
+width: 100%;
+margin-top: auto;
+}
+.wrd-stat {
+  padding: 24px 0 34px;
+  border-right: 1px solid var(--line-light);
+  background: transparent;
+}
+.wrd-stat:nth-child(2), .wrd-stat:last-child { padding-left: 24px; }
+.wrd-stat:last-child { border-right: none; }
+.wrd-stat-num {
+  display: block;
+  font-family: "Archivo", sans-serif;
+  font-weight: 800;
+  font-size: 23px;
+  color: #fff;
+  margin-bottom: 6px;
+}
+.wrd-stat-label { color: rgba(249, 249, 248, 0.74); font-size: 13px; }
+/* ================= SHARED SPLIT ================= */
+.wrd-service-overview { padding: 84px 0; background: var(--off); }
+.wrd-split-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  align-items: center;
+  gap: 44px;
+}
+.wrd-split-grid.wrd-reverse .wrd-media-card { order: 1; }
+.wrd-split-grid.wrd-reverse .wrd-split-copy { order: 2; }
+.wrd-split-copy .wrd-btn { margin-top: 16px; }
+.wrd-media-card { border-radius: var(--radius); overflow: hidden; min-height: 340px; }
+.wrd-media-card img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  border-radius: inherit;
+}
+/* ================= SERVICE BAND ================= */
+.wrd-service-band {
+  background-image: linear-gradient(rgba(58, 42, 34, 0.86), rgba(36, 24, 18, 0.84)),
+    url("https://www.werestoredecks.com/wp-content/uploads/2024/07/3109EC4F-14F9-46F6-895F-3FF2795DF9AA-1536x1152.jpg");
+  background-size: cover;
+  background-position: center;
+  color: #fff;
+  padding: 78px 0;
+}
+.wrd-service-band .wrd-section-title { margin-bottom: 6px; max-width: 13ch; color: #fff; }
+.wrd-service-band .wrd-btn { margin-top: 22px; }
+/* ================= CENTER COPY ================= */
+.wrd-center-copy { padding: 76px 0; text-align: center; background: var(--off); }
+.wrd-narrow { max-width: 780px; }
+.wrd-center-copy .wrd-section-title { margin: 0 auto; }
+.wrd-center-copy .wrd-section-copy { margin-inline: auto; }
+/* ================= FEATURED OPTIONS ================= */
+.wrd-featured-options {
+  background-image: linear-gradient(rgba(58, 42, 34, 0.88), rgba(36, 24, 18, 0.84)),
+    url("https://www.werestoredecks.com/wp-content/uploads/2024/07/3109EC4F-14F9-46F6-895F-3FF2795DF9AA-1200x900.jpg");
+  background-size: cover;
+  background-position: center;
+  padding: 82px 0;
+}
+.wrd-featured-options .wrd-section-title { margin-bottom: 30px; max-width: 13ch; color: #fff; }
+.wrd-featured-options .wrd-section-title.wrd-light { color: #fff; }
+.wrd-option-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 22px;
+}
+.wrd-option-card {
+  background: #fff;
+  border-radius: var(--radius);
+  overflow: hidden;
+}
+.wrd-option-card img { width: 100%; height: 210px; object-fit: cover; }
+.wrd-option-body { padding: 20px; }
+.wrd-option-body h3 { font-size: 24px; margin-bottom: 8px; color: #000; }
+.wrd-option-body p { color: var(--taupe); font-size: 15px; margin-bottom: 14px; }
+/* ================= PLAN CTA ================= */
+.wrd-plan-cta { background: var(--deep); color: #fff; padding: 22px 0; }
+.wrd-plan-cta-inner {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 18px;
+}
+.wrd-plan-cta h2 {
+  font-size: clamp(28px, 4vw, 44px);
+  margin-bottom: 4px;
+  color: #fff;}
+.wrd-plan-cta p { color: rgba(249, 249, 248, 0.78); }
+/* ================= SERVICES CARDS ================= */
+.wrd-services { padding: 84px 0; background: var(--off); }
+.wrd-services .wrd-section-title { margin-bottom: 38px; max-width: 16ch; }
+.wrd-cards { display: grid; gap: 22px; align-items: start; }
+.wrd-cards.wrd-three { grid-template-columns: repeat(3, 1fr); }
+.wrd-card {
+  display: grid;
+  grid-template-rows: 170px 1fr;
+  background: var(--paper);
+  border-radius: var(--radius);
+  overflow: hidden;
+  box-shadow: 0 1px 0 rgba(0, 0, 0, 0.06);
+}
+.wrd-card-img {
+width: 100%;
+height: 160px;
+object-fit: cover;
+object-position: top center;
+display: block;
+}
+.wrd-card-body { padding: 14px 18px 18px; }
+.wrd-card-body h3 { font-size: 20px; margin: 0 0 8px; color: #000; }
+.wrd-card-body p { color: var(--taupe); font-size: 14px; }
+/* ================= WHY ================= */
+.wrd-why {
+  background: var(--off);
+  padding: 68px 0;
+}
+.wrd-why-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  align-items: stretch;
+}
+.wrd-why-card {
+  min-height: 420px;
+  background-size: cover;
+  background-position: center;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 36px;
+  border-radius: var(--radius);
+  overflow: hidden;
+}
+.wrd-why-quote {
+  background: var(--deep);
+  color: #fff;
+  border-radius: 12px;
+  max-width: 360px;
+  padding: 24px;
+}
+.wrd-why-quote p {
+  font-family: "Archivo", sans-serif;
+  font-size: 20px;
+  line-height: 1.25;
+  margin-bottom: 12px;
+}
+.wrd-why-quote span { color: var(--caramel); font-size: 13px; }
+.wrd-why-content {
+  padding: 0 0 0 54px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+.wrd-why-list {
+  list-style: none;
+  margin-top: 20px;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+.wrd-why-list li {
+  position: relative;
+  padding-left: 20px;
+  color: var(--taupe);
+}
+.wrd-why-list li::before {
+  content: "";
+  position: absolute;
+  left: 0;
+  top: 8px;
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: var(--caramel);
+}
+/* ================= PROCESS (restoration classes) ================= */
+.container {
+width: 100%;
+max-width: var(--maxw);
+margin: 0 auto;
+padding-inline: var(--pad);
+}
+.eyebrow {
+font-family: "Archivo", sans-serif;
+font-size: 11px;
+font-weight: 700;
+letter-spacing: 0.16em;
+text-transform: uppercase;
+color: var(--caramel);
+margin-bottom: 14px;
+}
+.eyebrow-light { color: var(--caramel); }
+.section-title {
+font-size: clamp(30px, 4.2vw, 50px);
+font-weight: 800;
+max-width: 16ch;
+}
+.section-title.light { color: #fff; }
+.process .section-title { color: #fff; }
+.process {
+background: var(--deep);
+color: #fff;
+padding: 86px 0;
+}
+.process-grid {
+display: grid;
+grid-template-columns: 1fr 1fr;
+gap: 54px;
+}
+.process-sub {
+margin-top: 18px;
+color: rgba(249, 249, 248, 0.8);
+max-width: 38ch;
+}
+.process-right {
+display: flex;
+flex-direction: column;
+gap: 12px;
+}
+.step {
+display: flex;
+gap: 18px;
+border: 1px solid var(--line-light);
+border-radius: 12px;
+background: rgba(255, 255, 255, 0.04);
+padding: 20px 22px;
+}
+.step-num {
+font-family: "Archivo", sans-serif;
+font-size: 14px;
+font-weight: 800;
+color: var(--caramel);
+letter-spacing: 0.06em;
+padding-top: 3px;
+}
+.step h3 { font-size: 18px; margin-bottom: 5px; color: #fff; }
+.step p { color: rgba(249, 249, 248, 0.74); font-size: 14px; }
+/* ================= FAQ ================= */
+.qaf-wrd-faq { padding: 84px 0; background: var(--off); }
+.qaf-wrd-faq-grid {
+  display: grid;
+  grid-template-columns: 1fr 1.2fr;
+  gap: 52px;
+}
+.qaf-wrd-faq-right { display: flex; flex-direction: column; gap: 12px; }
+.qaf-wrd-faq-item { background: var(--paper); border-radius: 12px; overflow: hidden; }
+.qaf-wrd-faq-q {
+  width: 100%;
+  text-align: left;
+  background: none;
+  border: none;
+  cursor: pointer;
+  font-family: "Archivo", sans-serif;
+  font-size: 16px;
+  font-weight: 700;
+  color: var(--ink);
+  padding: 20px 22px;
+  position: relative;
+}
+summary.qaf-wrd-faq-q {
+  list-style: none;
+}
+summary.qaf-wrd-faq-q::-webkit-details-marker {
+  display: none;
+}
+.qaf-wrd-faq-q::after {
+  content: "+";
+  position: absolute;
+  right: 22px;
+  top: 50%;
+  transform: translateY(-50%);
+  font-size: 20px;
+  color: var(--caramel);
+}
+details.qaf-wrd-faq-item[open] .qaf-wrd-faq-q::after { content: "\2013"; }
+.qaf-wrd-faq-a { overflow: hidden; }
+details.qaf-wrd-faq-item[open] > .qaf-wrd-faq-a {
+animation: wrd-faq-reveal 0.3s ease;
+}
+@keyframes wrd-faq-reveal {
+from { opacity: 0; transform: translateY(-6px); }
+to { opacity: 1; transform: translateY(0); }
+}
+.qaf-wrd-faq-a p { padding: 0 22px 20px; color: var(--taupe); }
+/* ================= ESTIMATE ================= */
+.wrd-estimate {
+  color: #fff;
+  padding: 84px 0;
+  background-image: linear-gradient(rgba(58, 42, 34, 0.9), rgba(36, 24, 18, 0.86)),
+    url("https://www.werestoredecks.com/wp-content/uploads/2024/07/4EB0E15A-152F-4CA6-9D32-1CE5A718303C_1_105_c-700x932.jpeg");
+  background-size: cover;
+  background-position: center;
+}
+.wrd-estimate-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 56px;
+  align-items: start;
+}
+.wrd-cta-phone {
+  display: inline-block;
+  margin-top: 12px;
+  font-family: "Archivo", sans-serif;
+  font-weight: 800;
+  font-size: clamp(30px, 4vw, 44px);
+  color: var(--caramel);
+}
+.wrd-cta-form {
+  background: var(--off);
+  border-radius: var(--radius);
+  padding: 26px;
+}
+.wrd-cta-form label {
+  display: block;
+  color: var(--ink);
+  font-family: "Archivo", sans-serif;
+  font-size: 13px;
+  font-weight: 700;
+  margin-bottom: 8px;
+}
+.wrd-cta-form input,
+.wrd-cta-form select,
+.wrd-cta-form textarea {
+  width: 100%;
+  margin-bottom: 14px;
+  border: 1px solid rgba(112, 99, 94, 0.35);
+  border-radius: 8px;
+  background: #fff;
+  color: var(--ink);
+  padding: 12px 14px;
+  font-family: "Inter", sans-serif;
+  font-size: 14px;
+}
+.wrd-cta-form textarea { min-height: 96px; resize: vertical; }
+.wrd-cta-form input:focus,
+.wrd-cta-form select:focus,
+.wrd-cta-form textarea:focus {
+  outline: 2px solid rgba(183, 111, 63, 0.25);
+  border-color: var(--cyan);
+}
+.wrd-cta-fineprint { color: var(--taupe); font-size: 12px; text-align: center; margin-top: 10px; }
+/* ================= RESPONSIVE ================= */
+@media (max-width: 980px) {
+  :root { --pad: 18px; }
+  .wrd-split-grid,
+  .wrd-option-grid,
+  .wrd-why-grid,
+  .process-grid,
+  .qaf-wrd-faq-grid,
+  .wrd-estimate-grid {
+    grid-template-columns: 1fr;
+    gap: 28px;
+  }
+  .wrd-split-grid.wrd-reverse .wrd-media-card,
+  .wrd-split-grid.wrd-reverse .wrd-split-copy {
+    order: initial;
+  }
+  .wrd-cards.wrd-three { grid-template-columns: 1fr; }
+  .wrd-service-band .wrd-container,
+  .wrd-featured-options .wrd-container > .wrd-eyebrow,
+  .wrd-featured-options .wrd-container > .wrd-section-title,
+  .wrd-services .wrd-container > .wrd-eyebrow,
+  .wrd-services .wrd-container > .wrd-section-title,
+  .process-grid > div:first-child,
+  .qaf-wrd-faq-grid > div:first-child,
+  .wrd-estimate-grid > div:first-child,
+  .wrd-plan-cta-inner,
+  .wrd-why-content,
+  .wrd-split-copy,
+  .wrd-center-copy {
+    text-align: center;
+  }
+  .wrd-hero-title,
+  .wrd-hero-sub,
+  .wrd-section-title,
+  .wrd-section-copy,
+  .process-sub,
+  .section-title,
+  .wrd-featured-options .wrd-section-title,
+  .wrd-services .wrd-section-title {
+    margin-inline: auto;
+    max-width: 100%;
+  }
+  .wrd-hero-main .wrd-hero-title,
+  .wrd-hero-main .wrd-hero-sub {
+    margin-inline: 0;
+  }
+  .wrd-hero-main {
+    align-items: flex-start;
+    text-align: left;
+  }
+  .wrd-hero-actions {
+    justify-content: flex-start;
+  }
+  .wrd-plan-cta-inner {
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+  }
+  .wrd-why-content {
+    padding: 0;
+    align-items: center;
+  }
+  .wrd-why-list {
+    text-align: left;
+    width: 100%;
+    max-width: 420px;
+    margin-inline: auto;
+  }
+  .wrd-hero-stats { grid-template-columns: 1fr; }
+  .wrd-stat,
+  .wrd-stat:nth-child(2),
+  .wrd-stat:last-child {
+    border-right: none;
+    border-bottom: 1px solid var(--line-light);
+    padding: 18px 0;
+    text-align: center;
+  }
+  .wrd-stat:last-child { border-bottom: none; padding-left: 0; }
+  .wrd-stat:nth-child(2) { padding-left: 0; }
+  .wrd-option-body,
+  .wrd-card-body {
+    text-align: center;
+  }
+  .wrd-media-card { min-height: 260px; }
+  .wrd-why-card { min-height: 300px; }
+  .step {
+    text-align: left;
+  }
+  .qaf-wrd-faq-q {
+    text-align: left;
+    padding-right: 48px;
+  }
+  .wrd-cta-phone {
+    display: block;
+    text-align: center;
+  }
+}
+@media (max-width: 620px) {
+  :root { --pad: 16px; }
+  .wrd-service-hero-inner {
+    padding-top: 100px;
+  }
+  .wrd-hero-title {
+    font-size: clamp(32px, 9vw, 44px);
+  }
+  .wrd-hero-sub {
+    font-size: 15px;
+    margin-bottom: 22px;
+  }
+  .wrd-hero-actions {
+    flex-direction: column;
+    align-items: stretch;
+    margin-bottom: 36px;
+  }
+  .wrd-hero-actions .wrd-btn,
+  .wrd-plan-cta-inner .wrd-btn,
+  .wrd-service-band .wrd-btn {
+    width: 100%;
+  }
+  .wrd-cards.wrd-three { grid-template-columns: 1fr; }
+  .wrd-option-card img { height: 180px; }
+  .wrd-card-img { height: 160px; }
+  .wrd-section-title {
+    font-size: clamp(26px, 7vw, 36px);
+  }
+  .wrd-center-copy,
+  .wrd-services,
+  .qaf-wrd-faq,
+  .process,
+  .wrd-featured-options,
+  .wrd-service-overview,
+  .wrd-service-band,
+  .wrd-estimate,
+  .wrd-why {
+    padding-block: 52px;
+  }
+  .wrd-cta-form { padding: 18px; }
+  .qaf-wrd-faq-q {
+    font-size: 15px;
+    padding: 16px 44px 16px 16px;
+  }
+  .qaf-wrd-faq-a p { padding: 0 16px 16px; }
+  .step {
+    padding: 16px;
+    gap: 14px;
+  }
+  .wrd-btn {
+    white-space: normal;
+    text-align: center;
+  }
+}
+  </style>
+      <main>
+        <section class="wrd-service-hero">
+          <div class="wrd-container wrd-service-hero-inner">
+            <div class="wrd-hero-main">
+              <p class="wrd-eyebrow wrd-eyebrow-light">Dock resurfacing in Annapolis, MD</p>
+              <h1 class="wrd-hero-title">Dock Resurfacing</h1>
+              <p class="wrd-hero-sub">If your dock surface is old, splintery, weathered, or starting to rot, resurfacing can bring it back to a cleaner, safer, like-new condition.</p>
+              <div class="wrd-hero-actions">
+                <a href="/contact" class="wrd-btn wrd-btn-cream">Request resurfacing quote</a>
+                <a href="tel:4102636270" class="wrd-btn wrd-btn-ghost">Call 410-263-6270</a>
+              </div>
+            </div>
+            <div class="wrd-hero-stats">
+              <div class="wrd-stat">
+                <span class="wrd-stat-num">20-year surfaces</span>
+                <span class="wrd-stat-label">often ready for replacement</span>
+              </div>
+              <div class="wrd-stat">
+                <span class="wrd-stat-num">Like-new outcome</span>
+                <span class="wrd-stat-label">renew old weathered dock boards</span>
+              </div>
+              <div class="wrd-stat">
+                <span class="wrd-stat-num">Condition-first scope</span>
+                <span class="wrd-stat-label">resurface only when it is the right fit</span>
+              </div>
+            </div>
+          </div>
+        </section>
+        <section class="wrd-center-copy wrd-section-white">
+          <div class="wrd-container wrd-narrow">
+            <p class="wrd-eyebrow">Service focus</p>
+            <h2 class="wrd-section-title">Dock Resurfacing Is Built for Aging Top Decking.</h2>
+            <p class="wrd-section-copy">When the walking surface is the problem, resurfacing can rejuvenate the dock without full teardown, giving you a cleaner finish and better day-to-day usability.</p>
+          </div>
+        </section>
+        <section class="wrd-featured-options">
+          <div class="wrd-container">
+            <p class="wrd-eyebrow wrd-eyebrow-light">Dock resurfacing options</p>
+            <h2 class="wrd-section-title wrd-light">Resurfacing Services for Weathered Dock Surfaces</h2>
+            <div class="wrd-option-grid">
+              <article class="wrd-option-card">
+                <img src="https://www.werestoredecks.com/wp-content/uploads/2024/07/3109EC4F-14F9-46F6-895F-3FF2795DF9AA-1024x768.jpg" alt="Dock surface boards prepared for resurfacing">
+                <div class="wrd-option-body">
+                  <h3>Surface board replacement</h3>
+                  <p>Replace old and splintery top boards to restore safer movement and cleaner appearance.</p>
+                </div>
+              </article>
+              <article class="wrd-option-card">
+                <img src="/images/img12.png" alt="Freshly resurfaced wooden dock over the water">
+                <div class="wrd-option-body">
+                  <h3>Full dock resurfacing package</h3>
+                  <p>End-to-end resurfacing scope for docks that need a practical renewal instead of patchwork fixes.</p>
+                </div>
+              </article>
+            </div>
+          </div>
+        </section>
+        <section class="wrd-plan-cta" id="estimate">
+          <div class="wrd-container wrd-plan-cta-inner">
+            <div>
+              <h2>Start Your Dock Resurfacing Plan</h2>
+              <p>Share photos and dock age details so we can recommend the right resurfacing scope.</p>
+            </div>
+            <a href="/contact" class="wrd-btn wrd-btn-gold">Start now</a>
+          </div>
+        </section>
+        <section class="wrd-services wrd-section-white">
+          <div class="wrd-container">
+            <p class="wrd-eyebrow">What this service covers</p>
+            <h2 class="wrd-section-title">Resurfacing paths based on wear, age, and surface condition.</h2>
+            <div class="wrd-cards wrd-three">
+              <article class="wrd-card">
+                <img class="wrd-card-img" src="https://www.werestoredecks.com/wp-content/uploads/2024/07/4EB0E15A-152F-4CA6-9D32-1CE5A718303C_1_105_c-540x719.jpeg" alt="">
+                <div class="wrd-card-body">
+                  <h3>Aged board replacement</h3>
+                  <p>Replace damaged top decking where long-term weather exposure has reduced surface.</p>
+                </div>
+              </article>
+              <article class="wrd-card">
+                <img class="wrd-card-img" src="https://www.werestoredecks.com/wp-content/uploads/2024/07/3109EC4F-14F9-46F6-895F-3FF2795DF9AA-940x705.jpg" alt="">
+                <div class="wrd-card-body">
+                  <h3>Splinter and roughness correction</h3>
+                  <p>Remove worn, splinter-prone walking surfaces and replace with fresh, dock-ready material.</p>
+                </div>
+              </article>
+              <article class="wrd-card">
+                <img class="wrd-card-img" src="/images/docks-waterfront-v2.jpg" alt="">
+                <div class="wrd-card-body">
+                  <h3>Complete resurfacing refresh</h3>
+                  <p>Upgrade the entire dock surface for a cleaner look and better usability around the water.</p>
+                </div>
+              </article>
+            </div>
+          </div>
+        </section>
+        <section class="wrd-why">
+          <div class="wrd-container wrd-why-grid">
+            <figure class="wrd-why-card" style="background-image:url('https://www.werestoredecks.com/wp-content/uploads/2024/07/4EB0E15A-152F-4CA6-9D32-1CE5A718303C_1_105_c-460x613.jpeg')">
+              <figcaption class="wrd-why-quote">
+                <p>We restore docks with practical recommendations focused on long-term performance and safe surface use.</p>
+                <span>We Restore Decks</span>
+              </figcaption>
+            </figure>
+            <article class="wrd-why-content">
+              <p class="wrd-eyebrow">Project fit</p>
+              <h2 class="wrd-section-title">Is Dock Resurfacing Right For You?</h2>
+              <ul class="wrd-why-list">
+                <li>Your dock top boards are old, splintery, or visibly weathered.</li>
+                <li>You want a like-new walking surface without a full dock rebuild.</li>
+                <li>You need a condition-based plan instead of guesswork.</li>
+                <li>You want experienced dock specialists for large or small resurfacing jobs.</li>
+              </ul>
+            </article>
+          </div>
+        </section>
+        <section class="process" id="process">
+          <div class="container process-grid">
+            <div class="process-left">
+              <p class="eyebrow eyebrow-light">Dock resurfacing options</p>
+              <h2 class="section-title light">A clear resurfacing workflow from inspection to final walkthrough.</h2>
+              <p class="process-sub">Every dock resurfacing project follows a simple sequence so scope, timeline, and outcome are clear from the start.</p>
+            </div>
+            <div class="process-right">
+              <article class="step">
+                <span class="step-num">01</span>
+                <div>
+                  <h3>Dock condition review</h3>
+                  <p>Inspect board wear, splintering, rot exposure, and overall surface.</p>
+                </div>
+              </article>
+              <article class="step">
+                <span class="step-num">02</span>
+                <div>
+                  <h3>Resurfacing scope plan</h3>
+                  <p>Define surface replacement areas, material approach, and sequencing for efficient installation.</p>
+                </div>
+              </article>
+              <article class="step">
+                <span class="step-num">03</span>
+                <div>
+                  <h3>Surface replacement</h3>
+                  <p>Complete dock top resurfacing with quality-focused workmanship and site coordination.</p>
+                </div>
+              </article>
+              <article class="step">
+                <span class="step-num">04</span>
+                <div>
+                  <h3>Final walkthrough</h3>
+                  <p>Review completed dock surface and provide care guidance for long-term performance.</p>
+                </div>
+              </article>
+            </div>
+          </div>
+        </section>
+        <section class="qaf-wrd-faq wrd-section-white">
+          <style>
+      .qaf-wrd-faq-a { overflow: hidden; }
+details.qaf-wrd-faq-item[open] > .qaf-wrd-faq-a {
+animation: wrd-faq-reveal 0.3s ease;
+}
+@keyframes wrd-faq-reveal {
+from { opacity: 0; transform: translateY(-6px); }
+to { opacity: 1; transform: translateY(0); }
+}
+    </style>
+          <div class="wrd-container qaf-wrd-faq-grid">
+            <div class="qaf-wrd-faq-left">
+              <p class="wrd-eyebrow">FAQ</p>
+              <h2 class="wrd-section-title">Questions homeowners ask about dock resurfacing.</h2>
+            </div>
+            <div class="qaf-wrd-faq-right">
+              <details class="qaf-wrd-faq-item" open>
+                <summary class="qaf-wrd-faq-q">How do I know when resurfacing is needed?</summary>
+                <div class="qaf-wrd-faq-a">
+                  <p>Splintering, cupping, loose boards, or a worn gray surface usually mean the decking is due for resurfacing.</p>
+                </div>
+              </details>
+              <details class="qaf-wrd-faq-item">
+                <summary class="qaf-wrd-faq-q">Can resurfacing make an old dock look new again?</summary>
+                <div class="qaf-wrd-faq-a">
+                  <p>Yes. Replacing the walking surface with fresh boards dramatically improves appearance, safety, and comfort underfoot.</p>
+                </div>
+              </details>
+              <details class="qaf-wrd-faq-item">
+                <summary class="qaf-wrd-faq-q">Do all old docks need full replacement?</summary>
+                <div class="qaf-wrd-faq-a">
+                  <p>No. If the substructure and pilings are solid, resurfacing the top is a cost-effective alternative to full replacement.</p>
+                </div>
+              </details>
+              <details class="qaf-wrd-faq-item">
+                <summary class="qaf-wrd-faq-q">Can I get a quote before an on-site visit?</summary>
+                <div class="qaf-wrd-faq-a">
+                  <p>Yes. Share photos and measurements for an initial quote, then we confirm the details during an on-site evaluation.</p>
+                </div>
+              </details>
+            </div>
+          </div>
+        </section>
+      </main>
+    </div>

@@ -1,0 +1,285 @@
+<div class="w-embed wrd-page-embed"><style>
+    :root {
+      --navy: #0f243e;
+      --cream: #f3efe7;
+      --paper: #ffffff;
+      --gold: #c8a45a;
+      --slate: #6b6f72;
+      --line: #dfe4ea;
+      --maxw: 1120px;
+      --pad: 24px;
+      --radius: 14px;
+    }
+.wrd-page-embed, .wrd-page-embed * { box-sizing: border-box; }
+    .wrd-page-embed {
+      font-family: "Inter", system-ui, sans-serif;
+      background: var(--cream);
+      color: var(--navy);
+      line-height: 1.5;
+      -webkit-font-smoothing: antialiased;
+    }
+    h1, h2, h3 {
+      font-family: "Archivo", sans-serif;
+      letter-spacing: -0.02em;
+      line-height: 1.04;
+    }
+    .wrd-container {
+      width: 100%;
+      max-width: var(--maxw);
+      margin: 0 auto;
+      padding-inline: var(--pad);
+    }
+    .wrd-eyebrow {
+      font-family: "Archivo", sans-serif;
+      font-size: 11px;
+      font-weight: 700;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      color: var(--gold);
+      margin-bottom: 12px;
+    }
+    .wrd-btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      font-family: "Archivo", sans-serif;
+      font-size: 14px;
+      font-weight: 700;
+      padding: 12px 22px;
+      border-radius: 8px;
+      border: 1.5px solid transparent;
+      text-decoration: none;
+      transition: 0.2s ease;
+      white-space: nowrap;
+    }
+    .wrd-btn-light { background: var(--cream); color: var(--navy); }
+    .wrd-btn-light:hover { background: #fff; }
+    .wrd-service-hero {
+      color: #fff;
+      background-image: linear-gradient(rgba(58, 42, 34, 0.72) 0%, rgba(58, 42, 34, 0.45) 55%, rgba(58, 42, 34, 0.12) 100%),
+        url("https://cdn.prod.website-files.com/6a443b24edea4ec6b8c93e11/6a49011b4272910c41f595cc_hero-waterfront.png");
+      background-size: cover;
+      background-position: center;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+  }
+    .wrd-service-hero-inner {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: flex-start;
+    text-align: left;
+    width: 100%;
+    max-width: var(--maxw);
+    margin: 0 auto;
+    padding: clamp(100px, 12vw, 140px) var(--pad);
+    box-sizing: border-box;
+  }
+    .wrd-hero-title {
+      font-size: clamp(42px, 6vw, 74px);
+      margin-bottom: 16px;
+      max-width: 10ch;
+      color: #fff;
+    }
+    .wrd-hero-sub {
+      max-width: 60ch;
+      color: rgba(249, 249, 248, 0.92);
+      margin-bottom: 22px;
+      font-size: 17px;
+    }
+    .qaf-wrd-faq-section {
+      padding: 70px 0 90px;
+      background: var(--paper);
+    }
+    .qaf-wrd-faq-head {
+      margin-bottom: 24px;
+    }
+    .qaf-wrd-faq-head h2 {
+      font-size: clamp(30px, 4.3vw, 52px);
+      margin-bottom: 8px;
+      max-width: 16ch;
+      color: #000;
+    }
+    .qaf-wrd-faq-head p {
+      color: var(--slate);
+      max-width: 70ch;
+    }
+    .qaf-wrd-faq-list {
+      display: grid;
+      gap: 12px;
+    }
+    .qaf-wrd-faq-item {
+      border: 1px solid var(--line);
+      border-radius: 10px;
+      overflow: hidden;
+      background: #fff;
+    }
+    .qaf-wrd-faq-q {
+      width: 100%;
+      background: #f5f7fa;
+      border: none;
+      text-align: left;
+      padding: 17px 48px 17px 18px;
+      font-family: "Archivo", sans-serif;
+      font-size: 16px;
+      font-weight: 700;
+      color: var(--navy);
+      cursor: pointer;
+      position: relative;
+    }
+  summary.qaf-wrd-faq-q {
+    list-style: none;
+  }
+  summary.qaf-wrd-faq-q::-webkit-details-marker {
+    display: none;
+  }
+  .qaf-wrd-faq-q::after {
+      content: "+";
+      position: absolute;
+      right: 16px;
+      top: 50%;
+      transform: translateY(-50%);
+      color: var(--gold);
+      font-size: 22px;
+      line-height: 1;
+    }
+    details.qaf-wrd-faq-item[open] .qaf-wrd-faq-q::after { content: "\2013"; }
+.qaf-wrd-faq-a { overflow: hidden; }
+details.qaf-wrd-faq-item[open] > .qaf-wrd-faq-a {
+  animation: wrd-faq-reveal 0.3s ease;
+}
+@keyframes wrd-faq-reveal {
+  from { opacity: 0; transform: translateY(-6px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+.qaf-wrd-faq-a p {
+      padding: 16px 18px 18px;
+      color: var(--slate);
+      font-size: 15px;
+    }
+    @media (max-width: 980px) {
+      :root { --pad: 18px; }
+      .qaf-wrd-faq-head {
+        text-align: center;
+      }
+      .qaf-wrd-faq-head h2,
+      .qaf-wrd-faq-head p {
+        margin-inline: auto;
+        max-width: 100%;
+      }
+      .wrd-service-hero-inner .wrd-btn {
+        display: inline-flex;
+      }
+    }
+    @media (max-width: 620px) {
+      :root { --pad: 16px; }
+      .wrd-service-hero-inner { padding-top: 100px; padding-bottom: 52px; }
+      .wrd-hero-title { font-size: clamp(32px, 9vw, 44px); }
+      .wrd-hero-sub { font-size: 15px; }
+      .wrd-service-hero-inner .wrd-btn {
+        width: 100%;
+      }
+      .qaf-wrd-faq-section { padding: 48px 0 64px; }
+      .qaf-wrd-faq-q {
+        font-size: 15px;
+        padding: 16px 44px 16px 16px;
+        text-align: left;
+      }
+      .qaf-wrd-faq-a p { padding: 14px 16px 16px; }
+      .wrd-btn { white-space: normal; text-align: center; }
+    }
+  </style>
+      <main>
+        <section class="wrd-service-hero">
+          <div class="wrd-container wrd-service-hero-inner">
+            <p class="wrd-eyebrow">We Restore Decks</p>
+            <h1 class="wrd-hero-title">Frequently Asked Questions</h1>
+            <p class="wrd-hero-sub">Answers to common questions across deck repair, remodeling, restoration, stain systems, pressure washing, docks, and project planning.</p>
+            <a href="tel:4102636270" class="wrd-btn wrd-btn-light">Call 410-263-6270</a>
+          </div>
+        </section>
+        <section class="qaf-wrd-faq-section">
+          <style>
+        .qaf-wrd-faq-a { overflow: hidden; }
+details.qaf-wrd-faq-item[open] > .qaf-wrd-faq-a {
+  animation: wrd-faq-reveal 0.3s ease;
+}
+@keyframes wrd-faq-reveal {
+  from { opacity: 0; transform: translateY(-6px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+      </style>
+          <div class="wrd-container">
+            <div class="qaf-wrd-faq-head">
+              <p class="wrd-eyebrow">Site-Wide FAQ</p>
+              <h2>Questions Homeowners Ask Most</h2>
+              <p>Use this page as a quick reference before requesting your estimate.</p>
+            </div>
+            <div class="qaf-wrd-faq-list">
+              <details class="qaf-wrd-faq-item" open>
+                <summary class="qaf-wrd-faq-q">How do I know if my deck should be repaired, restored, remodeled, or replaced?</summary>
+                <div class="qaf-wrd-faq-a">
+                  <p>It depends on structure condition, age, and your goals. If framing is still sound, repair, restoration, or remodeling is often possible. If structural deterioration is widespread, replacement may be the safer long-term path.</p>
+                </div>
+              </details>
+              <details class="qaf-wrd-faq-item">
+                <summary class="qaf-wrd-faq-q">What is typically included in a top-deck replacement/remodel scope?</summary>
+                <div class="qaf-wrd-faq-a">
+                  <p>Typical scope can include old decking removal, frame inspection, added framing/flashing where needed, surface replacement, railing updates, and cleanup/haul-away. Final details depend on your deck’s condition and layout.</p>
+                </div>
+              </details>
+              <details class="qaf-wrd-faq-item">
+                <summary class="qaf-wrd-faq-q">When does deck restoration make more sense than resurfacing?</summary>
+                <div class="qaf-wrd-faq-a">
+                  <p>Restoration is usually a fit when the deck is still structurally healthy and mainly needs cleaning, prep, sanding, and stain protection. Resurfacing is usually better when top boards are heavily worn, splintery, or near end-of-life.</p>
+                </div>
+              </details>
+              <details class="qaf-wrd-faq-item">
+                <summary class="qaf-wrd-faq-q">How do I choose between oil stain, solid stain, and semi-transparent stain?</summary>
+                <div class="qaf-wrd-faq-a">
+                  <p>Oil stains are often great for clean/new wood, solid stains are common on previously coated surfaces, and semi-transparent non-oil systems allow wood grain to show while adding color/protection.</p>
+                </div>
+              </details>
+              <details class="qaf-wrd-faq-item">
+                <summary class="qaf-wrd-faq-q">How long do stain finishes usually last?</summary>
+                <div class="qaf-wrd-faq-a">
+                  <p>Durability varies by stain type, exposure, and maintenance. As a general guide from your site content, solid systems can last longer on verticals than flats, and semi-transparent coatings usually need more frequent refreshes on deck floors.</p>
+                </div>
+              </details>
+              <details class="qaf-wrd-faq-item">
+                <summary class="qaf-wrd-faq-q">Do you clean siding/decks with low pressure or high pressure?</summary>
+                <div class="qaf-wrd-faq-a">
+                  <p>Low-pressure methods are used for house surfaces and delicate materials, while high-pressure cleaning is typically used for hardscape like patios, driveways, and masonry where appropriate.</p>
+                </div>
+              </details>
+              <details class="qaf-wrd-faq-item">
+                <summary class="qaf-wrd-faq-q">Can vinyl and composite deck surfaces be cleaned safely?</summary>
+                <div class="qaf-wrd-faq-a">
+                  <p>Yes. Controlled pressure and suitable detergents are used to remove mold/algae/deposits while reducing risk of cutting or marring the surface.</p>
+                </div>
+              </details>
+              <details class="qaf-wrd-faq-item">
+                <summary class="qaf-wrd-faq-q">What are signs my dock needs resurfacing or restoration?</summary>
+                <div class="qaf-wrd-faq-a">
+                  <p>Common signs include splintering, weathered boards, rough walking surfaces, and age-related wear. Heavier surface wear usually points to resurfacing; lighter wear with solid structure may fit restoration.</p>
+                </div>
+              </details>
+              <details class="qaf-wrd-faq-item">
+                <summary class="qaf-wrd-faq-q">How much more does a new deck usually cost versus remodel?</summary>
+                <div class="qaf-wrd-faq-a">
+                  <p>From your pricing page guidance, a new build is often roughly 35%-50% higher than remodel scope because of added planning and construction steps. Actual cost depends on layout, rail choices, and condition findings.</p>
+                </div>
+              </details>
+              <details class="qaf-wrd-faq-item">
+                <summary class="qaf-wrd-faq-q">Can I get an estimate before an on-site visit?</summary>
+                <div class="qaf-wrd-faq-a">
+                  <p>Yes. You can share photos, measurements, and project notes for an initial range, then finalize scope/pricing after on-site inspection and condition review.</p>
+                </div>
+              </details>
+            </div>
+          </div>
+        </section>
+      </main>
+    </div>

@@ -1,0 +1,164 @@
+<div class="w-embed wrd-page-embed"><style>
+    .wrd-thanks-root {
+      --wrd-thanks-deep: #3A2A22;
+      --wrd-thanks-off: #F9F9F8;
+      --wrd-thanks-caramel: #B76F3F;
+      --wrd-thanks-taupe: #70635E;
+      --wrd-thanks-paper: #FFFFFF;
+      --wrd-thanks-line: #e4ddd8;
+      --wrd-thanks-maxw: 640px;
+      --wrd-thanks-pad: 24px;
+      --wrd-thanks-radius: 14px;
+    }
+    .wrd-thanks-root,
+    .wrd-thanks-root * {
+      box-sizing: border-box;
+    }
+    .wrd-thanks-root {
+      font-family: "Inter", system-ui, sans-serif;
+      background: var(--wrd-thanks-off);
+      color: var(--wrd-thanks-deep);
+      line-height: 1.5;
+      -webkit-font-smoothing: antialiased;
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      margin: 0;
+      width: 100%;
+    }
+    .wrd-thanks-page {
+      flex: 1;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: clamp(48px, 8vw, 96px) var(--wrd-thanks-pad);
+      width: 100%;
+    }
+    .wrd-thanks-container {
+      width: 100%;
+      max-width: var(--wrd-thanks-maxw);
+      margin: 0 auto;
+    }
+    .wrd-thanks-card {
+      background: var(--wrd-thanks-paper);
+      border-radius: var(--wrd-thanks-radius);
+      border: 1px solid var(--wrd-thanks-line);
+      padding: clamp(36px, 6vw, 56px) clamp(28px, 5vw, 48px);
+      text-align: center;
+      box-shadow: 0 12px 40px rgba(58, 42, 34, 0.06);
+      width: 100%;
+    }
+    .wrd-thanks-eyebrow {
+      font-family: "Archivo", sans-serif;
+      font-size: 11px;
+      font-weight: 700;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      color: var(--wrd-thanks-caramel);
+      margin: 0 0 12px;
+    }
+    .wrd-thanks-icon {
+      width: 64px;
+      height: 64px;
+      margin: 0 auto 24px;
+      border-radius: 50%;
+      background: rgba(183, 111, 63, 0.12);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+    .wrd-thanks-icon-svg {
+      width: 32px;
+      height: 32px;
+      color: var(--wrd-thanks-caramel);
+    }
+    .wrd-thanks-title {
+      font-family: "Archivo", sans-serif;
+      letter-spacing: -0.02em;
+      line-height: 1.08;
+      font-size: clamp(28px, 5vw, 40px);
+      font-weight: 800;
+      margin: 0 0 14px;
+      color: var(--wrd-thanks-deep);
+    }
+    .wrd-thanks-text {
+      color: var(--wrd-thanks-taupe);
+      font-size: 16px;
+      max-width: 42ch;
+      margin: 0 auto 28px;
+      line-height: 1.65;
+    }
+    .wrd-thanks-steps {
+      background: rgba(58, 42, 34, 0.05);
+      border: 1px solid var(--wrd-thanks-line);
+      border-radius: 10px;
+      padding: 20px 22px;
+      margin: 0;
+      text-align: left;
+      width: 100%;
+    }
+    .wrd-thanks-steps-title {
+      font-family: "Archivo", sans-serif;
+      letter-spacing: -0.02em;
+      line-height: 1.08;
+      font-size: 14px;
+      font-weight: 700;
+      margin: 0 0 10px;
+      color: var(--wrd-thanks-deep);
+    }
+    .wrd-thanks-steps-list {
+      list-style: none;
+      margin: 0;
+      padding: 0;
+      display: grid;
+      gap: 8px;
+    }
+    .wrd-thanks-steps-item {
+      font-size: 14px;
+      color: var(--wrd-thanks-taupe);
+      display: flex;
+      align-items: flex-start;
+      gap: 10px;
+    }
+    .wrd-thanks-steps-item::before {
+      content: "";
+      flex-shrink: 0;
+      width: 6px;
+      height: 6px;
+      margin-top: 7px;
+      border-radius: 50%;
+      background: var(--wrd-thanks-caramel);
+    }
+    @media (max-width: 620px) {
+      .wrd-thanks-root {
+        --wrd-thanks-pad: 16px;
+      }
+    }
+  </style>
+      <div class="wrd-thanks-root">
+        <main class="wrd-thanks-page">
+          <div class="wrd-thanks-container">
+            <div class="wrd-thanks-card">
+              <div class="wrd-thanks-icon" aria-hidden="true">
+                <svg class="wrd-thanks-icon-svg" viewbox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+                  <path d="M20 6L9 17l-5-5"></path>
+                </svg>
+              </div>
+              <p class="wrd-thanks-eyebrow">We Restore Decks</p>
+              <h1 class="wrd-thanks-title">Thank You for Your Request</h1>
+              <p class="wrd-thanks-text">
+                Your message has been sent successfully. A member of our team will review your project details and get back to you shortly.
+              </p>
+              <div class="wrd-thanks-steps">
+                <h2 class="wrd-thanks-steps-title">What happens next?</h2>
+                <ul class="wrd-thanks-steps-list">
+                  <li class="wrd-thanks-steps-item">We review your project information and any photos you shared.</li>
+                  <li class="wrd-thanks-steps-item">We contact you to discuss your deck goals and timeline.</li>
+                  <li class="wrd-thanks-steps-item">We schedule a visit if needed and provide your free estimate.</li>
+                </ul>
+              </div>
+            </div>
+          </div>
+        </main>
+      </div>
+    </div>

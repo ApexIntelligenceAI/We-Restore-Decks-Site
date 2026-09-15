@@ -1,0 +1,907 @@
+<div class="w-embed wrd-page-embed"><style>
+    :root {
+      --deep: #3A2A22;
+      --darkest: #241812;
+      --off: #F9F9F8;
+      --caramel: #B76F3F;
+      --cyan: #33AAC9;
+      --rust: #974E31;
+      --taupe: #70635E;
+      --paper: #FFFFFF;
+      --line: #e4ddd8;
+      --maxw: 1140px;
+      --pad: 24px;
+      --radius: 14px;
+    }
+.wrd-page-embed, .wrd-page-embed * { box-sizing: border-box; }
+    .wrd-page-embed { scroll-behavior: smooth; }
+    .wrd-page-embed {
+      font-family: "Inter", system-ui, sans-serif;
+      background: var(--off);
+      color: var(--deep);
+      line-height: 1.55;
+      -webkit-font-smoothing: antialiased;
+    }
+    img { display: block; max-width: 100%; }
+    a { color: inherit; text-decoration: none; }
+    h1, h2, h3 {
+      font-family: "Archivo", sans-serif;
+      letter-spacing: -0.02em;
+      line-height: 1.05;
+    }
+    .proc-wrap {
+      width: 100%;
+      max-width: var(--maxw);
+      margin: 0 auto;
+      padding-inline: var(--pad);
+    }
+    .proc-kicker {
+      font-family: "Archivo", sans-serif;
+      font-size: 11px;
+      font-weight: 700;
+      letter-spacing: 0.16em;
+      text-transform: uppercase;
+      color: var(--caramel);
+    }
+    .proc-btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      font-family: "Archivo", sans-serif;
+      font-size: 14px;
+      font-weight: 700;
+      padding: 12px 22px;
+      border-radius: 8px;
+      border: 1.5px solid transparent;
+      transition: 0.2s ease;
+      white-space: nowrap;
+    }
+    .proc-btn-fill { background: var(--caramel); color: #fff; border-color: var(--caramel); }
+    .proc-btn-fill:hover { background: var(--rust); border-color: var(--rust); }
+    .proc-btn-outline { background: transparent; color: var(--deep); border-color: var(--line); }
+    .proc-btn-outline:hover { border-color: var(--deep); }
+    .proc-btn-light { background: var(--off); color: var(--deep); }
+    .proc-btn-light:hover { background: #fff; }
+    /* ===== INTRO — typographic banner ===== */
+    .proc-intro {
+      background: var(--darkest);
+      color: #fff;
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      padding: clamp(100px, 12vw, 140px) 0 clamp(56px, 7vw, 80px);
+      position: relative;
+      overflow: hidden;
+    }
+    /* Single muted artwork layer. !important beats the site-wide
+       .proc-intro::after rule in Webflow (old jpg) so the embed
+       does not stack two process diagrams. */
+    .proc-intro::after {
+      content: "" !important;
+      display: block !important;
+      position: absolute !important;
+      inset: 0 !important;
+      z-index: 0 !important;
+      pointer-events: none !important;
+      background-color: transparent !important;
+      background-image: url("https://cdn.prod.website-files.com/6a443b24edea4ec6b8c93e11/6aa16a7b64a5a41a7203264c_WRD%20Process%20-%20Deck%20Remodel%20(no%20permit)%20(1).png") !important;
+      background-size: cover !important;
+      background-position: center center !important;
+      background-repeat: no-repeat !important;
+      opacity: 0.2 !important;
+      filter: saturate(0.55) brightness(0.75) !important;
+    }
+    .proc-intro::before {
+      content: "";
+      position: absolute;
+      inset: 0;
+      z-index: 1;
+      background:
+        linear-gradient(180deg, rgba(36, 24, 18, 0.62) 0%, rgba(36, 24, 18, 0.78) 100%),
+        radial-gradient(circle at 85% 20%, rgba(183, 111, 63, 0.18) 0%, transparent 45%),
+        radial-gradient(circle at 10% 80%, rgba(51, 170, 201, 0.12) 0%, transparent 40%);
+      pointer-events: none;
+    }
+    .proc-intro-inner {
+      position: relative;
+      z-index: 2;
+      flex: 1;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+    }
+    .proc-intro-grid {
+      display: grid;
+      grid-template-columns: 1.15fr 0.85fr;
+      gap: clamp(32px, 5vw, 64px);
+      align-items: center;
+    }
+    .proc-intro-copy .proc-kicker { color: var(--cyan); margin-bottom: 18px; }
+    .proc-intro-title {
+      font-size: clamp(42px, 5.8vw, 76px);
+      max-width: 12ch;
+      margin-bottom: 22px;
+      color: #fff;
+    }
+    .proc-intro-lead {
+      font-size: 18px;
+      color: rgba(249, 249, 248, 0.78);
+      max-width: 46ch;
+    }
+    .proc-intro-aside {
+      border-left: 2px solid rgba(183, 111, 63, 0.5);
+      padding-left: clamp(20px, 3vw, 32px);
+    }
+    .proc-intro-aside p {
+      font-family: "Archivo", sans-serif;
+      font-size: clamp(20px, 2.4vw, 28px);
+      line-height: 1.25;
+      margin-bottom: 24px;
+      max-width: 22ch;
+    }
+    .proc-intro-aside p em { color: var(--caramel); font-style: normal; }
+    .proc-intro-actions {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 12px;
+    }
+    /* ===== FLOW BAR ===== */
+    .proc-flowbar {
+      background: var(--paper);
+      border-bottom: 1px solid var(--line);
+      position: sticky;
+      top: 0;
+      z-index: 10;
+    }
+    .proc-flowbar-inner {
+      display: flex;
+      align-items: stretch;
+      overflow-x: auto;
+      scrollbar-width: none;
+    }
+    .proc-flowbar-inner::-webkit-scrollbar { display: none; }
+    .proc-flow-link {
+      flex: 1 0 auto;
+      min-width: 120px;
+      text-align: center;
+      font-family: "Archivo", sans-serif;
+      font-size: 12px;
+      font-weight: 700;
+      letter-spacing: 0.06em;
+      text-transform: uppercase;
+      color: var(--taupe);
+      padding: 16px 14px;
+      border-right: 1px solid var(--line);
+      transition: color 0.2s ease, background 0.2s ease;
+    }
+    .proc-flow-link:last-child { border-right: none; }
+    .proc-flow-link:hover {
+      color: var(--deep);
+      background: var(--off);
+    }
+    .proc-flow-link span {
+      display: block;
+      font-size: 18px;
+      font-weight: 900;
+      color: var(--caramel);
+      margin-bottom: 4px;
+      opacity: 0.45;
+    }
+    .proc-flow-link:hover span { opacity: 1; }
+    /* ===== PRINCIPLES ===== */
+    .proc-principles {
+      padding: clamp(56px, 7vw, 80px) 0;
+      background: var(--off);
+    }
+    .proc-principles-head {
+      text-align: center;
+      max-width: 580px;
+      margin: 0 auto 40px;
+    }
+    .proc-principles-head h2 {
+      font-size: clamp(30px, 4vw, 46px);
+      margin: 12px 0 14px;
+      color: #000;
+    }
+    .proc-principles-head p { color: var(--taupe); }
+    .proc-principle-row {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 16px;
+    }
+    .proc-principle {
+      background: var(--paper);
+      border: 1px solid var(--line);
+      border-radius: var(--radius);
+      padding: 28px 24px;
+      text-align: center;
+    }
+    .proc-principle-icon {
+      width: 44px;
+      height: 44px;
+      border-radius: 50%;
+      background: rgba(183, 111, 63, 0.12);
+      color: var(--caramel);
+      font-family: "Archivo", sans-serif;
+      font-weight: 900;
+      font-size: 16px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin: 0 auto 16px;
+    }
+    .proc-principle h3 {
+      font-size: 20px;
+      margin-bottom: 8px;
+      color: #000;
+    }
+    .proc-principle p {
+      color: var(--taupe);
+      font-size: 14px;
+    }
+    /* ===== JOURNEY — alternating phase blocks ===== */
+    .proc-journey {
+      padding: clamp(48px, 6vw, 72px) 0 clamp(64px, 8vw, 96px);
+      background: var(--paper);
+    }
+    .proc-journey-head {
+      display: flex;
+      align-items: flex-end;
+      justify-content: space-between;
+      gap: 24px;
+      margin-bottom: 48px;
+      flex-wrap: wrap;
+    }
+    .proc-journey-head h2 {
+      font-size: clamp(32px, 4vw, 52px);
+      max-width: 14ch;
+      color: #000;
+    }
+    .proc-journey-head p {
+      max-width: 38ch;
+      color: var(--taupe);
+      font-size: 16px;
+    }
+    .proc-phase {
+      display: grid;
+      grid-template-columns: 72px 1fr;
+      gap: clamp(20px, 3vw, 36px);
+      padding: clamp(28px, 4vw, 40px) 0;
+      border-top: 1px solid var(--line);
+    }
+    .proc-phase:last-child { border-bottom: 1px solid var(--line); }
+    .proc-phase-num {
+      font-family: "Archivo", sans-serif;
+      font-size: clamp(40px, 5vw, 56px);
+      font-weight: 900;
+      color: var(--caramel);
+      line-height: 1;
+      opacity: 0.3;
+      padding-top: 4px;
+    }
+    .proc-phase-body {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: clamp(24px, 4vw, 40px);
+      align-items: center;
+    }
+    .proc-phase-body.proc-reverse .proc-phase-media { order: 2; }
+    .proc-phase-body.proc-reverse .proc-phase-copy { order: 1; }
+    .proc-phase-tag {
+      font-family: "Archivo", sans-serif;
+      font-size: 12px;
+      font-weight: 700;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: var(--rust);
+      margin-bottom: 10px;
+    }
+    .proc-phase-copy h3 {
+      font-size: clamp(24px, 3vw, 34px);
+      margin-bottom: 12px;
+      max-width: 18ch;
+      color: #000;
+    }
+    .proc-phase-copy > p {
+      color: var(--taupe);
+      font-size: 15px;
+      margin-bottom: 16px;
+      max-width: 48ch;
+    }
+    .proc-phase-points {
+      list-style: none;
+      display: flex;
+      flex-direction: column;
+      gap: 8px;
+    }
+    .proc-phase-points li {
+      position: relative;
+      padding-left: 18px;
+      font-size: 14px;
+      color: var(--deep);
+    }
+    .proc-phase-points li::before {
+      content: "";
+      position: absolute;
+      left: 0;
+      top: 8px;
+      width: 7px;
+      height: 7px;
+      border-radius: 50%;
+      background: var(--cyan);
+    }
+    .proc-phase-media {
+      border-radius: var(--radius);
+      overflow: hidden;
+      aspect-ratio: 4 / 3;
+    }
+    .proc-phase-media img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+    /* ===== TEAM HANDOFFS ===== */
+    .proc-team {
+      background: var(--deep);
+      color: #fff;
+      padding: clamp(64px, 8vw, 88px) 0;
+    }
+    .proc-team-head {
+      text-align: center;
+      max-width: 560px;
+      margin: 0 auto 44px;
+    }
+    .proc-team-head .proc-kicker { color: var(--cyan); }
+    .proc-team-head h2 {
+      font-size: clamp(30px, 4vw, 46px);
+      margin: 12px 0 14px;
+      color: #fff;
+    }
+    .proc-team-head p { color: rgba(249, 249, 248, 0.72); }
+    .proc-team-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 14px;
+    }
+    .proc-team-card {
+      background: rgba(255, 255, 255, 0.06);
+      border: 1px solid rgba(255, 255, 255, 0.1);
+      border-radius: var(--radius);
+      padding: 22px 18px;
+      text-align: center;
+    }
+    .proc-team-photo {
+      width: 72px;
+      height: 72px;
+      border-radius: 50%;
+      object-fit: cover;
+      margin: 0 auto 14px;
+      border: 2px solid var(--caramel);
+    }
+    .proc-team-card h3 {
+      color: #fff;
+      font-size: 16px;
+      margin-bottom: 4px;
+    }
+    .proc-team-role {
+      font-family: "Archivo", sans-serif;
+      font-size: 10px;
+      font-weight: 700;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: var(--caramel);
+      margin-bottom: 10px;
+    }
+    .proc-team-stage {
+      font-size: 12px;
+      color: rgba(249, 249, 248, 0.62);
+      margin-bottom: 8px;
+    }
+    .proc-team-card p {
+      font-size: 13px;
+      color: rgba(249, 249, 248, 0.78);
+      line-height: 1.45;
+    }
+    /* ===== DIFFERENCE ===== */
+    .proc-diff {
+      padding: clamp(64px, 8vw, 88px) 0;
+      background: var(--off);
+    }
+    .proc-diff-layout {
+      display: grid;
+      grid-template-columns: 0.85fr 1.15fr;
+      gap: clamp(32px, 5vw, 56px);
+      align-items: start;
+    }
+    .proc-diff-copy h2 {
+      font-size: clamp(28px, 3.5vw, 42px);
+      margin: 12px 0 16px;
+      max-width: 14ch;
+      color: #000;
+    }
+    .proc-diff-copy p {
+      color: var(--taupe);
+      max-width: 40ch;
+      margin-bottom: 20px;
+    }
+    .proc-diff-list {
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+    }
+    .proc-diff-item {
+      display: grid;
+      grid-template-columns: 48px 1fr;
+      gap: 16px;
+      align-items: start;
+      background: var(--paper);
+      border: 1px solid var(--line);
+      border-radius: 12px;
+      padding: 20px 22px;
+    }
+    .proc-diff-icon {
+      width: 48px;
+      height: 48px;
+      border-radius: 10px;
+      background: rgba(51, 170, 201, 0.12);
+      color: var(--cyan);
+      font-family: "Archivo", sans-serif;
+      font-weight: 800;
+      font-size: 18px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-shrink: 0;
+    }
+    .proc-diff-item h3 {
+      font-size: 17px;
+      margin-bottom: 4px;
+      color: #000;
+    }
+    .proc-diff-item p {
+      color: var(--taupe);
+      font-size: 14px;
+    }
+    /* ===== FAQ ===== */
+    .proc-faq {
+      padding: clamp(64px, 8vw, 88px) 0;
+      background: var(--paper);
+    }
+    .proc-faq-layout {
+      display: grid;
+      grid-template-columns: 0.75fr 1.25fr;
+      gap: 48px;
+      align-items: start;
+    }
+    .proc-faq-left h2 {
+      font-size: clamp(28px, 3.5vw, 42px);
+      margin-top: 12px;
+      max-width: 14ch;
+      color: #000;
+    }
+    .proc-faq-list {
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+    }
+    .proc-faq-item {
+      border: 1px solid var(--line);
+      border-radius: 10px;
+      overflow: hidden;
+      background: var(--off);
+    }
+    .proc-faq-q {
+      width: 100%;
+      text-align: left;
+      background: none;
+      border: none;
+      cursor: pointer;
+      font-family: "Archivo", sans-serif;
+      font-size: 16px;
+      font-weight: 700;
+      color: var(--deep);
+      padding: 20px 48px 20px 22px;
+      position: relative;
+      list-style: none;
+    }
+    summary.proc-faq-q::-webkit-details-marker { display: none; }
+    .proc-faq-q::after {
+      content: "+";
+      position: absolute;
+      right: 22px;
+      top: 50%;
+      transform: translateY(-50%);
+      font-size: 20px;
+      color: var(--caramel);
+      font-weight: 400;
+    }
+    details.proc-faq-item[open] .proc-faq-q::after { content: "\2013"; }
+    .proc-faq-a {
+      padding: 0 22px 20px;
+      color: var(--taupe);
+      font-size: 15px;
+    }
+    details.proc-faq-item[open] > .proc-faq-a {
+      animation: proc-reveal 0.3s ease;
+    }
+    @keyframes proc-reveal {
+      from { opacity: 0; transform: translateY(-6px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+    /* ===== CLOSING CTA ===== */
+    .proc-close {
+      padding: clamp(48px, 6vw, 72px) 0 clamp(64px, 8vw, 96px);
+      background: var(--off);
+    }
+    .proc-close-panel {
+      background: linear-gradient(135deg, var(--deep) 0%, var(--darkest) 100%);
+      border-radius: var(--radius);
+      padding: clamp(36px, 5vw, 56px);
+      display: grid;
+      grid-template-columns: 1fr auto;
+      gap: 28px;
+      align-items: center;
+      color: #fff;
+    }
+    .proc-close-panel h2 {
+      font-size: clamp(28px, 4vw, 44px);
+      margin-bottom: 8px;
+      max-width: 16ch;
+      color: #fff;
+    }
+    .proc-close-panel p {
+      color: rgba(249, 249, 248, 0.78);
+      max-width: 42ch;
+    }
+    .proc-close-actions {
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+      flex-shrink: 0;
+    }
+    .proc-close-phone {
+      font-family: "Archivo", sans-serif;
+      font-weight: 800;
+      font-size: clamp(22px, 3vw, 30px);
+      color: var(--caramel);
+      text-align: center;
+    }
+    /* ===== RESPONSIVE ===== */
+    @media (max-width: 980px) {
+      :root { --pad: 18px; }
+      .proc-intro-grid,
+      .proc-phase-body,
+      .proc-diff-layout,
+      .proc-faq-layout,
+      .proc-close-panel {
+        grid-template-columns: 1fr;
+      }
+      .proc-intro-aside {
+        border-left: none;
+        border-top: 2px solid rgba(183, 111, 63, 0.5);
+        padding-left: 0;
+        padding-top: 28px;
+      }
+      .proc-intro-copy { text-align: left; }
+      .proc-intro-title,
+      .proc-intro-lead { max-width: 100%; margin-inline: 0; }
+      .proc-intro-actions { justify-content: flex-start; }
+      .proc-intro-aside p { max-width: 100%; }
+      .proc-principle-row { grid-template-columns: 1fr; }
+      .proc-phase { grid-template-columns: 1fr; gap: 12px; }
+      .proc-phase-num { font-size: 32px; }
+      .proc-phase-body.proc-reverse .proc-phase-media,
+      .proc-phase-body.proc-reverse .proc-phase-copy { order: initial; }
+      .proc-team-grid { grid-template-columns: repeat(2, 1fr); }
+      .proc-journey-head { flex-direction: column; align-items: flex-start; }
+      .proc-close-panel { text-align: center; }
+      .proc-close-actions { width: 100%; max-width: 320px; margin-inline: auto; }
+    }
+    @media (max-width: 620px) {
+      :root { --pad: 16px; }
+      .proc-flow-link { min-width: 100px; font-size: 10px; padding: 12px 10px; }
+      .proc-flow-link span { font-size: 15px; }
+      .proc-team-grid { grid-template-columns: 1fr; }
+      .proc-btn { white-space: normal; text-align: center; width: 100%; }
+      .proc-intro-actions { flex-direction: column; width: 100%; max-width: 320px; margin-inline: auto; }
+    }
+  </style>
+      <main>
+        <!--  Typographic intro  -->
+        <section class="proc-intro" aria-labelledby="process-title">
+          <div class="proc-wrap proc-intro-inner">
+            <div class="proc-intro-grid">
+              <div class="proc-intro-copy">
+                <p class="proc-kicker">We Restore Decks</p>
+                <h1 id="process-title" class="proc-intro-title">From First Call to Final Walkthrough</h1>
+                <p class="proc-intro-lead">We built this company to deliver a better experience from first estimate through final walkthrough — with honest in-person evaluation, practical scope recommendations, and craftsmanship homeowners can trust for the long term.</p>
+              </div>
+              <aside class="proc-intro-aside">
+                <p>Every project follows a process designed to deliver <em>strong workmanship and reliable results.</em></p>
+                <div class="proc-intro-actions">
+                  <a href="/contact" class="proc-btn proc-btn-fill">Get a free estimate</a>
+                  <a href="/about-us" class="proc-btn proc-btn-outline" style="color:#fff;border-color:rgba(255,255,255,0.3);">About our company</a>
+                </div>
+              </aside>
+            </div>
+          </div>
+        </section>
+        <!--  Sticky phase navigation  -->
+        <nav class="proc-flowbar" aria-label="Process phases">
+          <div class="proc-wrap proc-flowbar-inner">
+            <a href="#phase-1" class="proc-flow-link"><span>01</span>Contact</a>
+            <a href="#phase-2" class="proc-flow-link"><span>02</span>Evaluation</a>
+            <a href="#phase-3" class="proc-flow-link"><span>03</span>Scope &amp; Quote</a>
+            <a href="#phase-4" class="proc-flow-link"><span>04</span>Production</a>
+            <a href="#phase-5" class="proc-flow-link"><span>05</span>Walkthrough</a>
+          </div>
+        </nav>
+        <!--  Process principles from about-us values  -->
+        <section class="proc-principles" aria-labelledby="principles-title">
+          <div class="proc-wrap">
+            <div class="proc-principles-head">
+              <p class="proc-kicker">What guides every step</p>
+              <h2 id="principles-title">Our Mission and Values in Action</h2>
+              <p>Classic craftsmanship, clear communication, and trusted results — these principles guide every decision we make throughout your project.</p>
+            </div>
+            <div class="proc-principle-row">
+              <article class="proc-principle">
+                <div class="proc-principle-icon" aria-hidden="true">01</div>
+                <h3>Quality first</h3>
+                <p>Every project is approached with a high standard of craftsmanship, close attention to detail, and a focus on long-lasting results.</p>
+              </article>
+              <article class="proc-principle">
+                <div class="proc-principle-icon" aria-hidden="true">02</div>
+                <h3>Client respect</h3>
+                <p>We prioritize clear communication, practical guidance, and dependable follow-through so homeowners feel informed and confident.</p>
+              </article>
+              <article class="proc-principle">
+                <div class="proc-principle-icon" aria-hidden="true">03</div>
+                <h3>Integrity always</h3>
+                <p>Our reputation is built on trust, mutual respect, and doing what we say we will do from start to finish.</p>
+              </article>
+            </div>
+          </div>
+        </section>
+        <!--  Five-phase journey  -->
+        <section class="proc-journey" aria-labelledby="journey-title">
+          <div class="proc-wrap">
+            <div class="proc-journey-head">
+              <div>
+                <p class="proc-kicker">The W.R.D. process</p>
+                <h2 id="journey-title">Five Phases, One Clear Path</h2>
+              </div>
+              <p>Our process is specific, thorough, and efficient so expectations stay clear at every stage — from your first message to the final review of completed work.</p>
+            </div>
+            <article class="proc-phase" id="phase-1">
+              <span class="proc-phase-num" aria-hidden="true">01</span>
+              <div class="proc-phase-body">
+                <div class="proc-phase-copy">
+                  <p class="proc-phase-tag">Phase one</p>
+                  <h3>Share Your Project Details</h3>
+                  <p>Tell us about your goals and the condition of your deck or outdoor space. Deck care is a major investment — we believe clients should receive clear expectations from the very first conversation.</p>
+                  <ul class="proc-phase-points">
+                    <li>Share photos, rough dimensions, and what you want to achieve</li>
+                    <li>Receive an initial estimate range before the on-site visit</li>
+                    <li>Confirm service availability for your Maryland location</li>
+                  </ul>
+                </div>
+                <figure class="proc-phase-media">
+                  <img src="/images/1.jpg" alt="Waterfront deck project in Annapolis" loading="lazy">
+                </figure>
+              </div>
+            </article>
+            <article class="proc-phase" id="phase-2">
+              <span class="proc-phase-num" aria-hidden="true">02</span>
+              <div class="proc-phase-body proc-reverse">
+                <div class="proc-phase-copy">
+                  <p class="proc-phase-tag">Phase two</p>
+                  <h3>In-Person Evaluation</h3>
+                  <p>All estimates are performed in person with close attention to details that affect cost, scope, and final outcomes. We inspect thoroughly so recommendations are practical and accurate.</p>
+                  <ul class="proc-phase-points">
+                    <li>Honest evaluation of joists, beams, posts, ledger, and flashing</li>
+                    <li>Review of existing materials and structural condition</li>
+                    <li>On-site discussion of layout, access, and project goals</li>
+                  </ul>
+                </div>
+                <figure class="proc-phase-media">
+                  <img src="/images/wr2-deck-15.png" alt="Deck construction assessment in progress" loading="lazy">
+                </figure>
+              </div>
+            </article>
+            <article class="proc-phase" id="phase-3">
+              <span class="proc-phase-num" aria-hidden="true">03</span>
+              <div class="proc-phase-body">
+                <div class="proc-phase-copy">
+                  <p class="proc-phase-tag">Phase three</p>
+                  <h3>Scope, Options, and Written Quote</h3>
+                  <p>We walk through material options, railing styles, stairs, lighting, and accessory choices — then confirm the complete scope in writing with timeline and payment terms.</p>
+                  <ul class="proc-phase-points">
+                    <li>Practical scope recommendations aligned with your goals</li>
+                    <li>Clear total project cost with no surprises</li>
+                    <li>Warranty coverage discussed during the estimate</li>
+                  </ul>
+                </div>
+                <figure class="proc-phase-media">
+                  <img src="/images/5.jpg" alt="Completed deck restoration with refined finishes" loading="lazy">
+                </figure>
+              </div>
+            </article>
+            <article class="proc-phase" id="phase-4">
+              <span class="proc-phase-num" aria-hidden="true">04</span>
+              <div class="proc-phase-body proc-reverse">
+                <div class="proc-phase-copy">
+                  <p class="proc-phase-tag">Phase four</p>
+                  <h3>Scheduling and Production</h3>
+                  <p>Once scope and schedule are confirmed, our team executes efficiently with consistent site management and proactive communication throughout the build.</p>
+                  <ul class="proc-phase-points">
+                    <li>Organized scheduling and responsive project coordination</li>
+                    <li>Quality-focused field execution and crew management</li>
+                    <li>Smooth experience at every step of production</li>
+                  </ul>
+                </div>
+                <figure class="proc-phase-media">
+                  <img src="/images/13.png" alt="Deck build in progress on a waterfront property" loading="lazy">
+                </figure>
+              </div>
+            </article>
+            <article class="proc-phase" id="phase-5">
+              <span class="proc-phase-num" aria-hidden="true">05</span>
+              <div class="proc-phase-body">
+                <div class="proc-phase-copy">
+                  <p class="proc-phase-tag">Phase five</p>
+                  <h3>Final Walkthrough and Care Guidance</h3>
+                  <p>We review every completion detail with you to ensure strong final results — and provide guidance so your deck or outdoor space performs well for years to come.</p>
+                  <ul class="proc-phase-points">
+                    <li>Thorough review of all completed work together</li>
+                    <li>Care and maintenance guidance for long-term performance</li>
+                    <li>Accountability and follow-through through the final handoff</li>
+                  </ul>
+                </div>
+                <figure class="proc-phase-media">
+                  <img src="/images/waterfront-lounge-dock.png" alt="Finished outdoor living deck space" loading="lazy">
+                </figure>
+              </div>
+            </article>
+          </div>
+        </section>
+        <!--  Team involvement  -->
+        <section class="proc-team" aria-labelledby="team-title">
+          <div class="proc-wrap">
+            <div class="proc-team-head">
+              <p class="proc-kicker">Your project team</p>
+              <h2 id="team-title">Who You'll Work With</h2>
+              <p>The people behind We Restore Decks keep projects organized, responsive, and consistent from scheduling through completion.</p>
+            </div>
+            <div class="proc-team-grid">
+              <article class="proc-team-card">
+                <img class="proc-team-photo" src="/images/Morgan-scaled.jpg" alt="Morgan Smith" loading="lazy">
+                <h3>Morgan Smith</h3>
+                <p class="proc-team-role">Lead Estimator</p>
+                <p class="proc-team-stage">Phases 1–3</p>
+                <p>Combines practical construction experience with deck safety training to build accurate scopes and recommendations aligned with each homeowner's goals.</p>
+              </article>
+              <article class="proc-team-card">
+                <img class="proc-team-photo" src="/images/20250123_130926-scaled.jpg" alt="Sandra Oostwaard" loading="lazy">
+                <h3>Sandra Oostwaard</h3>
+                <p class="proc-team-role">Office Manager</p>
+                <p class="proc-team-stage">Phases 1 &amp; 4</p>
+                <p>Drives office coordination and communication so projects stay organized, responsive, and consistent from scheduling through completion.</p>
+              </article>
+              <article class="proc-team-card">
+                <img class="proc-team-photo" src="/images/stephen-good-photo-e1767652445690.jpeg" alt="Stephen Goad" loading="lazy">
+                <h3>Stephen Goad</h3>
+                <p class="proc-team-role">Project Manager</p>
+                <p class="proc-team-stage">Phases 4–5</p>
+                <p>Brings years of field experience and a quality-focused mindset to project execution, crew coordination, and homeowner satisfaction.</p>
+              </article>
+              <article class="proc-team-card">
+                <img class="proc-team-photo" src="/images/jonathan-photo.jpeg" alt="Jonathan Shambarger" loading="lazy">
+                <h3>Jonathan Shambarger</h3>
+                <p class="proc-team-role">President</p>
+                <p class="proc-team-stage">Every phase</p>
+                <p>Founded the company and leads with a strong focus on professionalism, craftsmanship, and accountability throughout every stage of a project.</p>
+              </article>
+            </div>
+          </div>
+        </section>
+        <!--  What makes our process different  -->
+        <section class="proc-diff" aria-labelledby="diff-title">
+          <div class="proc-wrap proc-diff-layout">
+            <div class="proc-diff-copy">
+              <p class="proc-kicker">Why it works</p>
+              <h2 id="diff-title">What Makes Our Process Different</h2>
+              <p>We specialize in deck building, restoration, remodeling, and repair. Our goal is to help homeowners maximize outdoor living space without sacrificing quality, communication, or long-term performance.</p>
+              <a href="/contact" class="proc-btn proc-btn-fill">Start your estimate</a>
+            </div>
+            <div class="proc-diff-list">
+              <article class="proc-diff-item">
+                <div class="proc-diff-icon" aria-hidden="true">✓</div>
+                <div>
+                  <h3>In-person estimates only</h3>
+                  <p>We perform all estimates on site so scope, cost, and outcomes are based on real conditions — not guesses from photos alone.</p>
+                </div>
+              </article>
+              <article class="proc-diff-item">
+                <div class="proc-diff-icon" aria-hidden="true">✓</div>
+                <div>
+                  <h3>Written scope before work begins</h3>
+                  <p>You receive clear project cost, timeline, and payment terms with a complete written scope so there are no surprises mid-build.</p>
+                </div>
+              </article>
+              <article class="proc-diff-item">
+                <div class="proc-diff-icon" aria-hidden="true">✓</div>
+                <div>
+                  <h3>Promises matched by production quality</h3>
+                  <p>We built this company so homeowners could get commitments backed by craftsmanship they can trust for the long term.</p>
+                </div>
+              </article>
+              <article class="proc-diff-item">
+                <div class="proc-diff-icon" aria-hidden="true">✓</div>
+                <div>
+                  <h3>Maryland-focused service</h3>
+                  <p>We serve homeowners in Maryland with primary coverage in and around Annapolis — in-person estimates available throughout our service area.</p>
+                </div>
+              </article>
+            </div>
+          </div>
+        </section>
+        <!--  Process FAQ  -->
+        <section class="proc-faq" aria-labelledby="faq-title">
+          <div class="proc-wrap proc-faq-layout">
+            <div class="proc-faq-left">
+              <p class="proc-kicker">Process FAQ</p>
+              <h2 id="faq-title">Common Questions About Getting Started</h2>
+            </div>
+            <div class="proc-faq-list">
+              <details class="proc-faq-item" open>
+                <summary class="proc-faq-q">How do I get started?</summary>
+                <div class="proc-faq-a">
+                  <p>Share your project details and photos for an initial estimate, then we schedule an on-site visit to confirm scope and pricing.</p>
+                </div>
+              </details>
+              <details class="proc-faq-item">
+                <summary class="proc-faq-q">Can I get an estimate before an on-site visit?</summary>
+                <div class="proc-faq-a">
+                  <p>Yes. Share your ideas, photos, and rough dimensions for an initial range, then we finalize scope and pricing after an on-site visit.</p>
+                </div>
+              </details>
+              <details class="proc-faq-item">
+                <summary class="proc-faq-q">Are your projects backed by any warranty?</summary>
+                <div class="proc-faq-a">
+                  <p>Yes. We stand behind our workmanship and discuss the specific coverage for your project during the estimate.</p>
+                </div>
+              </details>
+              <details class="proc-faq-item">
+                <summary class="proc-faq-q">What areas do you serve?</summary>
+                <div class="proc-faq-a">
+                  <p>We work throughout Maryland and the surrounding DC region. Reach out with your location and we will confirm availability.</p>
+                </div>
+              </details>
+              <details class="proc-faq-item">
+                <summary class="proc-faq-q">How long have you been in business?</summary>
+                <div class="proc-faq-a">
+                  <p>We have served the Annapolis, Maryland and DC area for over 10 years, focused on decks, docks, and outdoor living.</p>
+                </div>
+              </details>
+            </div>
+          </div>
+        </section>
+        <!--  Closing CTA  -->
+        <section class="proc-close" aria-labelledby="close-title">
+          <div class="proc-wrap">
+            <div class="proc-close-panel">
+              <div>
+                <h2 id="close-title">Ready to Start Your Project?</h2>
+                <p>Tell us about your goals and schedule an in-person estimate with our team.</p>
+              </div>
+              <div class="proc-close-actions">
+                <a href="/contact" class="proc-btn proc-btn-fill">Get a free estimate</a>
+                <a href="tel:4102636270" class="proc-close-phone">410-263-6270</a>
+              </div>
+            </div>
+          </div>
+        </section>
+      </main>
+    </div>

@@ -1,0 +1,416 @@
+<div class="w-embed wrd-page-embed"><style>
+    :root {
+      --deep: #3A2A22;
+      --darkest: #241812;
+      --off: #F9F9F8;
+      --caramel: #B76F3F;
+      --cyan: #33AAC9;
+      --rust: #974E31;
+      --taupe: #70635E;
+      --paper: #FFFFFF;
+      --navy: var(--deep);
+      --cream: var(--off);
+      --wood: var(--rust);
+      --sage: var(--cyan);
+      --gold: var(--caramel);
+      --slate: var(--taupe);
+      --ink: var(--deep);
+      --ink-soft: var(--taupe);
+      --line: rgba(112, 99, 94, 0.22);
+      --radius: 14px;
+      --maxw: 1140px;
+      --pad: 24px;
+    }
+.wrd-page-embed, .wrd-page-embed * { box-sizing: border-box; }
+    .wrd-page-embed {
+      font-family: "Inter", system-ui, sans-serif;
+      background: var(--off);
+      color: var(--ink);
+      line-height: 1.55;
+      -webkit-font-smoothing: antialiased;
+    }
+    a { color: inherit; text-decoration: none; }
+    .wrd-container { width: 100%; max-width: var(--maxw); margin: 0 auto; padding-inline: var(--pad); }
+    h1, h2, h3 {
+      font-family: "Archivo", sans-serif;
+      letter-spacing: -0.02em;
+      line-height: 1.04;
+    }
+    .wrd-eyebrow {
+      font-family: "Archivo", sans-serif;
+      text-transform: uppercase;
+      letter-spacing: 0.16em;
+      font-size: 11px;
+      font-weight: 700;
+      color: var(--caramel);
+      margin-bottom: 12px;
+    }
+    .wrd-btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      border-radius: 8px;
+      padding: 12px 22px;
+      font-family: "Archivo", sans-serif;
+      font-weight: 700;
+      font-size: 14px;
+      border: 1.5px solid transparent;
+      transition: 0.2s ease;
+      cursor: pointer;
+      white-space: nowrap;
+    }
+    .wrd-btn-light { background: var(--off); color: var(--ink); }
+    .wrd-btn-light:hover { background: #fff; }
+    .wrd-btn-dark { background: var(--deep); color: #fff; border-color: var(--deep); }
+    .wrd-btn-dark:hover { background: var(--darkest); }
+    .wrd-btn-gold { background: var(--caramel); color: #fff; border-color: var(--caramel); }
+    .wrd-btn-gold:hover { background: var(--rust); border-color: var(--rust); }
+    .wrd-hero {
+      background: linear-gradient(rgba(58, 42, 34, 0.86), rgba(58, 42, 34, 0.74)),
+        url("https://cdn.prod.website-files.com/6a443b24edea4ec6b8c93e11/6a490119557b4549e512572a_resurfacing-remodels.jpg") center/cover;
+      color: #fff;
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+    }
+    .wrd-hero-inner {
+      flex: 1;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: flex-start;
+      text-align: left;
+      padding: clamp(100px, 12vw, 140px) 0;
+    }
+    .wrd-hero h1 {
+      font-size: clamp(42px, 6.2vw, 76px);
+      margin-bottom: 16px;
+      max-width: 10ch;
+      color: #fff;
+    }
+    .wrd-hero p {
+      color: rgba(255, 255, 255, 0.9);
+      max-width: 56ch;
+      font-size: 17px;
+    }
+    .wrd-hero-actions {
+      display: flex;
+      gap: 12px;
+      flex-wrap: wrap;
+      margin-top: 24px;
+    }
+    .wrd-snapshot {
+      background: var(--paper);
+      border-radius: var(--radius);
+      padding: 24px;
+      border: 1px solid rgba(255, 255, 255, 0.2);
+    }
+    .wrd-snapshot h3 {
+      font-size: 22px;
+      margin-bottom: 12px;
+      color: var(--ink);
+    }
+    .wrd-snapshot ul {
+      list-style: none;
+      display: grid;
+      gap: 10px;
+      color: rgba(255, 255, 255, 0.9);
+      font-size: 14px;
+    }
+    .wrd-snapshot li strong { color: #fff; font-weight: 700; }
+    .wrd-pricing-intro {
+      padding: 64px 0 10px;
+    }
+    .wrd-pricing-intro h2 {
+      font-size: clamp(30px, 4.5vw, 52px);
+      max-width: 16ch;
+      margin-bottom: 12px;
+      color: var(--ink);
+    }
+    .wrd-pricing-intro p {
+      color: var(--taupe);
+      max-width: 70ch;
+    }
+    .wrd-price-grid {
+      padding: 34px 0 78px;
+      display: grid;
+      gap: 20px;
+      grid-template-columns: repeat(3, 1fr);
+    }
+    .wrd-price-card {
+      background: var(--paper);
+      border: 1px solid var(--line);
+      border-radius: var(--radius);
+      padding: 22px;
+      display: grid;
+      gap: 8px;
+      align-content: start;
+    }
+    .wrd-price-card .wrd-label {
+      font-family: "Archivo", sans-serif;
+      text-transform: uppercase;
+      font-size: 11px;
+      letter-spacing: 0.12em;
+      color: var(--caramel);
+    }
+    .wrd-price-card .wrd-range {
+      font-family: "Archivo", sans-serif;
+      font-size: 34px;
+      line-height: 1;
+    }
+    .wrd-price-card p { color: var(--taupe); font-size: 14px; }
+    .wrd-detail-wrap {
+      background: var(--paper);
+      border-top: 1px solid var(--line);
+      border-bottom: 1px solid var(--line);
+      padding: 76px 0;
+    }
+    .qaf-wrd-faq-list {
+      display: grid;
+      gap: 12px;
+    }
+    .qaf-wrd-faq-item {
+      border: 1px solid var(--line);
+      border-radius: 10px;
+      overflow: hidden;
+      background: #fff;
+    }
+    .qaf-wrd-faq-question {
+      width: 100%;
+      background: var(--off);
+      border: none;
+      text-align: left;
+      padding: 16px 18px;
+      font-family: "Archivo", sans-serif;
+      font-size: 16px;
+      font-weight: 700;
+      color: var(--ink);
+      cursor: pointer;
+      position: relative;
+    }
+    summary.qaf-wrd-faq-question {
+      list-style: none;
+    }
+    summary.qaf-wrd-faq-question::-webkit-details-marker {
+      display: none;
+    }
+    .qaf-wrd-faq-question::after {
+      content: "+";
+      position: absolute;
+      right: 16px;
+      top: 50%;
+      transform: translateY(-50%);
+      color: var(--caramel);
+      font-size: 20px;
+    }
+    details.qaf-wrd-faq-item[open] .qaf-wrd-faq-question::after {
+      content: "\2013";
+    }
+.qaf-wrd-faq-answer { overflow: hidden; padding: 0 18px; }
+details.qaf-wrd-faq-item[open] > .qaf-wrd-faq-answer {
+  padding: 16px 18px;
+  animation: wrd-faq-reveal 0.3s ease;
+}
+@keyframes wrd-faq-reveal {
+  from { opacity: 0; transform: translateY(-6px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+    .qaf-wrd-faq-answer p {
+      color: var(--taupe);
+      margin-bottom: 14px;
+      max-width: 100%;
+      font-size: 14px;
+    }
+    .qaf-wrd-faq-answer ul {
+      color: var(--taupe);
+      padding-left: 18px;
+      display: grid;
+      gap: 8px;
+      margin: 10px 0 4px;
+      font-size: 14px;
+    }
+    .qaf-wrd-faq-answer strong { color: var(--ink); }
+    .wrd-cta {
+      padding: 74px 0;
+    }
+    .wrd-cta-panel {
+      border-radius: var(--radius);
+      background: var(--deep);
+      color: #fff;
+      padding: clamp(24px, 5vw, 44px);
+      display: grid;
+      grid-template-columns: 1.2fr auto;
+      gap: 24px;
+      align-items: center;
+    }
+    .wrd-cta h2 {
+      font-size: clamp(30px, 4.5vw, 52px);
+      margin-bottom: 10px;
+      max-width: 16ch;
+      color: #fff;
+    }
+    .wrd-cta p { color: rgba(255, 255, 255, 0.84); max-width: 56ch; }
+    .wrd-contact {
+      padding: 0 0 82px;
+    }
+    .wrd-contact-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 18px;
+    }
+    .wrd-contact-card {
+      background: var(--paper);
+      border: 1px solid var(--line);
+      border-radius: var(--radius);
+      padding: 20px;
+    }
+    .wrd-contact-card h3 {
+      font-size: 20px;
+      margin-bottom: 10px;
+      color: var(--ink);
+    }
+    .wrd-contact-card p {
+      color: var(--taupe);
+      font-size: 15px;
+    }
+    @media (max-width: 980px) {
+      :root { --pad: 18px; }
+      .wrd-cta-panel,
+      .wrd-price-grid,
+      .wrd-contact-grid {
+        grid-template-columns: 1fr;
+      }
+      .wrd-cta-panel,
+      .wrd-contact-card {
+        text-align: center;
+      }
+      .wrd-hero-inner {
+        align-items: flex-start;
+        text-align: left;
+      }
+      .wrd-hero h1,
+      .wrd-cta h2,
+      .wrd-cta p {
+        margin-inline: auto;
+        max-width: 100%;
+      }
+      .wrd-hero-inner h1 {
+        margin-inline: 0;
+      }
+      .wrd-hero-actions {
+        justify-content: flex-start;
+      }
+      .wrd-cta-panel {
+        justify-items: center;
+        align-items: center;
+        gap: 18px;
+      }
+      .qaf-wrd-faq-question {
+        text-align: left;
+      }
+    }
+    @media (max-width: 620px) {
+      :root { --pad: 16px; }
+      .wrd-hero-inner { padding-top: 96px; padding-bottom: 48px; }
+      .wrd-hero h1 { font-size: clamp(34px, 10vw, 48px); }
+      .wrd-hero-actions .wrd-btn,
+      .wrd-cta-panel .wrd-btn {
+        width: 100%;
+      }
+      .wrd-detail-wrap,
+      .wrd-cta,
+      .wrd-contact {
+        padding-block: 48px;
+      }
+      .wrd-contact { padding-bottom: 56px; }
+      .qaf-wrd-faq-question {
+        font-size: 15px;
+        padding-right: 44px;
+      }
+      .wrd-btn { white-space: normal; text-align: center; }
+    }
+  </style>
+      <main>
+        <section class="wrd-hero">
+          <div class="wrd-container wrd-hero-inner">
+            <div>
+              <p class="wrd-eyebrow">we restore decks</p>
+              <h1>Prices</h1>
+              <div class="wrd-hero-actions">
+                <a href="/contact" class="wrd-btn wrd-btn-light">Get an Estimate</a>
+              </div>
+            </div>
+          </div>
+        </section>
+        <section class="wrd-detail-wrap">
+          <div class="wrd-container">
+            <div class="qaf-wrd-faq-list">
+              <style>
+        .qaf-wrd-faq-answer { overflow: hidden; padding: 0 18px; }
+details.qaf-wrd-faq-item[open] > .qaf-wrd-faq-answer {
+  padding: 16px 18px;
+  animation: wrd-faq-reveal 0.3s ease;
+}
+@keyframes wrd-faq-reveal {
+  from { opacity: 0; transform: translateY(-6px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+      </style>
+              <details class="qaf-wrd-faq-item" open>
+                <summary class="qaf-wrd-faq-question">How much would it cost to replace my deck boards with composite?</summary>
+                <div class="qaf-wrd-faq-answer">
+                  <p>Replacing all of the wood deck boards on your existing deck (assuming the frame is worthy of a remodel) with one of our quality composite deck boards will range from $30 per square foot to $40 per square foot based on complexity and which deck board you choose.</p>
+                  <p>What all is included? This service often referred to as our “top deck replacement” includes removing all of the old decking, inspection of the frame, adding additional framing and flashing, adding protective tape as appropriate, securing the decking with hidden fasteners, clean up and haul away. It’s really quite a deal and a very practical solution if you have rotting, split, splintery or otherwise old beat up wood deck boards. You will never need to paint or stain the floor again and the little ones will have splinter-free feet!</p>
+                </div>
+              </details>
+              <details class="qaf-wrd-faq-item">
+                <summary class="qaf-wrd-faq-question">What about railing replacement? How much does that cost?</summary>
+                <div class="qaf-wrd-faq-answer">
+                  <p>Railings are tricky because there is a very wide range of options and materials. We install everything from full stainless steel cable systems, all the way down to basic pressure treated pine railings. The cost can range from $65 per lineal foot to $250 per foot. Additionally, if we are remodeling versus building new, the cost can range because the layout affects how much railing material is needed, how many support posts and how many sections and the waste factor involved. Often times, if a customer is considering a high end rail option and is at the same time considering a remodel versus a new deck, this choice can push the project over the edge towards the new deck simply because the existing deck doesn’t “lay out” well for the new high-end railing system.</p>
+                </div>
+              </details>
+              <details class="qaf-wrd-faq-item">
+                <summary class="qaf-wrd-faq-question">What is the cost difference to remodel my deck versus just build a new deck?</summary>
+                <div class="qaf-wrd-faq-answer">
+                  <p>This is an excellent question and we’ve been working on this answer for many years.</p>
+                  <p>On average you will spend approximately 35%-50% more building a new deck simply because there are many more planning and logistical steps involved. We believe in practical solutions which means that if we believe (after a thorough inspection of your existing deck) that the framework is “worthy” of a remodel, we will offer you that option. This usually includes all new low maintenance decking, low maintenance railings, trim, and newly framed stairs. Keep in mind not all decks are worthy of a remodel and we’ll quickly tell you that in our initial consultation. In that case, we will plan for a brand new, well built deck that lasts and suits your needs for the future.</p>
+                  <p>Our utmost goal is to give you real value and quality that will last. If a new deck is that solution, then lets have fun and design something that you REALLY like!</p>
+                </div>
+              </details>
+            </div>
+          </div>
+        </section>
+        <section class="wrd-cta" id="estimate">
+          <div class="wrd-container">
+            <div class="wrd-cta-panel">
+              <div>
+                <h2>Need a Quote For Your Deck Project?</h2>
+                <p>Tell us about your project and get a free quote</p>
+              </div>
+              <a href="/contact" class="wrd-btn wrd-btn-gold">Start Your Estimate</a>
+            </div>
+          </div>
+        </section>
+        <section class="wrd-contact">
+          <div class="wrd-container wrd-contact-grid">
+            <article class="wrd-contact-card">
+              <h3>We Restore Decks</h3>
+              <p>804 College Pkwy Suite A Annapolis, MD 21409</p>
+              <p>(410) 263-6270</p>
+              <p>&copy; 2026 All Rights Reserved</p>
+              <p>We Restore Decks, Inc is a division of Shambarger Services, Inc.</p>
+            </article>
+            <article class="wrd-contact-card">
+              <h3>We're Hiring!</h3>
+              <p>Apply Here</p>
+              <h3 style="margin-top:12px;">Find Us</h3>
+              <p>Facebook Link Youtube Houzz Yelp</p>
+            </article>
+            <article class="wrd-contact-card">
+              <h3>Our Location</h3>
+              <p>Home Deck Repair Screen Rooms/ Sunrooms Deck Restoration Deck Resurfacing IPE Maintenance Stain Colors Docks Dock Resurfacing Dock Repair Dock Restoration About Us Free Estimate FAQ Prices Our Work Terms and Conditions</p>
+            </article>
+          </div>
+        </section>
+      </main>
+    </div>

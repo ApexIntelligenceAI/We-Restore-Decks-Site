@@ -1,0 +1,226 @@
+[
+  {
+    "slug": "about-us",
+    "title": "About Us",
+    "description": "Learn about We Restore Decks, our mission, leadership team, and service commitment to homeowners in Annapolis and surrounding Maryland communities.",
+    "hasEstimateForm": true,
+    "isContactPage": false,
+    "route": "/about-us"
+  },
+  {
+    "slug": "colors-finish-options",
+    "title": "Colors / Finish Options",
+    "description": "Deck stain color options including oil stain colors, solid colors, semi transparent colors, and deck stain examples.",
+    "hasEstimateForm": true,
+    "isContactPage": false,
+    "route": "/colors-finish-options"
+  },
+  {
+    "slug": "composite-decks",
+    "title": "Composite Decks",
+    "description": "Composite deck design and installation in Annapolis, Maryland. Low-maintenance decking for new builds, remodels, and board replacements with wood-look and modern color options.",
+    "hasEstimateForm": true,
+    "isContactPage": false,
+    "route": "/composite-decks"
+  },
+  {
+    "slug": "contact",
+    "title": "Contact",
+    "description": "",
+    "hasEstimateForm": false,
+    "isContactPage": true,
+    "route": "/contact"
+  },
+  {
+    "slug": "deck-remodeling",
+    "title": "Deck Remodeling",
+    "description": "Deck remodeling services in Annapolis, Maryland. Upgrade layout, finishes, stairs, and railings with practical design-first guidance.",
+    "hasEstimateForm": true,
+    "isContactPage": false,
+    "route": "/deck-remodeling"
+  },
+  {
+    "slug": "deck-repair",
+    "title": "Deck Repair",
+    "description": "Deck repair services in Annapolis, Maryland. Fix unsafe stairs, framing, railings, and deck boards with a clear repair-first process.",
+    "hasEstimateForm": true,
+    "isContactPage": false,
+    "route": "/deck-repair"
+  },
+  {
+    "slug": "deck-restoration",
+    "title": "Deck Restoration",
+    "description": "Deck restoration services in Annapolis, Maryland. Restore aging wood decks with cleaning, repairs, refinishing, and long-term protection.",
+    "hasEstimateForm": true,
+    "isContactPage": false,
+    "route": "/deck-restoration"
+  },
+  {
+    "slug": "dock-restoration-and-repair",
+    "title": "Dock Restoration and Repair",
+    "description": "Dock restoration and repair services in Annapolis, Maryland. Fix structural issues, worn boards, pilings, and railings with a clear repair-first process.",
+    "hasEstimateForm": true,
+    "isContactPage": false,
+    "route": "/dock-restoration-and-repair"
+  },
+  {
+    "slug": "dock-resurfacing",
+    "title": "Dock Resurfacing",
+    "description": "Dock resurfacing services in Annapolis, Maryland. Replace worn dock surfaces and rejuvenate aging docks with a practical, condition-based approach.",
+    "hasEstimateForm": true,
+    "isContactPage": false,
+    "route": "/dock-resurfacing"
+  },
+  {
+    "slug": "faq",
+    "title": "FAQ",
+    "description": "Frequently asked questions about deck repair, remodeling, restoration, stain colors, docks, pressure washing, and estimates.",
+    "hasEstimateForm": true,
+    "isContactPage": false,
+    "route": "/faq"
+  },
+  {
+    "slug": "index",
+    "title": "Maintenance",
+    "description": "",
+    "hasEstimateForm": true,
+    "isContactPage": false,
+    "route": "/"
+  },
+  {
+    "slug": "ipe-maintenance",
+    "title": "IPE Maintenance",
+    "description": "IPE maintenance services in Annapolis, Maryland. Protect and preserve Brazilian Walnut decks with proper cleaning, prep, and penetrating oil maintenance.",
+    "hasEstimateForm": true,
+    "isContactPage": false,
+    "route": "/ipe-maintenance"
+  },
+  {
+    "slug": "new-deck-build",
+    "title": "New Deck Build",
+    "description": "Custom new deck design and construction in Annapolis, Maryland. Ground-up builds, full replacements, wood and composite options with clear planning and pricing.",
+    "hasEstimateForm": true,
+    "isContactPage": false,
+    "route": "/new-deck-build"
+  },
+  {
+    "slug": "our-process",
+    "title": "Our Process",
+    "description": "See how We Restore Decks guides every project from first contact through final walkthrough — honest in-person estimates, clear scope, and dependable craftsmanship in Maryland.",
+    "hasEstimateForm": true,
+    "isContactPage": false,
+    "route": "/our-process"
+  },
+  {
+    "slug": "our-story",
+    "title": "Our Story",
+    "description": "Discover how We Restore Decks began in Annapolis in 2012, our mission and values, and the team behind every deck project across Maryland.",
+    "hasEstimateForm": true,
+    "isContactPage": false,
+    "route": "/our-story"
+  },
+  {
+    "slug": "our-work",
+    "title": "Our Work",
+    "description": "Browse deck remodeling, repair, restoration, screen room, and outdoor living projects completed by We Restore Decks in Annapolis and surrounding Maryland communities.",
+    "hasEstimateForm": true,
+    "isContactPage": false,
+    "route": "/our-work"
+  },
+  {
+    "slug": "outdoor-decks",
+    "title": "Outdoor Decks",
+    "description": "Outdoor deck design and build services in Annapolis, Maryland. Explore custom layouts, material options, and upgrade paths for your home.",
+    "hasEstimateForm": true,
+    "isContactPage": false,
+    "route": "/outdoor-decks"
+  },
+  {
+    "slug": "patio-covers",
+    "title": "Patio Covers",
+    "description": "Custom patio cover design and installation in Annapolis, Maryland. Timber pergolas, solid roof covers, and modern slat structures with fans, lighting, and outdoor kitchen integration.",
+    "hasEstimateForm": true,
+    "isContactPage": false,
+    "route": "/patio-covers"
+  },
+  {
+    "slug": "patios",
+    "title": "Patios",
+    "description": "Custom patio design and installation in Annapolis, Maryland. Paver, stone, and brick patios with fire pits, pergolas, and outdoor living layouts built for Maryland seasons.",
+    "hasEstimateForm": true,
+    "isContactPage": false,
+    "route": "/patios"
+  },
+  {
+    "slug": "pressure-washing",
+    "title": "Pressure Washing",
+    "description": "Pressure washing and exterior cleaning in Annapolis, Maryland. Low-pressure house washing, high-pressure hardscape cleaning, and vinyl/composite deck cleaning.",
+    "hasEstimateForm": true,
+    "isContactPage": false,
+    "route": "/pressure-washing"
+  },
+  {
+    "slug": "prices",
+    "title": "Prices",
+    "description": "Prices - We Restore Decks",
+    "hasEstimateForm": true,
+    "isContactPage": false,
+    "route": "/prices"
+  },
+  {
+    "slug": "resources",
+    "title": "Resources",
+    "description": "",
+    "hasEstimateForm": true,
+    "isContactPage": false,
+    "route": "/resources"
+  },
+  {
+    "slug": "sample-projects",
+    "title": "Sample Projects",
+    "description": "Browse sample deck remodeling, repair, restoration, screen room, and outdoor living projects completed by We Restore Decks in Annapolis and surrounding Maryland communities.",
+    "hasEstimateForm": true,
+    "isContactPage": false,
+    "route": "/sample-projects"
+  },
+  {
+    "slug": "screen-rooms-sunrooms",
+    "title": "Screen rooms / Sunrooms",
+    "description": "Screen room services in Annapolis, Maryland. Remodel existing screen rooms, build a new screened room on your deck, or design an integrated screened outdoor living space.",
+    "hasEstimateForm": true,
+    "isContactPage": false,
+    "route": "/screen-rooms-sunrooms"
+  },
+  {
+    "slug": "sunrooms",
+    "title": "Sunrooms",
+    "description": "Sunroom services in Annapolis, Maryland. Remodel existing sunrooms, build a new glass-enclosed room on your deck, or design an integrated three-season sunroom for year-round living.",
+    "hasEstimateForm": true,
+    "isContactPage": false,
+    "route": "/sunrooms"
+  },
+  {
+    "slug": "terms-and-conditions",
+    "title": "Terms and Conditions",
+    "description": "Terms and conditions for We Restore Decks services, estimates, scheduling, payment, warranties, and website use in Annapolis, Maryland.",
+    "hasEstimateForm": false,
+    "isContactPage": false,
+    "route": "/terms-and-conditions"
+  },
+  {
+    "slug": "thanks",
+    "title": "Contact Form Thanks Page",
+    "description": "Thank you for contacting We Restore Decks. We received your request and will be in touch soon.",
+    "hasEstimateForm": false,
+    "isContactPage": false,
+    "route": "/thanks"
+  },
+  {
+    "slug": "wooden-decks",
+    "title": "Wooden Decks",
+    "description": "Natural wood deck design, build, and restoration in Annapolis, Maryland. Pressure-treated and hardwood decks with remodeling, staining, and structural best practices.",
+    "hasEstimateForm": true,
+    "isContactPage": false,
+    "route": "/wooden-decks"
+  }
+]

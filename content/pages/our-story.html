@@ -1,0 +1,866 @@
+<div class="w-embed wrd-page-embed"><style>
+    :root {
+      --deep: #3A2A22;
+      --darkest: #241812;
+      --off: #F9F9F8;
+      --caramel: #B76F3F;
+      --cyan: #33AAC9;
+      --rust: #974E31;
+      --taupe: #70635E;
+      --paper: #FFFFFF;
+      --line: #e4ddd8;
+      --line-dark: rgba(36, 24, 18, 0.1);
+      --maxw: 1140px;
+      --pad: 24px;
+      --radius: 14px;
+    }
+.wrd-page-embed, .wrd-page-embed * { box-sizing: border-box; }
+    .wrd-page-embed { scroll-behavior: smooth; }
+    .wrd-page-embed {
+      font-family: "Inter", system-ui, sans-serif;
+      background: var(--off);
+      color: var(--deep);
+      line-height: 1.55;
+      -webkit-font-smoothing: antialiased;
+    }
+    img { display: block; max-width: 100%; }
+    a { color: inherit; text-decoration: none; }
+    h1, h2, h3 {
+      font-family: "Archivo", sans-serif;
+      letter-spacing: -0.02em;
+      line-height: 1.05;
+    }
+    .wrd-container { width: 100%; max-width: var(--maxw); margin: 0 auto; padding-inline: var(--pad); }
+    .story-kicker {
+      font-family: "Archivo", sans-serif;
+      font-size: 11px;
+      font-weight: 700;
+      letter-spacing: 0.16em;
+      text-transform: uppercase;
+      color: var(--caramel);
+    }
+    .story-btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      font-family: "Archivo", sans-serif;
+      font-size: 14px;
+      font-weight: 700;
+      padding: 12px 22px;
+      border-radius: 8px;
+      border: 1.5px solid transparent;
+      transition: 0.2s ease;
+      white-space: nowrap;
+    }
+    .story-btn-fill { background: var(--caramel); color: #fff; border-color: var(--caramel); }
+    .story-btn-fill:hover { background: var(--rust); border-color: var(--rust); }
+    .story-btn-outline { background: transparent; color: var(--deep); border-color: var(--line); }
+    .story-btn-outline:hover { border-color: var(--deep); }
+    .story-btn-light { background: var(--off); color: var(--deep); }
+    .story-btn-light:hover { background: #fff; }
+    /* ===== OPENING — editorial split ===== */
+    .story-opening {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      min-height: 92vh;
+      background: var(--paper);
+    }
+    .story-opening-copy {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      padding: clamp(120px, 14vw, 180px) clamp(32px, 5vw, 64px) clamp(48px, 6vw, 72px);
+    }
+    .story-opening-copy .story-kicker { margin-bottom: 20px; }
+    .story-opening-title {
+      font-size: clamp(44px, 5.5vw, 72px);
+      max-width: 11ch;
+      margin-bottom: 24px;
+      color: #000;
+    }
+    .story-opening-lead {
+      font-size: 18px;
+      color: var(--taupe);
+      max-width: 44ch;
+      margin-bottom: 32px;
+    }
+    .story-opening-actions {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 12px;
+    }
+    .story-opening-visual {
+      position: relative;
+      overflow: hidden;
+    }
+    .story-opening-visual img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      min-height: 420px;
+    }
+    .story-opening-badge {
+      position: absolute;
+      bottom: 32px;
+      left: 32px;
+      background: var(--darkest);
+      color: #fff;
+      border-radius: 12px;
+      padding: 18px 22px;
+      max-width: 220px;
+    }
+    .story-opening-badge strong {
+      display: block;
+      font-family: "Archivo", sans-serif;
+      font-size: 28px;
+      font-weight: 800;
+      color: var(--caramel);
+      line-height: 1;
+      margin-bottom: 4px;
+    }
+    .story-opening-badge span {
+      font-size: 13px;
+      color: rgba(249, 249, 248, 0.78);
+    }
+    /* ===== CHAPTER TIMELINE ===== */
+    .story-chapters {
+      padding: clamp(64px, 8vw, 96px) 0;
+      background: var(--off);
+    }
+    .story-chapters-head {
+      display: flex;
+      align-items: flex-end;
+      justify-content: space-between;
+      gap: 24px;
+      margin-bottom: 48px;
+      flex-wrap: wrap;
+    }
+    .story-chapters-head h2 {
+      font-size: clamp(32px, 4vw, 52px);
+      max-width: 14ch;
+      color: #000;
+    }
+    .story-chapters-head p {
+      max-width: 38ch;
+      color: var(--taupe);
+      font-size: 16px;
+    }
+    .story-timeline {
+      position: relative;
+      display: flex;
+      flex-direction: column;
+      gap: 0;
+    }
+    .story-timeline::before {
+      content: "";
+      position: absolute;
+      left: 19px;
+      top: 8px;
+      bottom: 8px;
+      width: 2px;
+      background: var(--line);
+    }
+    .story-chapter {
+      display: grid;
+      grid-template-columns: 40px 1fr;
+      gap: 28px;
+      padding: 32px 0;
+      border-bottom: 1px solid var(--line);
+    }
+    .story-chapter:last-child { border-bottom: none; }
+    .story-chapter-marker {
+      width: 40px;
+      height: 40px;
+      border-radius: 50%;
+      background: var(--paper);
+      border: 2px solid var(--caramel);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-family: "Archivo", sans-serif;
+      font-size: 12px;
+      font-weight: 800;
+      color: var(--caramel);
+      position: relative;
+      z-index: 1;
+      flex-shrink: 0;
+    }
+    .story-chapter-body {
+      display: grid;
+      grid-template-columns: 1fr 1.1fr;
+      gap: 36px;
+      align-items: start;
+    }
+    .story-chapter-meta h3 {
+      font-size: clamp(24px, 3vw, 34px);
+      margin-bottom: 8px;
+      color: #000;
+    }
+    .story-chapter-year {
+      font-family: "Archivo", sans-serif;
+      font-size: 13px;
+      font-weight: 700;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: var(--rust);
+      margin-bottom: 12px;
+    }
+    .story-chapter-meta p {
+      color: var(--taupe);
+      font-size: 15px;
+    }
+    .story-chapter-media {
+      border-radius: var(--radius);
+      overflow: hidden;
+      aspect-ratio: 16 / 10;
+    }
+    .story-chapter-media img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+    /* ===== FOUNDER QUOTE ===== */
+    .story-founder {
+      background: var(--darkest);
+      color: #fff;
+      padding: clamp(64px, 8vw, 88px) 0;
+    }
+    .story-founder-inner {
+      display: grid;
+      grid-template-columns: auto 1fr;
+      gap: clamp(28px, 5vw, 56px);
+      align-items: center;
+    }
+    .story-founder-photo {
+      width: clamp(120px, 16vw, 180px);
+      height: clamp(120px, 16vw, 180px);
+      border-radius: 50%;
+      object-fit: cover;
+      border: 3px solid var(--caramel);
+      flex-shrink: 0;
+    }
+    .story-founder-quote {
+      font-family: "Archivo", sans-serif;
+      font-size: clamp(22px, 3vw, 32px);
+      line-height: 1.25;
+      max-width: 28ch;
+      margin-bottom: 16px;
+    }
+    .story-founder-quote em { color: var(--caramel); font-style: normal; }
+    .story-founder-name {
+      font-family: "Archivo", sans-serif;
+      font-weight: 700;
+      font-size: 15px;
+    }
+    .story-founder-role {
+      font-size: 13px;
+      color: rgba(249, 249, 248, 0.62);
+      margin-top: 2px;
+    }
+    /* ===== VALUES — numbered bands ===== */
+    .story-values {
+      padding: clamp(64px, 8vw, 88px) 0;
+      background: var(--paper);
+    }
+    .story-values-intro {
+      text-align: center;
+      max-width: 560px;
+      margin: 0 auto 48px;
+    }
+    .story-values-intro h2 {
+      font-size: clamp(32px, 4vw, 48px);
+      margin: 12px 0 14px;
+      color: #000;
+    }
+    .story-values-intro p { color: var(--taupe); }
+    .story-value-list {
+      display: flex;
+      flex-direction: column;
+      gap: 2px;
+    }
+    .story-value-row {
+      display: grid;
+      grid-template-columns: 80px 1fr;
+      gap: 28px;
+      align-items: center;
+      padding: 28px 32px;
+      background: var(--off);
+      border-radius: 10px;
+      transition: background 0.2s ease;
+    }
+    .story-value-row:hover { background: #f3f0ec; }
+    .story-value-num {
+      font-family: "Archivo", sans-serif;
+      font-size: clamp(36px, 4vw, 52px);
+      font-weight: 900;
+      color: var(--caramel);
+      line-height: 1;
+      opacity: 0.35;
+    }
+    .story-value-row h3 {
+      font-size: 22px;
+      margin-bottom: 6px;
+      color: #000;
+    }
+    .story-value-row p {
+      color: var(--taupe);
+      font-size: 15px;
+      max-width: 58ch;
+    }
+    /* ===== TEAM — portrait strip ===== */
+    .story-team {
+      padding: clamp(64px, 8vw, 88px) 0;
+      background: var(--off);
+    }
+    .story-team-head {
+      margin-bottom: 36px;
+    }
+    .story-team-head h2 {
+      font-size: clamp(32px, 4vw, 48px);
+      margin-top: 12px;
+      max-width: 16ch;
+      color: #000;
+    }
+    .story-team-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 16px;
+    }
+    .story-person {
+      background: var(--paper);
+      border-radius: var(--radius);
+      overflow: hidden;
+      border: 1px solid var(--line);
+    }
+    .story-person-photo {
+      width: 100%;
+      height: 220px;
+      object-fit: contain;
+      object-position: center;
+      background: #f1eee8;
+    }
+    .story-person-info {
+      padding: 18px;
+    }
+    .story-person-info h3 {
+      font-size: 18px;
+      margin-bottom: 4px;
+      color: #000;
+    }
+    .story-person-role {
+      font-family: "Archivo", sans-serif;
+      font-size: 11px;
+      font-weight: 700;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: var(--rust);
+      margin-bottom: 8px;
+    }
+    .story-person-info p {
+      font-size: 13px;
+      color: var(--taupe);
+      line-height: 1.45;
+    }
+    /* ===== PROMISE — dual panels ===== */
+    .story-promise {
+      padding: clamp(64px, 8vw, 88px) 0;
+      background: var(--paper);
+    }
+    .story-promise-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 20px;
+    }
+    .story-promise-card {
+      border-radius: var(--radius);
+      padding: clamp(28px, 4vw, 40px);
+      min-height: 280px;
+      display: flex;
+      flex-direction: column;
+      justify-content: flex-end;
+    }
+    .story-promise-card:first-child {
+      background: var(--deep);
+      color: #fff;
+    }
+    .story-promise-card:last-child {
+      background: var(--off);
+      border: 1px solid var(--line);
+    }
+    .story-promise-card .story-kicker { margin-bottom: 12px; }
+    .story-promise-card:first-child .story-kicker { color: var(--cyan); }
+    .story-promise-card h3 {
+      font-size: clamp(24px, 3vw, 32px);
+      margin-bottom: 12px;
+      max-width: 18ch;
+    }
+    .story-promise-card:first-child h3 { color: #fff; }
+    .story-promise-card:last-child h3 { color: #000; }
+    .story-promise-card p {
+      font-size: 15px;
+      max-width: 46ch;
+    }
+    .story-promise-card:first-child p { color: rgba(249, 249, 248, 0.78); }
+    .story-promise-card:last-child p { color: var(--taupe); }
+    /* ===== SERVICE FOOTPRINT ===== */
+    .story-footprint {
+      padding: clamp(64px, 8vw, 88px) 0;
+      background: var(--off);
+    }
+    .story-footprint-layout {
+      display: grid;
+      grid-template-columns: 0.9fr 1.1fr;
+      gap: 40px;
+      align-items: start;
+    }
+    .story-footprint-copy h2 {
+      font-size: clamp(32px, 4vw, 44px);
+      margin: 12px 0 16px;
+      max-width: 14ch;
+      color: #000;
+    }
+    .story-footprint-copy p {
+      color: var(--taupe);
+      margin-bottom: 20px;
+      max-width: 40ch;
+    }
+    .story-footprint-tag {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      font-family: "Archivo", sans-serif;
+      font-size: 12px;
+      font-weight: 700;
+      letter-spacing: 0.06em;
+      text-transform: uppercase;
+      color: var(--rust);
+      background: rgba(151, 78, 49, 0.1);
+      border-radius: 999px;
+      padding: 10px 16px;
+    }
+    .story-footprint-tag::before {
+      content: "";
+      width: 8px;
+      height: 8px;
+      border-radius: 50%;
+      background: var(--caramel);
+    }
+    .story-city-cloud {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+    }
+    .story-city {
+      font-family: "Archivo", sans-serif;
+      font-size: 14px;
+      font-weight: 600;
+      padding: 10px 18px;
+      background: var(--paper);
+      border: 1px solid var(--line);
+      border-radius: 999px;
+      color: var(--deep);
+      transition: border-color 0.2s ease, background 0.2s ease;
+    }
+    .story-city:hover {
+      border-color: var(--caramel);
+      background: #fff;
+    }
+    /* ===== FAQ ===== */
+    .story-faq {
+      padding: clamp(64px, 8vw, 88px) 0;
+      background: var(--paper);
+    }
+    .story-faq-layout {
+      display: grid;
+      grid-template-columns: 0.8fr 1.2fr;
+      gap: 48px;
+      align-items: start;
+    }
+    .story-faq-left h2 {
+      font-size: clamp(28px, 3.5vw, 42px);
+      margin-top: 12px;
+      max-width: 14ch;
+      color: #000;
+    }
+    .story-faq-list {
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+    }
+    .story-faq-item {
+      border: 1px solid var(--line);
+      border-radius: 10px;
+      overflow: hidden;
+      background: var(--off);
+    }
+    .story-faq-q {
+      width: 100%;
+      text-align: left;
+      background: none;
+      border: none;
+      cursor: pointer;
+      font-family: "Archivo", sans-serif;
+      font-size: 16px;
+      font-weight: 700;
+      color: var(--deep);
+      padding: 20px 48px 20px 22px;
+      position: relative;
+      list-style: none;
+    }
+    summary.story-faq-q::-webkit-details-marker { display: none; }
+    .story-faq-q::after {
+      content: "+";
+      position: absolute;
+      right: 22px;
+      top: 50%;
+      transform: translateY(-50%);
+      font-size: 20px;
+      color: var(--caramel);
+      font-weight: 400;
+    }
+    details.story-faq-item[open] .story-faq-q::after { content: "\2013"; }
+    .story-faq-a {
+      padding: 0 22px 20px;
+      color: var(--taupe);
+      font-size: 15px;
+    }
+    details.story-faq-item[open] > .story-faq-a {
+      animation: story-reveal 0.3s ease;
+    }
+    @keyframes story-reveal {
+      from { opacity: 0; transform: translateY(-6px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+    /* ===== CLOSING CTA ===== */
+    .story-close {
+      padding: clamp(48px, 6vw, 72px) 0 clamp(64px, 8vw, 96px);
+      background: var(--off);
+    }
+    .story-close-panel {
+      background: linear-gradient(135deg, var(--deep) 0%, var(--darkest) 100%);
+      border-radius: var(--radius);
+      padding: clamp(36px, 5vw, 56px);
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 28px;
+      flex-wrap: wrap;
+      color: #fff;
+    }
+    .story-close-panel h2 {
+      font-size: clamp(28px, 4vw, 44px);
+      margin-bottom: 8px;
+      max-width: 16ch;
+      color: #fff;
+    }
+    .story-close-panel p {
+      color: rgba(249, 249, 248, 0.78);
+      max-width: 42ch;
+    }
+    .story-close-actions {
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+      flex-shrink: 0;
+    }
+    .story-close-phone {
+      font-family: "Archivo", sans-serif;
+      font-weight: 800;
+      font-size: clamp(22px, 3vw, 30px);
+      color: var(--caramel);
+      text-align: center;
+    }
+    /* ===== RESPONSIVE ===== */
+    @media (max-width: 980px) {
+      :root { --pad: 18px; }
+      .story-opening {
+        grid-template-columns: 1fr;
+        min-height: auto;
+      }
+      .story-opening-visual { order: -1; min-height: 320px; }
+      .story-opening-copy {
+        padding: 48px var(--pad) 56px;
+        text-align: center;
+        align-items: center;
+      }
+      .story-opening-title,
+      .story-opening-lead { max-width: 100%; margin-inline: auto; }
+      .story-opening-actions { justify-content: center; }
+      .story-opening-badge { left: var(--pad); bottom: var(--pad); }
+      .story-chapters-head { flex-direction: column; align-items: flex-start; }
+      .story-chapter-body { grid-template-columns: 1fr; gap: 20px; }
+      .story-founder-inner { grid-template-columns: 1fr; text-align: center; }
+      .story-founder-photo { margin: 0 auto; }
+      .story-founder-quote { max-width: 100%; margin-inline: auto; }
+      .story-team-grid { grid-template-columns: repeat(2, 1fr); }
+      .story-promise-grid,
+      .story-footprint-layout,
+      .story-faq-layout { grid-template-columns: 1fr; gap: 28px; }
+      .story-close-panel {
+        flex-direction: column;
+        text-align: center;
+        align-items: center;
+      }
+      .story-close-actions { width: 100%; max-width: 320px; }
+    }
+    @media (max-width: 620px) {
+      :root { --pad: 16px; }
+      .story-opening-copy { padding-top: 40px; }
+      .story-chapter { grid-template-columns: 1fr; gap: 16px; }
+      .story-timeline::before { display: none; }
+      .story-chapter-marker { display: none; }
+      .story-value-row { grid-template-columns: 1fr; gap: 8px; padding: 22px; text-align: center; }
+      .story-value-row p { margin-inline: auto; }
+      .story-team-grid { grid-template-columns: 1fr; }
+      .story-btn { white-space: normal; text-align: center; width: 100%; }
+      .story-opening-actions { flex-direction: column; width: 100%; max-width: 320px; }
+    }
+  </style>
+      <main>
+        <!--  Editorial opening  -->
+        <section class="story-opening" aria-labelledby="story-title">
+          <div class="story-opening-copy">
+            <p class="story-kicker">We Restore Decks</p>
+            <h1 id="story-title" class="story-opening-title">Built on Craft, Trust, and Honest Work</h1>
+            <p class="story-opening-lead">We Restore Decks is an Annapolis-based, family-owned company focused on helping homeowners improve, protect, and enjoy their outdoor living spaces with confidence.</p>
+            <div class="story-opening-actions">
+              <a href="/contact" class="story-btn story-btn-fill">Get a free estimate</a>
+              <a href="/about-us" class="story-btn story-btn-outline">About our company</a>
+            </div>
+          </div>
+          <div class="story-opening-visual">
+            <img src="/images/1.jpg" alt="Finished waterfront deck project in Annapolis">
+            <div class="story-opening-badge">
+              <strong>2012</strong>
+              <span>Founded in Annapolis, Maryland</span>
+            </div>
+          </div>
+        </section>
+        <!--  Timeline chapters  -->
+        <section class="story-chapters" aria-labelledby="chapters-title">
+          <div class="wrd-container">
+            <div class="story-chapters-head">
+              <div>
+                <p class="story-kicker">Our Story</p>
+                <h2 id="chapters-title">Why This Company Was Built</h2>
+              </div>
+              <p>From a single conviction about doing better work to a team serving Maryland homeowners every day — this is how We Restore Decks came to be.</p>
+            </div>
+            <div class="story-timeline">
+              <article class="story-chapter">
+                <div class="story-chapter-marker" aria-hidden="true">01</div>
+                <div class="story-chapter-body">
+                  <div class="story-chapter-meta">
+                    <p class="story-chapter-year">2012 — The Beginning</p>
+                    <h3>A Better Experience, From Estimate to Walkthrough</h3>
+                    <p>In 2012, Jonathan Shambarger started We Restore Decks after seeing too many homeowners receive promises that were not matched by production quality. He built this company to deliver a better experience from first estimate through final walkthrough.</p>
+                  </div>
+                  <figure class="story-chapter-media">
+                    <img src="/images/wr2-deck-15.png" alt="Deck construction in progress" loading="lazy">
+                  </figure>
+                </div>
+              </article>
+              <article class="story-chapter">
+                <div class="story-chapter-marker" aria-hidden="true">02</div>
+                <div class="story-chapter-body">
+                  <div class="story-chapter-meta">
+                    <p class="story-chapter-year">Today — How We Work</p>
+                    <h3>The Same Approach on Every Project</h3>
+                    <p>Today, the same approach drives every project: honest in-person evaluation, practical scope recommendations, and craftsmanship homeowners can trust for the long term.</p>
+                  </div>
+                  <figure class="story-chapter-media">
+                    <img src="/images/5.jpg" alt="Completed deck restoration project" loading="lazy">
+                  </figure>
+                </div>
+              </article>
+            </div>
+          </div>
+        </section>
+        <!--  Founder spotlight  -->
+        <section class="story-founder" aria-label="Message from our founder">
+          <div class="wrd-container story-founder-inner">
+            <img class="story-founder-photo" src="/images/jonathan-photo.jpeg" alt="Jonathan Shambarger, President of We Restore Decks" loading="lazy">
+            <div>
+              <blockquote class="story-founder-quote">"We built this company so homeowners could get <em>promises matched by production quality</em> — every single time."</blockquote>
+              <p class="story-founder-name">Jonathan Shambarger</p>
+              <p class="story-founder-role">President &amp; Founder</p>
+            </div>
+          </div>
+        </section>
+        <!--  Mission & values  -->
+        <section class="story-values" aria-labelledby="values-title">
+          <div class="wrd-container">
+            <div class="story-values-intro">
+              <p class="story-kicker">What we stand for</p>
+              <h2 id="values-title">Our Mission and Values</h2>
+              <p>Classic craftsmanship, clear communication, and trusted results — these principles guide every decision we make.</p>
+            </div>
+            <div class="story-value-list">
+              <article class="story-value-row">
+                <span class="story-value-num" aria-hidden="true">01</span>
+                <div>
+                  <h3>Quality first</h3>
+                  <p>Every project is approached with a high standard of craftsmanship, close attention to detail, and a focus on long-lasting results.</p>
+                </div>
+              </article>
+              <article class="story-value-row">
+                <span class="story-value-num" aria-hidden="true">02</span>
+                <div>
+                  <h3>Client respect</h3>
+                  <p>We prioritize clear communication, practical guidance, and dependable follow-through so homeowners feel informed and confident.</p>
+                </div>
+              </article>
+              <article class="story-value-row">
+                <span class="story-value-num" aria-hidden="true">03</span>
+                <div>
+                  <h3>Integrity always</h3>
+                  <p>Our reputation is built on trust, mutual respect, and doing what we say we will do from start to finish.</p>
+                </div>
+              </article>
+            </div>
+          </div>
+        </section>
+        <!--  Team  -->
+        <section class="story-team" aria-labelledby="team-title">
+          <div class="wrd-container">
+            <div class="story-team-head">
+              <p class="story-kicker">Meet the team</p>
+              <h2 id="team-title">The People Behind We Restore Decks</h2>
+            </div>
+            <div class="story-team-grid">
+              <article class="story-person">
+                <img class="story-person-photo" src="/images/jonathan-photo.jpeg" alt="Jonathan Shambarger" loading="lazy">
+                <div class="story-person-info">
+                  <h3>Jonathan Shambarger</h3>
+                  <p class="story-person-role">President</p>
+                  <p>Jonathan founded the company and leads with a strong focus on professionalism, craftsmanship, and accountability throughout every stage of a project.</p>
+                </div>
+              </article>
+              <article class="story-person">
+                <img class="story-person-photo" src="/images/Morgan-scaled.jpg" alt="Morgan Smith" loading="lazy">
+                <div class="story-person-info">
+                  <h3>Morgan Smith</h3>
+                  <p class="story-person-role">Lead Estimator</p>
+                  <p>Morgan combines practical construction experience with deck safety training to build accurate scopes and recommendations aligned with each homeowner's goals.</p>
+                </div>
+              </article>
+              <article class="story-person">
+                <img class="story-person-photo" src="/images/20250123_130926-scaled.jpg" alt="Sandra Oostwaard" loading="lazy">
+                <div class="story-person-info">
+                  <h3>Sandra Oostwaard</h3>
+                  <p class="story-person-role">Office Manager</p>
+                  <p>Sandra drives office coordination and communication so projects stay organized, responsive, and consistent from scheduling through completion.</p>
+                </div>
+              </article>
+              <article class="story-person">
+                <img class="story-person-photo" src="/images/stephen-good-photo-e1767652445690.jpeg" alt="Stephen Goad" loading="lazy">
+                <div class="story-person-info">
+                  <h3>Stephen Goad</h3>
+                  <p class="story-person-role">Project Manager</p>
+                  <p>Stephen brings years of field experience and a quality-focused mindset to project execution, crew coordination, and homeowner satisfaction.</p>
+                </div>
+              </article>
+            </div>
+          </div>
+        </section>
+        <!--  What we do / Our impact  -->
+        <section class="story-promise" aria-labelledby="promise-title">
+          <div class="wrd-container">
+            <p class="story-kicker" id="promise-title">What drives us</p>
+            <div class="story-promise-grid">
+              <article class="story-promise-card">
+                <p class="story-kicker">What we do</p>
+                <h3>Deck-focused services</h3>
+                <p>We specialize in deck building, restoration, remodeling, and repair with a process designed to deliver strong workmanship and reliable results. Our goal is to help homeowners maximize outdoor living space without sacrificing quality, communication, or long-term performance.</p>
+              </article>
+              <article class="story-promise-card">
+                <p class="story-kicker">Our impact</p>
+                <h3>Helping homeowners confidently invest</h3>
+                <p>Deck care is a major investment. We believe clients should receive clear expectations, consistent quality, and a smooth experience at every step. That is why all estimates are performed in person with close attention to details that affect cost, scope, and final outcomes.</p>
+              </article>
+            </div>
+          </div>
+        </section>
+        <!--  Service area  -->
+        <section class="story-footprint" aria-labelledby="footprint-title">
+          <div class="wrd-container story-footprint-layout">
+            <div class="story-footprint-copy">
+              <p class="story-kicker">Service area</p>
+              <h2 id="footprint-title">Maryland Communities We Serve</h2>
+              <p>We currently serve homeowners in Maryland only, with primary coverage in and around Annapolis.</p>
+              <span class="story-footprint-tag">In-person estimates available</span>
+            </div>
+            <div class="story-city-cloud" aria-label="Cities we serve">
+              <span class="story-city">Annapolis</span>
+              <span class="story-city">Arnold</span>
+              <span class="story-city">Crofton</span>
+              <span class="story-city">Crownsville</span>
+              <span class="story-city">Davidsonville</span>
+              <span class="story-city">Gambrills</span>
+              <span class="story-city">Edgewater</span>
+              <span class="story-city">Harwood</span>
+              <span class="story-city">Mayo</span>
+              <span class="story-city">Riva</span>
+              <span class="story-city">Severna Park</span>
+              <span class="story-city">Tracys Landing</span>
+              <span class="story-city">Bowie</span>
+              <span class="story-city">Millersville</span>
+              <span class="story-city">Odenton</span>
+              <span class="story-city">Stevensville</span>
+              <span class="story-city">Pasadena</span>
+              <span class="story-city">Glen Burnie</span>
+            </div>
+          </div>
+        </section>
+        <!--  FAQ  -->
+        <section class="story-faq" aria-labelledby="faq-title">
+          <div class="wrd-container story-faq-layout">
+            <div class="story-faq-left">
+              <p class="story-kicker">Company FAQ</p>
+              <h2 id="faq-title">Common Questions About Our Company</h2>
+            </div>
+            <div class="story-faq-list">
+              <details class="story-faq-item" open>
+                <summary class="story-faq-q">How long have you been in business?</summary>
+                <div class="story-faq-a">
+                  <p>We have served the Annapolis, Maryland and DC area for over 10 years, focused on decks, docks, and outdoor living.</p>
+                </div>
+              </details>
+              <details class="story-faq-item">
+                <summary class="story-faq-q">What areas do you serve?</summary>
+                <div class="story-faq-a">
+                  <p>We work throughout Maryland and the surrounding DC region. Reach out with your location and we will confirm availability.</p>
+                </div>
+              </details>
+              <details class="story-faq-item">
+                <summary class="story-faq-q">Are your projects backed by any warranty?</summary>
+                <div class="story-faq-a">
+                  <p>Yes. We stand behind our workmanship and discuss the specific coverage for your project during the estimate.</p>
+                </div>
+              </details>
+              <details class="story-faq-item">
+                <summary class="story-faq-q">How do I get started?</summary>
+                <div class="story-faq-a">
+                  <p>Share your project details and photos for an initial estimate, then we schedule an on-site visit to confirm scope and pricing.</p>
+                </div>
+              </details>
+            </div>
+          </div>
+        </section>
+        <!--  Closing CTA  -->
+        <section class="story-close" aria-labelledby="close-title">
+          <div class="wrd-container">
+            <div class="story-close-panel">
+              <div>
+                <h2 id="close-title">Need a Quote for Your Deck Project?</h2>
+                <p>Tell us about your goals and schedule an in-person estimate with our team.</p>
+              </div>
+              <div class="story-close-actions">
+                <a href="/contact" class="story-btn story-btn-fill">Start your estimate</a>
+                <a href="tel:4102636270" class="story-close-phone">410-263-6270</a>
+              </div>
+            </div>
+          </div>
+        </section>
+      </main>
+    </div>

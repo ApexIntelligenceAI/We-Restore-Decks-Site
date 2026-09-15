@@ -1,0 +1,310 @@
+<div class="w-embed wrd-page-embed"><style>
+    :root {
+      --navy: #0f243e;
+      --cream: #f3efe7;
+      --paper: #ffffff;
+      --gold: #c8a45a;
+      --wood: #885e3c;
+      --slate: #6b6f72;
+      --line: #dfe4ea;
+      --maxw: 1140px;
+      --pad: 24px;
+      --radius: 14px;
+    }
+.wrd-page-embed, .wrd-page-embed * { box-sizing: border-box; }
+    .wrd-page-embed {
+      font-family: "Inter", system-ui, sans-serif;
+      background: var(--cream);
+      color: var(--navy);
+      line-height: 1.5;
+      -webkit-font-smoothing: antialiased;
+    }
+    img { display: block; max-width: 100%; }
+    a { color: inherit; text-decoration: none; }
+    h1, h2, h3 {
+      font-family: "Archivo", sans-serif;
+      letter-spacing: -0.02em;
+      line-height: 1.04;
+    }
+    .container {
+      width: 100%;
+      max-width: var(--maxw);
+      margin: 0 auto;
+      padding-inline: var(--pad);
+    }
+    .eyebrow {
+      font-family: "Archivo", sans-serif;
+      font-size: 11px;
+      font-weight: 700;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      color: var(--gold);
+      margin-bottom: 12px;
+    }
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      font-family: "Archivo", sans-serif;
+      font-size: 14px;
+      font-weight: 700;
+      padding: 12px 22px;
+      border-radius: 8px;
+      border: 1.5px solid transparent;
+      transition: 0.2s ease;
+      white-space: nowrap;
+    }
+    .btn-cream { background: var(--cream); color: var(--navy); }
+    .btn-cream:hover { background: #fff; }
+    .btn-ghost {
+      background: transparent;
+      color: #fff;
+      border-color: rgba(255, 255, 255, 0.35);
+    }
+    .btn-ghost:hover { background: rgba(255, 255, 255, 0.08); }
+    .btn-gold { background: var(--gold); color: #fff; border-color: var(--gold); }
+    .btn-gold:hover { background: var(--wood); border-color: var(--wood); }
+    .service-hero {
+      color: #fff;
+      background-image: linear-gradient(rgba(15, 36, 62, 0.78), rgba(15, 36, 62, 0.66)),
+        url("https://www.werestoredecks.com/wp-content/uploads/2025/09/saunders2-scaled.jpg");
+      background-size: cover;
+      background-position: center;
+    }
+    .service-hero-inner {
+      padding: clamp(122px, 16vw, 158px) var(--pad) 72px;
+    }
+    .hero-title {
+      font-size: clamp(42px, 6vw, 74px);
+      margin-bottom: 16px;
+      max-width: 10ch;
+    }
+    .hero-sub {
+      max-width: 56ch;
+      color: rgba(243, 239, 231, 0.92);
+      margin-bottom: 24px;
+      font-size: 17px;
+    }
+    .hero-actions {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 12px;
+    }
+    .gallery-section {
+      padding: 70px 0 40px;
+      background: var(--paper);
+    }
+    .gallery-head {
+      margin-bottom: 28px;
+      max-width: 60ch;
+    }
+    .gallery-head h2 {
+      font-size: clamp(30px, 4.2vw, 48px);
+      margin-bottom: 10px;
+    }
+    .gallery-head p {
+      color: var(--slate);
+      font-size: 16px;
+    }
+    .gallery-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 14px;
+    }
+    .gallery-item {
+      display: block;
+      border-radius: 10px;
+      overflow: hidden;
+      background: #e8ecef;
+      aspect-ratio: 1 / 1;
+      transition: transform 0.2s ease, box-shadow 0.2s ease;
+    }
+    .gallery-item:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 10px 24px rgba(15, 36, 62, 0.12);
+    }
+    .gallery-item img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+    .cta {
+      padding: 70px 0 84px;
+      background: var(--cream);
+    }
+    .cta-panel {
+      background: var(--navy);
+      color: #fff;
+      border-radius: var(--radius);
+      padding: clamp(28px, 5vw, 48px);
+      text-align: center;
+    }
+    .cta-panel h2 {
+      font-size: clamp(28px, 4.5vw, 48px);
+      margin-bottom: 10px;
+    }
+    .cta-panel p {
+      color: rgba(243, 239, 231, 0.84);
+      margin: 0 auto 20px;
+      max-width: 48ch;
+    }
+    @media (max-width: 980px) {
+      :root { --pad: 18px; }
+      .service-hero-inner,
+      .gallery-head {
+        text-align: center;
+      }
+      .hero-title,
+      .hero-sub,
+      .gallery-head {
+        margin-inline: auto;
+        max-width: 100%;
+      }
+      .hero-actions { justify-content: center; }
+      .gallery-grid { grid-template-columns: repeat(3, 1fr); gap: 12px; }
+    }
+    @media (max-width: 620px) {
+      :root { --pad: 16px; }
+      .service-hero-inner { padding-top: 96px; padding-bottom: 52px; }
+      .hero-title { font-size: clamp(32px, 9vw, 44px); }
+      .hero-sub { font-size: 15px; }
+      .hero-actions {
+        flex-direction: column;
+        align-items: stretch;
+      }
+      .hero-actions .btn,
+      .cta-panel .btn {
+        width: 100%;
+      }
+      .gallery-section { padding: 48px 0 24px; }
+      .gallery-grid { grid-template-columns: repeat(2, 1fr); gap: 10px; }
+      .cta { padding: 48px 0 56px; }
+      .btn { white-space: normal; text-align: center; }
+    }
+  </style>
+      <main>
+        <section class="service-hero">
+          <div class="container service-hero-inner">
+            <p class="eyebrow">We Restore Decks</p>
+            <h1 class="hero-title">Sample Projects</h1>
+            <p class="hero-sub">Browse real remodeling, repair, restoration, screen room, and outdoor living projects completed for homeowners across Annapolis and surrounding Maryland communities.</p>
+            <div class="hero-actions">
+              <a href="/contact" class="btn btn-cream">Get an Estimate</a>
+              <a href="tel:4102636270" class="btn btn-ghost">Call 410-263-6270</a>
+            </div>
+          </div>
+        </section>
+        <section class="gallery-section">
+          <div class="container">
+            <div class="gallery-head">
+              <p class="eyebrow">Project Gallery</p>
+              <h2>Completed Work Across Maryland</h2>
+              <p>From composite remodels and oil-stained wood decks to screen rooms, railings, and specialty finishes — these photos show the range of outdoor living work we deliver.</p>
+            </div>
+            <div class="gallery-grid">
+              <a class="gallery-item" href="https://www.werestoredecks.com/wp-content/uploads/2025/09/saunders2-scaled.jpg" target="_blank" rel="noopener"><img src="https://www.werestoredecks.com/wp-content/uploads/2025/09/saunders2-scaled.jpg" alt="We Restore Decks sample project" loading="lazy"></a>
+              <a class="gallery-item" href="https://www.werestoredecks.com/wp-content/uploads/2025/09/Signature-black_OM_2-scaled.jpg" target="_blank" rel="noopener"><img src="https://www.werestoredecks.com/wp-content/uploads/2025/09/Signature-black_OM_2-scaled.jpg" alt="We Restore Decks sample project" loading="lazy"></a>
+              <a class="gallery-item" href="https://www.werestoredecks.com/wp-content/uploads/2025/09/DSC_0062-scaled.jpg" target="_blank" rel="noopener"><img src="https://www.werestoredecks.com/wp-content/uploads/2025/09/DSC_0062-scaled.jpg" alt="We Restore Decks sample project" loading="lazy"></a>
+              <a class="gallery-item" href="https://www.werestoredecks.com/wp-content/uploads/2025/09/Sunspace-Vertical-4track-black.jpg" target="_blank" rel="noopener"><img src="https://www.werestoredecks.com/wp-content/uploads/2025/09/Sunspace-Vertical-4track-black.jpg" alt="We Restore Decks sample project" loading="lazy"></a>
+              <a class="gallery-item" href="https://www.werestoredecks.com/wp-content/uploads/2020/06/F7982138-7836-4F83-A878-7D327CF9F0E8_1_105_c.jpeg" target="_blank" rel="noopener"><img src="https://www.werestoredecks.com/wp-content/uploads/2020/06/F7982138-7836-4F83-A878-7D327CF9F0E8_1_105_c.jpeg" alt="We Restore Decks sample project" loading="lazy"></a>
+              <a class="gallery-item" href="https://www.werestoredecks.com/wp-content/uploads/2020/06/88446047-BB81-4EBC-A1C5-BC94ACCB606A_1_105_c.jpeg" target="_blank" rel="noopener"><img src="https://www.werestoredecks.com/wp-content/uploads/2020/06/88446047-BB81-4EBC-A1C5-BC94ACCB606A_1_105_c.jpeg" alt="We Restore Decks sample project" loading="lazy"></a>
+              <a class="gallery-item" href="https://www.werestoredecks.com/wp-content/uploads/2020/06/056F140E-F194-4DB2-8BA8-A0130BE32D16_1_105_c.jpeg" target="_blank" rel="noopener"><img src="https://www.werestoredecks.com/wp-content/uploads/2020/06/056F140E-F194-4DB2-8BA8-A0130BE32D16_1_105_c.jpeg" alt="We Restore Decks sample project" loading="lazy"></a>
+              <a class="gallery-item" href="https://www.werestoredecks.com/wp-content/uploads/2025/09/signature-black_OM_3-1-scaled.jpg" target="_blank" rel="noopener"><img src="https://www.werestoredecks.com/wp-content/uploads/2025/09/signature-black_OM_3-1-scaled.jpg" alt="We Restore Decks sample project" loading="lazy"></a>
+              <a class="gallery-item" href="https://www.werestoredecks.com/wp-content/uploads/2020/06/1D158F78-7FB1-4182-BFA3-98EF10A1BD01_1_105_c.jpeg" target="_blank" rel="noopener"><img src="https://www.werestoredecks.com/wp-content/uploads/2020/06/1D158F78-7FB1-4182-BFA3-98EF10A1BD01_1_105_c.jpeg" alt="We Restore Decks sample project" loading="lazy"></a>
+              <a class="gallery-item" href="https://www.werestoredecks.com/wp-content/uploads/2020/06/FAC55FBB-DC03-46B0-BBB3-9E9D908D1D35_1_105_c.jpeg" target="_blank" rel="noopener"><img src="https://www.werestoredecks.com/wp-content/uploads/2020/06/FAC55FBB-DC03-46B0-BBB3-9E9D908D1D35_1_105_c.jpeg" alt="We Restore Decks sample project" loading="lazy"></a>
+              <a class="gallery-item" href="https://www.werestoredecks.com/wp-content/uploads/2020/06/4859F4E2-305D-45EF-B6B0-841B26F8B0FC_1_105_c.jpeg" target="_blank" rel="noopener"><img src="https://www.werestoredecks.com/wp-content/uploads/2020/06/4859F4E2-305D-45EF-B6B0-841B26F8B0FC_1_105_c.jpeg" alt="We Restore Decks sample project" loading="lazy"></a>
+              <a class="gallery-item" href="https://www.werestoredecks.com/wp-content/uploads/2020/06/BBE9D66A-0296-4297-A1A8-3E6ED04214A2_1_105_c.jpeg" target="_blank" rel="noopener"><img src="https://www.werestoredecks.com/wp-content/uploads/2020/06/BBE9D66A-0296-4297-A1A8-3E6ED04214A2_1_105_c.jpeg" alt="We Restore Decks sample project" loading="lazy"></a>
+              <a class="gallery-item" href="https://www.werestoredecks.com/wp-content/uploads/2020/06/B31CB270-B4B2-4862-9176-0D74B7207261_1_105_c.jpeg" target="_blank" rel="noopener"><img src="https://www.werestoredecks.com/wp-content/uploads/2020/06/B31CB270-B4B2-4862-9176-0D74B7207261_1_105_c.jpeg" alt="We Restore Decks sample project" loading="lazy"></a>
+              <a class="gallery-item" href="https://www.werestoredecks.com/wp-content/uploads/2020/06/A1FF7840-72EC-450D-881D-AB61A376CB3A_1_105_c-e1648159763288.jpeg" target="_blank" rel="noopener"><img src="https://www.werestoredecks.com/wp-content/uploads/2020/06/A1FF7840-72EC-450D-881D-AB61A376CB3A_1_105_c-e1648159763288.jpeg" alt="We Restore Decks sample project" loading="lazy"></a>
+              <a class="gallery-item" href="https://www.werestoredecks.com/wp-content/uploads/2020/06/2C648F06-D3DB-4F85-BE18-A970C419FC54_1_105_c.jpeg" target="_blank" rel="noopener"><img src="https://www.werestoredecks.com/wp-content/uploads/2020/06/2C648F06-D3DB-4F85-BE18-A970C419FC54_1_105_c.jpeg" alt="We Restore Decks sample project" loading="lazy"></a>
+              <a class="gallery-item" href="https://www.werestoredecks.com/wp-content/uploads/2020/06/3FD327F0-A3B6-429A-B876-A491329FF20D_1_105_c.jpeg" target="_blank" rel="noopener"><img src="https://www.werestoredecks.com/wp-content/uploads/2020/06/3FD327F0-A3B6-429A-B876-A491329FF20D_1_105_c.jpeg" alt="We Restore Decks sample project" loading="lazy"></a>
+              <a class="gallery-item" href="https://www.werestoredecks.com/wp-content/uploads/2020/06/6C9312C7-662E-4D27-A299-F360149F97AA_1_105_c.jpeg" target="_blank" rel="noopener"><img src="https://www.werestoredecks.com/wp-content/uploads/2020/06/6C9312C7-662E-4D27-A299-F360149F97AA_1_105_c.jpeg" alt="We Restore Decks sample project" loading="lazy"></a>
+              <a class="gallery-item" href="https://www.werestoredecks.com/wp-content/uploads/2020/06/FA536128-DA67-470D-BEE1-FA0DAD912236_1_105_c.jpeg" target="_blank" rel="noopener"><img src="https://www.werestoredecks.com/wp-content/uploads/2020/06/FA536128-DA67-470D-BEE1-FA0DAD912236_1_105_c.jpeg" alt="We Restore Decks sample project" loading="lazy"></a>
+              <a class="gallery-item" href="https://www.werestoredecks.com/wp-content/uploads/2020/06/CB69F87E-BBA1-4528-90EF-2C00EA8E6201_1_105_c.jpeg" target="_blank" rel="noopener"><img src="https://www.werestoredecks.com/wp-content/uploads/2020/06/CB69F87E-BBA1-4528-90EF-2C00EA8E6201_1_105_c.jpeg" alt="We Restore Decks sample project" loading="lazy"></a>
+              <a class="gallery-item" href="https://www.werestoredecks.com/wp-content/uploads/2018/06/IMG_0164.jpg" target="_blank" rel="noopener"><img src="https://www.werestoredecks.com/wp-content/uploads/2018/06/IMG_0164.jpg" alt="We Restore Decks sample project" loading="lazy"></a>
+              <a class="gallery-item" href="https://www.werestoredecks.com/wp-content/uploads/2018/06/IMG_0181.jpg" target="_blank" rel="noopener"><img src="https://www.werestoredecks.com/wp-content/uploads/2018/06/IMG_0181.jpg" alt="We Restore Decks sample project" loading="lazy"></a>
+              <a class="gallery-item" href="https://www.werestoredecks.com/wp-content/uploads/2018/06/DSC_0080.jpg" target="_blank" rel="noopener"><img src="https://www.werestoredecks.com/wp-content/uploads/2018/06/DSC_0080.jpg" alt="We Restore Decks sample project" loading="lazy"></a>
+              <a class="gallery-item" href="https://www.werestoredecks.com/wp-content/uploads/2020/06/2533739B-D24D-409E-8E1A-443D2A035295_1_105_c.jpeg" target="_blank" rel="noopener"><img src="https://www.werestoredecks.com/wp-content/uploads/2020/06/2533739B-D24D-409E-8E1A-443D2A035295_1_105_c.jpeg" alt="We Restore Decks sample project" loading="lazy"></a>
+              <a class="gallery-item" href="https://www.werestoredecks.com/wp-content/uploads/2015/09/DSC_0098.jpg" target="_blank" rel="noopener"><img src="https://www.werestoredecks.com/wp-content/uploads/2015/09/DSC_0098.jpg" alt="We Restore Decks sample project" loading="lazy"></a>
+              <a class="gallery-item" href="https://www.werestoredecks.com/wp-content/uploads/2017/02/DSC_0006.jpg" target="_blank" rel="noopener"><img src="https://www.werestoredecks.com/wp-content/uploads/2017/02/DSC_0006.jpg" alt="We Restore Decks sample project" loading="lazy"></a>
+              <a class="gallery-item" href="https://www.werestoredecks.com/wp-content/uploads/2020/06/4A59E0E4-CA35-419E-84A6-8C29985D5F23_1_105_c.jpeg" target="_blank" rel="noopener"><img src="https://www.werestoredecks.com/wp-content/uploads/2020/06/4A59E0E4-CA35-419E-84A6-8C29985D5F23_1_105_c.jpeg" alt="We Restore Decks sample project" loading="lazy"></a>
+              <a class="gallery-item" href="https://www.werestoredecks.com/wp-content/uploads/2018/06/IMG_0760.jpg" target="_blank" rel="noopener"><img src="https://www.werestoredecks.com/wp-content/uploads/2018/06/IMG_0760.jpg" alt="We Restore Decks sample project" loading="lazy"></a>
+              <a class="gallery-item" href="https://www.werestoredecks.com/wp-content/uploads/2018/06/IMG_0110.jpeg" target="_blank" rel="noopener"><img src="https://www.werestoredecks.com/wp-content/uploads/2018/06/IMG_0110.jpeg" alt="We Restore Decks sample project" loading="lazy"></a>
+              <a class="gallery-item" href="https://www.werestoredecks.com/wp-content/uploads/2018/06/IMG_0111.jpeg" target="_blank" rel="noopener"><img src="https://www.werestoredecks.com/wp-content/uploads/2018/06/IMG_0111.jpeg" alt="We Restore Decks sample project" loading="lazy"></a>
+              <a class="gallery-item" href="https://www.werestoredecks.com/wp-content/uploads/2018/06/IMG_0176.jpg" target="_blank" rel="noopener"><img src="https://www.werestoredecks.com/wp-content/uploads/2018/06/IMG_0176.jpg" alt="We Restore Decks sample project" loading="lazy"></a>
+              <a class="gallery-item" href="https://www.werestoredecks.com/wp-content/uploads/2018/06/IMG_0188.jpg" target="_blank" rel="noopener"><img src="https://www.werestoredecks.com/wp-content/uploads/2018/06/IMG_0188.jpg" alt="We Restore Decks sample project" loading="lazy"></a>
+              <a class="gallery-item" href="https://www.werestoredecks.com/wp-content/uploads/2018/06/DSC_0081.jpg" target="_blank" rel="noopener"><img src="https://www.werestoredecks.com/wp-content/uploads/2018/06/DSC_0081.jpg" alt="We Restore Decks sample project" loading="lazy"></a>
+              <a class="gallery-item" href="https://www.werestoredecks.com/wp-content/uploads/2020/06/0C4999C0-EBBD-41D6-BD52-F1101C68C1C4_1_105_c.jpeg" target="_blank" rel="noopener"><img src="https://www.werestoredecks.com/wp-content/uploads/2020/06/0C4999C0-EBBD-41D6-BD52-F1101C68C1C4_1_105_c.jpeg" alt="We Restore Decks sample project" loading="lazy"></a>
+              <a class="gallery-item" href="https://www.werestoredecks.com/wp-content/uploads/2020/06/524C9AB7-294B-48BC-A37E-9B0C2E04B3C0_1_105_c.jpeg" target="_blank" rel="noopener"><img src="https://www.werestoredecks.com/wp-content/uploads/2020/06/524C9AB7-294B-48BC-A37E-9B0C2E04B3C0_1_105_c.jpeg" alt="We Restore Decks sample project" loading="lazy"></a>
+              <a class="gallery-item" href="https://www.werestoredecks.com/wp-content/uploads/2019/11/F3179EEE-A55F-4977-B474-614107A9EBE1.jpeg" target="_blank" rel="noopener"><img src="https://www.werestoredecks.com/wp-content/uploads/2019/11/F3179EEE-A55F-4977-B474-614107A9EBE1.jpeg" alt="We Restore Decks sample project" loading="lazy"></a>
+              <a class="gallery-item" href="https://www.werestoredecks.com/wp-content/uploads/2019/11/72C84C6E-89C4-4711-BB9A-484E197FE18C.jpeg" target="_blank" rel="noopener"><img src="https://www.werestoredecks.com/wp-content/uploads/2019/11/72C84C6E-89C4-4711-BB9A-484E197FE18C.jpeg" alt="We Restore Decks sample project" loading="lazy"></a>
+              <a class="gallery-item" href="https://www.werestoredecks.com/wp-content/uploads/2020/06/8FC5711D-E798-4FB3-8466-4148718257D7_1_105_c.jpeg" target="_blank" rel="noopener"><img src="https://www.werestoredecks.com/wp-content/uploads/2020/06/8FC5711D-E798-4FB3-8466-4148718257D7_1_105_c.jpeg" alt="We Restore Decks sample project" loading="lazy"></a>
+              <a class="gallery-item" href="https://www.werestoredecks.com/wp-content/uploads/2020/06/0A26C7FA-38D1-4067-A2A0-2367C609282A_1_105_c.jpeg" target="_blank" rel="noopener"><img src="https://www.werestoredecks.com/wp-content/uploads/2020/06/0A26C7FA-38D1-4067-A2A0-2367C609282A_1_105_c.jpeg" alt="We Restore Decks sample project" loading="lazy"></a>
+              <a class="gallery-item" href="https://www.werestoredecks.com/wp-content/uploads/2019/11/461E18EA-18B5-4468-8E64-4256F4A3319D.jpeg" target="_blank" rel="noopener"><img src="https://www.werestoredecks.com/wp-content/uploads/2019/11/461E18EA-18B5-4468-8E64-4256F4A3319D.jpeg" alt="We Restore Decks sample project" loading="lazy"></a>
+              <a class="gallery-item" href="https://www.werestoredecks.com/wp-content/uploads/2019/10/DSC_0209.jpg" target="_blank" rel="noopener"><img src="https://www.werestoredecks.com/wp-content/uploads/2019/10/DSC_0209.jpg" alt="We Restore Decks sample project" loading="lazy"></a>
+              <a class="gallery-item" href="https://www.werestoredecks.com/wp-content/uploads/2017/02/DSC_0004.jpg" target="_blank" rel="noopener"><img src="https://www.werestoredecks.com/wp-content/uploads/2017/02/DSC_0004.jpg" alt="We Restore Decks sample project" loading="lazy"></a>
+              <a class="gallery-item" href="https://www.werestoredecks.com/wp-content/uploads/2015/09/we-restore-decks-ipe-maintenance-11.jpg" target="_blank" rel="noopener"><img src="https://www.werestoredecks.com/wp-content/uploads/2015/09/we-restore-decks-ipe-maintenance-11.jpg" alt="We Restore Decks sample project" loading="lazy"></a>
+              <a class="gallery-item" href="https://www.werestoredecks.com/wp-content/uploads/2018/06/IMG_3100.jpg" target="_blank" rel="noopener"><img src="https://www.werestoredecks.com/wp-content/uploads/2018/06/IMG_3100.jpg" alt="We Restore Decks sample project" loading="lazy"></a>
+              <a class="gallery-item" href="https://www.werestoredecks.com/wp-content/uploads/2020/06/3EEA934E-8736-42D5-A3B5-15953EA45D37_1_105_c.jpeg" target="_blank" rel="noopener"><img src="https://www.werestoredecks.com/wp-content/uploads/2020/06/3EEA934E-8736-42D5-A3B5-15953EA45D37_1_105_c.jpeg" alt="We Restore Decks sample project" loading="lazy"></a>
+              <a class="gallery-item" href="https://www.werestoredecks.com/wp-content/uploads/2020/06/C1638667-8D90-4894-BA57-E288AAB320AD_1_105_c.jpeg" target="_blank" rel="noopener"><img src="https://www.werestoredecks.com/wp-content/uploads/2020/06/C1638667-8D90-4894-BA57-E288AAB320AD_1_105_c.jpeg" alt="We Restore Decks sample project" loading="lazy"></a>
+              <a class="gallery-item" href="https://www.werestoredecks.com/wp-content/uploads/2020/06/36AF857A-0936-45B6-96B7-F2F5C52D8922_1_105_c.jpeg" target="_blank" rel="noopener"><img src="https://www.werestoredecks.com/wp-content/uploads/2020/06/36AF857A-0936-45B6-96B7-F2F5C52D8922_1_105_c.jpeg" alt="We Restore Decks sample project" loading="lazy"></a>
+              <a class="gallery-item" href="https://www.werestoredecks.com/wp-content/uploads/2018/06/IMG_3065.jpg" target="_blank" rel="noopener"><img src="https://www.werestoredecks.com/wp-content/uploads/2018/06/IMG_3065.jpg" alt="We Restore Decks sample project" loading="lazy"></a>
+              <a class="gallery-item" href="https://www.werestoredecks.com/wp-content/uploads/2024/12/kimon1-scaled.jpeg" target="_blank" rel="noopener"><img src="https://www.werestoredecks.com/wp-content/uploads/2024/12/kimon1-scaled.jpeg" alt="We Restore Decks sample project" loading="lazy"></a>
+              <a class="gallery-item" href="https://www.werestoredecks.com/wp-content/uploads/2024/12/kimon67-scaled.jpeg" target="_blank" rel="noopener"><img src="https://www.werestoredecks.com/wp-content/uploads/2024/12/kimon67-scaled.jpeg" alt="We Restore Decks sample project" loading="lazy"></a>
+              <a class="gallery-item" href="https://www.werestoredecks.com/wp-content/uploads/2024/12/kimon6-scaled.jpeg" target="_blank" rel="noopener"><img src="https://www.werestoredecks.com/wp-content/uploads/2024/12/kimon6-scaled.jpeg" alt="We Restore Decks sample project" loading="lazy"></a>
+              <a class="gallery-item" href="https://www.werestoredecks.com/wp-content/uploads/2024/12/kimon5-scaled.jpeg" target="_blank" rel="noopener"><img src="https://www.werestoredecks.com/wp-content/uploads/2024/12/kimon5-scaled.jpeg" alt="We Restore Decks sample project" loading="lazy"></a>
+              <a class="gallery-item" href="https://www.werestoredecks.com/wp-content/uploads/2024/12/kimon4-scaled.jpeg" target="_blank" rel="noopener"><img src="https://www.werestoredecks.com/wp-content/uploads/2024/12/kimon4-scaled.jpeg" alt="We Restore Decks sample project" loading="lazy"></a>
+              <a class="gallery-item" href="https://www.werestoredecks.com/wp-content/uploads/2024/12/kimon3-scaled.jpeg" target="_blank" rel="noopener"><img src="https://www.werestoredecks.com/wp-content/uploads/2024/12/kimon3-scaled.jpeg" alt="We Restore Decks sample project" loading="lazy"></a>
+              <a class="gallery-item" href="https://www.werestoredecks.com/wp-content/uploads/2024/12/kimon2-scaled.jpeg" target="_blank" rel="noopener"><img src="https://www.werestoredecks.com/wp-content/uploads/2024/12/kimon2-scaled.jpeg" alt="We Restore Decks sample project" loading="lazy"></a>
+              <a class="gallery-item" href="https://www.werestoredecks.com/wp-content/uploads/2022/03/3F95E5DC-B6FF-465E-A56F-0E253D5B466E_1_105_c.jpeg" target="_blank" rel="noopener"><img src="https://www.werestoredecks.com/wp-content/uploads/2022/03/3F95E5DC-B6FF-465E-A56F-0E253D5B466E_1_105_c.jpeg" alt="We Restore Decks sample project" loading="lazy"></a>
+              <a class="gallery-item" href="https://www.werestoredecks.com/wp-content/uploads/2022/03/B76099A1-8859-4F7B-AEFD-950F224C80BE_1_105_c.jpeg" target="_blank" rel="noopener"><img src="https://www.werestoredecks.com/wp-content/uploads/2022/03/B76099A1-8859-4F7B-AEFD-950F224C80BE_1_105_c.jpeg" alt="We Restore Decks sample project" loading="lazy"></a>
+              <a class="gallery-item" href="https://www.werestoredecks.com/wp-content/uploads/2022/03/C8E7FD8C-0FF6-47E3-806F-A6AEAAA8A6C0_1_105_c-1.jpeg" target="_blank" rel="noopener"><img src="https://www.werestoredecks.com/wp-content/uploads/2022/03/C8E7FD8C-0FF6-47E3-806F-A6AEAAA8A6C0_1_105_c-1.jpeg" alt="We Restore Decks sample project" loading="lazy"></a>
+              <a class="gallery-item" href="https://www.werestoredecks.com/wp-content/uploads/2022/03/D425179B-9268-4427-9964-62B4C37BE029_1_105_c.jpeg" target="_blank" rel="noopener"><img src="https://www.werestoredecks.com/wp-content/uploads/2022/03/D425179B-9268-4427-9964-62B4C37BE029_1_105_c.jpeg" alt="We Restore Decks sample project" loading="lazy"></a>
+              <a class="gallery-item" href="https://www.werestoredecks.com/wp-content/uploads/2021/10/F93D408A-1E68-443C-A629-ECC43906FAA3_1_105_c.jpeg" target="_blank" rel="noopener"><img src="https://www.werestoredecks.com/wp-content/uploads/2021/10/F93D408A-1E68-443C-A629-ECC43906FAA3_1_105_c.jpeg" alt="We Restore Decks sample project" loading="lazy"></a>
+              <a class="gallery-item" href="https://www.werestoredecks.com/wp-content/uploads/2021/10/AF2FB445-1184-4C50-965E-40CC102CC50B_1_105_c.jpeg" target="_blank" rel="noopener"><img src="https://www.werestoredecks.com/wp-content/uploads/2021/10/AF2FB445-1184-4C50-965E-40CC102CC50B_1_105_c.jpeg" alt="We Restore Decks sample project" loading="lazy"></a>
+              <a class="gallery-item" href="https://www.werestoredecks.com/wp-content/uploads/2021/10/31DD10BC-55E5-4908-967D-1033E6A8FF8F_1_105_c.jpeg" target="_blank" rel="noopener"><img src="https://www.werestoredecks.com/wp-content/uploads/2021/10/31DD10BC-55E5-4908-967D-1033E6A8FF8F_1_105_c.jpeg" alt="We Restore Decks sample project" loading="lazy"></a>
+              <a class="gallery-item" href="https://www.werestoredecks.com/wp-content/uploads/2021/10/A24A4D6E-FEC6-49D9-ACAD-568B83EF8060_1_105_c.jpeg" target="_blank" rel="noopener"><img src="https://www.werestoredecks.com/wp-content/uploads/2021/10/A24A4D6E-FEC6-49D9-ACAD-568B83EF8060_1_105_c.jpeg" alt="We Restore Decks sample project" loading="lazy"></a>
+              <a class="gallery-item" href="https://www.werestoredecks.com/wp-content/uploads/2022/03/389B0BA0-CBA9-46C6-99BA-2BD427FCDF3D_1_105_c.jpeg" target="_blank" rel="noopener"><img src="https://www.werestoredecks.com/wp-content/uploads/2022/03/389B0BA0-CBA9-46C6-99BA-2BD427FCDF3D_1_105_c.jpeg" alt="We Restore Decks sample project" loading="lazy"></a>
+              <a class="gallery-item" href="https://www.werestoredecks.com/wp-content/uploads/2021/04/C3DAA969-F108-403B-BEF4-642C630ED0C2.jpeg" target="_blank" rel="noopener"><img src="https://www.werestoredecks.com/wp-content/uploads/2021/04/C3DAA969-F108-403B-BEF4-642C630ED0C2.jpeg" alt="We Restore Decks sample project" loading="lazy"></a>
+              <a class="gallery-item" href="https://www.werestoredecks.com/wp-content/uploads/2020/06/1C16BC10-3B05-4204-B737-3348BB3BACD1_1_105_c.jpeg" target="_blank" rel="noopener"><img src="https://www.werestoredecks.com/wp-content/uploads/2020/06/1C16BC10-3B05-4204-B737-3348BB3BACD1_1_105_c.jpeg" alt="We Restore Decks sample project" loading="lazy"></a>
+              <a class="gallery-item" href="https://www.werestoredecks.com/wp-content/uploads/2025/09/DSC_0073-scaled.jpg" target="_blank" rel="noopener"><img src="https://www.werestoredecks.com/wp-content/uploads/2025/09/DSC_0073-scaled.jpg" alt="We Restore Decks sample project" loading="lazy"></a>
+              <a class="gallery-item" href="https://www.werestoredecks.com/wp-content/uploads/2025/09/DSC_0076-scaled.jpg" target="_blank" rel="noopener"><img src="https://www.werestoredecks.com/wp-content/uploads/2025/09/DSC_0076-scaled.jpg" alt="We Restore Decks sample project" loading="lazy"></a>
+              <a class="gallery-item" href="https://www.werestoredecks.com/wp-content/uploads/2025/09/DSC_0069-scaled.jpg" target="_blank" rel="noopener"><img src="https://www.werestoredecks.com/wp-content/uploads/2025/09/DSC_0069-scaled.jpg" alt="We Restore Decks sample project" loading="lazy"></a>
+              <a class="gallery-item" href="https://www.werestoredecks.com/wp-content/uploads/2025/09/signature-series-close-up.webp" target="_blank" rel="noopener"><img src="https://www.werestoredecks.com/wp-content/uploads/2025/09/signature-series-close-up.webp" alt="We Restore Decks sample project" loading="lazy"></a>
+              <a class="gallery-item" href="https://www.werestoredecks.com/wp-content/uploads/2025/09/DSC_0063-scaled.jpg" target="_blank" rel="noopener"><img src="https://www.werestoredecks.com/wp-content/uploads/2025/09/DSC_0063-scaled.jpg" alt="We Restore Decks sample project" loading="lazy"></a>
+              <a class="gallery-item" href="https://www.werestoredecks.com/wp-content/uploads/2025/09/A0E551C0-3059-4C57-8192-B2538D8DE962_1_105_c.jpeg" target="_blank" rel="noopener"><img src="https://www.werestoredecks.com/wp-content/uploads/2025/09/A0E551C0-3059-4C57-8192-B2538D8DE962_1_105_c.jpeg" alt="We Restore Decks sample project" loading="lazy"></a>
+              <a class="gallery-item" href="https://www.werestoredecks.com/wp-content/uploads/2025/09/EZE-Breeze-bronze4.jpg" target="_blank" rel="noopener"><img src="https://www.werestoredecks.com/wp-content/uploads/2025/09/EZE-Breeze-bronze4.jpg" alt="We Restore Decks sample project" loading="lazy"></a>
+              <a class="gallery-item" href="https://www.werestoredecks.com/wp-content/uploads/2025/09/EZE-Breeze-bronze.jpg" target="_blank" rel="noopener"><img src="https://www.werestoredecks.com/wp-content/uploads/2025/09/EZE-Breeze-bronze.jpg" alt="We Restore Decks sample project" loading="lazy"></a>
+              <a class="gallery-item" href="https://www.werestoredecks.com/wp-content/uploads/2025/09/8081247C-CA88-48C2-AC18-108B1F8FE076_1_105_c.jpeg" target="_blank" rel="noopener"><img src="https://www.werestoredecks.com/wp-content/uploads/2025/09/8081247C-CA88-48C2-AC18-108B1F8FE076_1_105_c.jpeg" alt="We Restore Decks sample project" loading="lazy"></a>
+              <a class="gallery-item" href="https://www.werestoredecks.com/wp-content/uploads/2025/09/BFAFE67C-EC81-420C-AFED-5205DB3169B4_1_105_c.jpeg" target="_blank" rel="noopener"><img src="https://www.werestoredecks.com/wp-content/uploads/2025/09/BFAFE67C-EC81-420C-AFED-5205DB3169B4_1_105_c.jpeg" alt="We Restore Decks sample project" loading="lazy"></a>
+              <a class="gallery-item" href="https://www.werestoredecks.com/wp-content/uploads/2025/09/E097513B-47C7-4D76-841B-6CD69F72701B_1_105_c.jpeg" target="_blank" rel="noopener"><img src="https://www.werestoredecks.com/wp-content/uploads/2025/09/E097513B-47C7-4D76-841B-6CD69F72701B_1_105_c.jpeg" alt="We Restore Decks sample project" loading="lazy"></a>
+              <a class="gallery-item" href="https://www.werestoredecks.com/wp-content/uploads/2024/09/1126E07D-AF46-4069-A929-8C210B1746A7_1_105_c.jpeg" target="_blank" rel="noopener"><img src="https://www.werestoredecks.com/wp-content/uploads/2024/09/1126E07D-AF46-4069-A929-8C210B1746A7_1_105_c.jpeg" alt="We Restore Decks sample project" loading="lazy"></a>
+              <a class="gallery-item" href="https://www.werestoredecks.com/wp-content/uploads/2024/09/86CCB756-AAC3-410D-8506-9E8CFDAE2212_1_105_c.jpeg" target="_blank" rel="noopener"><img src="https://www.werestoredecks.com/wp-content/uploads/2024/09/86CCB756-AAC3-410D-8506-9E8CFDAE2212_1_105_c.jpeg" alt="We Restore Decks sample project" loading="lazy"></a>
+              <a class="gallery-item" href="https://www.werestoredecks.com/wp-content/uploads/2024/09/64F11EB5-4BEE-4A2A-A197-39D66D136DF7_1_105_c.jpeg" target="_blank" rel="noopener"><img src="https://www.werestoredecks.com/wp-content/uploads/2024/09/64F11EB5-4BEE-4A2A-A197-39D66D136DF7_1_105_c.jpeg" alt="We Restore Decks sample project" loading="lazy"></a>
+              <a class="gallery-item" href="https://www.werestoredecks.com/wp-content/uploads/2024/09/3A44B348-4042-4860-8F75-9B4C2F8F241C-1.jpg" target="_blank" rel="noopener"><img src="https://www.werestoredecks.com/wp-content/uploads/2024/09/3A44B348-4042-4860-8F75-9B4C2F8F241C-1.jpg" alt="We Restore Decks sample project" loading="lazy"></a>
+              <a class="gallery-item" href="https://www.werestoredecks.com/wp-content/uploads/2025/09/03E4E65A-BB2B-401C-B2A2-4353914D2AF8_1_105_c.jpeg" target="_blank" rel="noopener"><img src="https://www.werestoredecks.com/wp-content/uploads/2025/09/03E4E65A-BB2B-401C-B2A2-4353914D2AF8_1_105_c.jpeg" alt="We Restore Decks sample project" loading="lazy"></a>
+              <a class="gallery-item" href="https://www.werestoredecks.com/wp-content/uploads/2025/09/3B87B19C-6806-4EC7-8C10-B048AC5ABA8C_1_105_c.jpeg" target="_blank" rel="noopener"><img src="https://www.werestoredecks.com/wp-content/uploads/2025/09/3B87B19C-6806-4EC7-8C10-B048AC5ABA8C_1_105_c.jpeg" alt="We Restore Decks sample project" loading="lazy"></a>
+              <a class="gallery-item" href="https://www.werestoredecks.com/wp-content/uploads/2026/02/812B2415-D5B4-4DA4-B860-54D2F670844F_1_105_c.jpeg" target="_blank" rel="noopener"><img src="https://www.werestoredecks.com/wp-content/uploads/2026/02/812B2415-D5B4-4DA4-B860-54D2F670844F_1_105_c.jpeg" alt="We Restore Decks sample project" loading="lazy"></a>
+              <a class="gallery-item" href="https://www.werestoredecks.com/wp-content/uploads/2026/02/CDA61769-6ACD-4C70-86A5-A489502FDA3E_1_102_o.jpeg" target="_blank" rel="noopener"><img src="https://www.werestoredecks.com/wp-content/uploads/2026/02/CDA61769-6ACD-4C70-86A5-A489502FDA3E_1_102_o.jpeg" alt="We Restore Decks sample project" loading="lazy"></a>
+              <a class="gallery-item" href="https://www.werestoredecks.com/wp-content/uploads/2026/02/1BE5793E-B6AD-4568-B95E-54C9DDE53F1E_1_102_o.jpeg" target="_blank" rel="noopener"><img src="https://www.werestoredecks.com/wp-content/uploads/2026/02/1BE5793E-B6AD-4568-B95E-54C9DDE53F1E_1_102_o.jpeg" alt="We Restore Decks sample project" loading="lazy"></a>
+              <a class="gallery-item" href="https://www.werestoredecks.com/wp-content/uploads/2026/02/E367AFC5-7246-4FCD-92EA-F8B72612C1B8_1_105_c.jpeg" target="_blank" rel="noopener"><img src="https://www.werestoredecks.com/wp-content/uploads/2026/02/E367AFC5-7246-4FCD-92EA-F8B72612C1B8_1_105_c.jpeg" alt="We Restore Decks sample project" loading="lazy"></a>
+              <a class="gallery-item" href="https://www.werestoredecks.com/wp-content/uploads/2026/02/F5575E0A-461A-4A60-A448-C30EB51F0B2B_1_105_c.jpeg" target="_blank" rel="noopener"><img src="https://www.werestoredecks.com/wp-content/uploads/2026/02/F5575E0A-461A-4A60-A448-C30EB51F0B2B_1_105_c.jpeg" alt="We Restore Decks sample project" loading="lazy"></a>
+              <a class="gallery-item" href="https://www.werestoredecks.com/wp-content/uploads/2026/02/378DC768-EBAA-46CF-9F08-906258561A5F_1_105_c.jpeg" target="_blank" rel="noopener"><img src="https://www.werestoredecks.com/wp-content/uploads/2026/02/378DC768-EBAA-46CF-9F08-906258561A5F_1_105_c.jpeg" alt="We Restore Decks sample project" loading="lazy"></a>
+              <a class="gallery-item" href="https://www.werestoredecks.com/wp-content/uploads/2026/02/B46FAA86-8ECE-4091-A7D8-38203E7AC31E_1_105_c.jpeg" target="_blank" rel="noopener"><img src="https://www.werestoredecks.com/wp-content/uploads/2026/02/B46FAA86-8ECE-4091-A7D8-38203E7AC31E_1_105_c.jpeg" alt="We Restore Decks sample project" loading="lazy"></a>
+              <a class="gallery-item" href="https://www.werestoredecks.com/wp-content/uploads/2020/06/8523f000-d17e-450c-85a4-b1e4c380fa49-scaled.jpg" target="_blank" rel="noopener"><img src="https://www.werestoredecks.com/wp-content/uploads/2020/06/8523f000-d17e-450c-85a4-b1e4c380fa49-scaled.jpg" alt="We Restore Decks sample project" loading="lazy"></a>
+              <a class="gallery-item" href="https://www.werestoredecks.com/wp-content/uploads/2025/09/B323529C-C55F-4F83-9B6F-54EF0BA8B3CD_1_105_c.jpeg" target="_blank" rel="noopener"><img src="https://www.werestoredecks.com/wp-content/uploads/2025/09/B323529C-C55F-4F83-9B6F-54EF0BA8B3CD_1_105_c.jpeg" alt="We Restore Decks sample project" loading="lazy"></a>
+              <a class="gallery-item" href="https://www.werestoredecks.com/wp-content/uploads/2024/09/8DB32D32-7E5E-4A11-B1C3-75B9D5C38CB0.jpg" target="_blank" rel="noopener"><img src="https://www.werestoredecks.com/wp-content/uploads/2024/09/8DB32D32-7E5E-4A11-B1C3-75B9D5C38CB0.jpg" alt="We Restore Decks sample project" loading="lazy"></a>
+            </div>
+          </div>
+        </section>
+        <section class="cta">
+          <div class="container">
+            <div class="cta-panel">
+              <h2>Need a Quote For Your Deck Project?</h2>
+              <p>Tell us about your project and get a free quote.</p>
+              <a href="/contact" class="btn btn-gold">Get Your Estimate</a>
+            </div>
+          </div>
+        </section>
+      </main>
+    </div>

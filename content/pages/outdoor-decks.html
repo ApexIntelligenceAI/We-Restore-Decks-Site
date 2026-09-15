@@ -1,0 +1,821 @@
+<div class="w-embed wrd-page-embed"><style>
+/* ================= TOKENS ================= */
+:root {
+    --deep: #3A2A22;
+    --darkest: #241812;
+    --off: #F9F9F8;
+    --caramel: #B76F3F;
+    --cyan: #33AAC9;
+    --rust: #974E31;
+    --taupe: #70635E;
+    --paper: #FFFFFF;
+    --navy: var(--deep);
+    --cream: var(--off);
+    --wood: var(--rust);
+    --sage: var(--cyan);
+    --gold: var(--caramel);
+    --slate: var(--taupe);
+    --ink: var(--deep);
+    --ink-soft: var(--taupe);
+    --line-light: rgba(255, 255, 255, 0.16);
+    --radius: 14px;
+    --maxw: 1200px;
+    --pad: 24px;
+  }
+.wrd-page-embed, .wrd-page-embed * { box-sizing: border-box; }
+.wrd-page-embed { scroll-behavior: smooth; }
+.wrd-page-embed {
+  font-family: "Inter", system-ui, sans-serif;
+  color: var(--ink);
+  background: var(--off);
+  line-height: 1.5;
+  -webkit-font-smoothing: antialiased;
+}
+img { display: block; max-width: 100%; }
+a { text-decoration: none; color: inherit; }
+.wrd-container { width: 100%; max-width: var(--maxw); margin: 0 auto; padding-inline: var(--pad); }
+h1, h2, h3 {
+  font-family: "Archivo", sans-serif;
+  letter-spacing: -0.02em;
+  line-height: 1.03;
+}
+.wrd-eyebrow {
+  font-family: "Archivo", sans-serif;
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  color: var(--caramel);
+  margin-bottom: 14px;
+}
+.wrd-eyebrow-light { color: var(--caramel); }
+.wrd-section-title {
+  font-size: clamp(30px, 4.2vw, 50px);
+  font-weight: 800;
+  max-width: 16ch;
+    color: #000;
+}
+.wrd-section-title.wrd-light { color: #fff; }
+.wrd-section-copy {
+  max-width: 54ch;
+  color: var(--taupe);
+  font-size: 16px;
+  margin-top: 14px;
+}
+.wrd-section-copy.light { color: rgba(249, 249, 248, 0.84); }
+.wrd-section-white { background: var(--paper); }
+/* ================= BUTTONS ================= */
+.wrd-btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  font-family: "Archivo", sans-serif;
+  font-weight: 700;
+  font-size: 14px;
+  border: 1.5px solid transparent;
+  border-radius: 8px;
+  padding: 12px 22px;
+  cursor: pointer;
+  transition: 0.2s ease;
+  white-space: nowrap;
+}
+.wrd-btn-cream { background: var(--off); color: var(--ink); }
+.wrd-btn-cream:hover { background: #fff; }
+.wrd-btn-ghost { background: transparent; color: #fff; border-color: rgba(255, 255, 255, 0.35); }
+.wrd-btn-ghost:hover { background: rgba(255, 255, 255, 0.08); }
+.wrd-btn-green { background: var(--cyan); border-color: var(--cyan); color: #fff; }
+  .wrd-btn-green:hover { background: #2a92ae; border-color: #2a92ae; }
+.wrd-btn-gold { background: var(--caramel); border-color: var(--caramel); color: #fff; }
+  .wrd-btn-gold:hover { background: var(--rust); border-color: var(--rust); }
+.wrd-btn-block { width: 100%; }
+/* ================= SERVICE HERO ================= */
+.wrd-service-hero {
+  color: #fff;
+  background-image: linear-gradient(rgba(58, 42, 34, 0.55) 0%, rgba(58, 42, 34, 0.55) 100%),
+    url("https://cdn.prod.website-files.com/6a443b24edea4ec6b8c93e11/6a4bd289ff72bfd3cc14bc5b_resurfaced-deck.jpeg");
+  background-size: cover;
+  background-position: center;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+  }
+.wrd-service-hero-inner {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+    width: 100%;
+    max-width: var(--maxw);
+    margin: 0 auto;
+    padding: clamp(100px, 12vw, 140px) var(--pad) 0;
+    box-sizing: border-box;
+  }
+.wrd-hero-title {
+  font-size: clamp(40px, 6vw, 74px);
+  max-width: 12ch;
+  color: #fff;
+    margin-bottom: 18px;
+}
+.wrd-hero-sub {
+  max-width: 50ch;
+  color: rgba(249, 249, 248, 0.92);
+  font-size: 17px;
+  margin-bottom: 28px;
+}
+.wrd-hero-actions { display: flex; gap: 12px; flex-wrap: wrap; margin-bottom: 54px; }
+.wrd-hero-stats {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    border-top: 1px solid var(--line-light);
+    background: transparent;
+  }
+.wrd-stat {
+    padding: 24px 0 34px;
+    border-right: 1px solid var(--line-light);
+    background: transparent;
+  }
+.wrd-stat:nth-child(2), .wrd-stat:last-child { padding-left: 24px; }
+.wrd-stat:last-child { border-right: none; }
+.wrd-stat-num {
+  display: block;
+  font-family: "Archivo", sans-serif;
+  font-weight: 800;
+  font-size: 23px;
+  color: #fff;
+    margin-bottom: 6px;
+}
+.wrd-stat-label { color: rgba(249, 249, 248, 0.74); font-size: 13px; }
+/* ================= SHARED SPLIT ================= */
+.wrd-service-overview { padding: 84px 0; background: var(--off); }
+.wrd-split-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  align-items: center;
+  gap: 44px;
+}
+.wrd-split-grid.wrd-reverse .wrd-media-card { order: 1; }
+.wrd-split-grid.wrd-reverse .wrd-split-copy { order: 2; }
+.wrd-split-copy .wrd-btn { margin-top: 16px; }
+.wrd-media-card { border-radius: var(--radius); overflow: hidden; min-height: 340px; }
+.wrd-media-card img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  border-radius: inherit;
+}
+/* ================= SERVICE BAND ================= */
+.wrd-service-band {
+  background-image: linear-gradient(rgba(58, 42, 34, 0.86), rgba(36, 24, 18, 0.84)),
+    url("https://cdn.prod.website-files.com/6a443b24edea4ec6b8c93e11/6a4bd28a099fcfef59b4c8d7_Screenshot%202026-06-27%20at%2012.01.45%E2%80%AFAM.png");
+  background-size: cover;
+  background-position: center;
+  color: #fff;
+  padding: 78px 0;
+}
+.wrd-service-band .wrd-section-title { margin-bottom: 6px; max-width: 13ch; color: #fff; }
+.wrd-service-band .wrd-btn { margin-top: 22px; }
+/* ================= CENTER COPY ================= */
+.wrd-center-copy { padding: 76px 0; text-align: center; background: var(--off); }
+.wrd-narrow { max-width: 780px; }
+.wrd-center-copy .wrd-section-title { margin: 0 auto; }
+.wrd-center-copy .wrd-section-copy { margin-inline: auto; }
+/* ================= FEATURED OPTIONS ================= */
+.wrd-featured-options {
+    background-image: linear-gradient(rgba(58, 42, 34, 0.88), rgba(36, 24, 18, 0.84)),
+      url("https://cdn.prod.website-files.com/6a443b24edea4ec6b8c93e11/6a4bd28a915d7fcd52f4230a_Screenshot%202026-06-27%20at%2012.01.59%E2%80%AFAM.png");
+    background-size: cover;
+    background-position: center;
+    padding: 82px 0;
+  }
+.wrd-featured-options .wrd-section-title { margin-bottom: 30px; max-width: 13ch; color: #fff; }
+  .wrd-featured-options .wrd-section-title.wrd-light { color: #fff; }
+.wrd-option-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 22px;
+}
+.wrd-option-card {
+  background: #fff;
+  border-radius: var(--radius);
+  overflow: hidden;
+}
+.wrd-option-card img { width: 100%; height: 210px; object-fit: cover; }
+.wrd-option-body { padding: 20px; }
+.wrd-option-body h3 { font-size: 24px; margin-bottom: 8px; color: #000; }
+.wrd-option-body p { color: var(--taupe); font-size: 15px; margin-bottom: 14px; }
+/* ================= PLAN CTA ================= */
+.wrd-plan-cta { background: var(--deep); color: #fff; padding: 22px 0; }
+.wrd-plan-cta-inner {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 18px;
+}
+.wrd-plan-cta h2 {
+  font-size: clamp(28px, 4vw, 44px);
+  margin-bottom: 4px;
+    color: #fff;}
+.wrd-plan-cta p { color: rgba(249, 249, 248, 0.78); }
+/* ================= SERVICES CARDS ================= */
+.wrd-services { padding: 84px 0; background: var(--off); }
+.wrd-services .wrd-section-title { margin-bottom: 38px; max-width: 16ch; }
+.wrd-cards { display: grid; gap: 22px; align-items: start; }
+.wrd-cards.wrd-three { grid-template-columns: repeat(3, 1fr); }
+.wrd-card {
+  display: grid;
+  grid-template-rows: 170px 1fr;
+  background: var(--paper);
+  border-radius: var(--radius);
+  overflow: hidden;
+  box-shadow: 0 1px 0 rgba(0, 0, 0, 0.06);
+}
+.wrd-card-img {
+  width: 100%;
+  height: 160px;
+  object-fit: cover;
+  object-position: top center;
+  display: block;
+}
+.wrd-card-body { padding: 14px 18px 18px; }
+.wrd-card-body h3 { font-size: 20px; margin: 0 0 8px; color: #000; }
+.wrd-card-body p { color: var(--taupe); font-size: 14px; }
+/* ================= WHY ================= */
+.wrd-why {
+    background: var(--off);
+  padding: 68px 0;
+}
+.wrd-why-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  align-items: stretch;
+}
+.wrd-why-card {
+  min-height: 420px;
+  background-size: cover;
+  background-position: center;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 36px;
+  border-radius: var(--radius);
+  overflow: hidden;
+}
+.wrd-why-quote {
+  background: var(--deep);
+  color: #fff;
+  border-radius: 12px;
+  max-width: 360px;
+  padding: 24px;
+}
+.wrd-why-quote p {
+  font-family: "Archivo", sans-serif;
+  font-size: 20px;
+  line-height: 1.25;
+  margin-bottom: 12px;
+}
+.wrd-why-quote span { color: var(--caramel); font-size: 13px; }
+.wrd-why-content {
+  padding: 0 0 0 54px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+.wrd-why-list {
+  list-style: none;
+  margin-top: 20px;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+.wrd-why-list li {
+  position: relative;
+  padding-left: 20px;
+  color: var(--taupe);
+}
+.wrd-why-list li::before {
+  content: "";
+  position: absolute;
+  left: 0;
+  top: 8px;
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: var(--caramel);
+}
+/* ================= PROCESS (restoration classes) ================= */
+.container {
+  width: 100%;
+  max-width: var(--maxw);
+  margin: 0 auto;
+  padding-inline: var(--pad);
+}
+.eyebrow {
+  font-family: "Archivo", sans-serif;
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  color: var(--caramel);
+  margin-bottom: 14px;
+}
+.eyebrow-light { color: var(--caramel); }
+.section-title {
+  font-size: clamp(30px, 4.2vw, 50px);
+  font-weight: 800;
+  max-width: 16ch;
+}
+.section-title.light { color: #fff; }
+.process .section-title { color: #fff; }
+.process {
+  background: var(--deep);
+  color: #fff;
+  padding: 86px 0;
+}
+.process-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 54px;
+}
+.process-sub {
+  margin-top: 18px;
+  color: rgba(249, 249, 248, 0.8);
+  max-width: 38ch;
+}
+.process-right {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+.step {
+  display: flex;
+  gap: 18px;
+  border: 1px solid var(--line-light);
+  border-radius: 12px;
+  background: rgba(255, 255, 255, 0.04);
+  padding: 20px 22px;
+}
+.step-num {
+  font-family: "Archivo", sans-serif;
+  font-size: 14px;
+  font-weight: 800;
+  color: var(--caramel);
+  letter-spacing: 0.06em;
+  padding-top: 3px;
+}
+.step h3 { font-size: 18px; margin-bottom: 5px; color: #fff; }
+.step p { color: rgba(249, 249, 248, 0.74); font-size: 14px; }
+/* ================= FAQ ================= */
+.qaf-wrd-faq { padding: 84px 0; background: var(--off); }
+.qaf-wrd-faq-grid {
+  display: grid;
+  grid-template-columns: 1fr 1.2fr;
+  gap: 52px;
+}
+.qaf-wrd-faq-right { display: flex; flex-direction: column; gap: 12px; }
+.qaf-wrd-faq-item { background: var(--paper); border-radius: 12px; overflow: hidden; }
+.qaf-wrd-faq-q {
+  width: 100%;
+  text-align: left;
+  background: none;
+  border: none;
+  cursor: pointer;
+  font-family: "Archivo", sans-serif;
+  font-size: 16px;
+  font-weight: 700;
+  color: var(--ink);
+  padding: 20px 22px;
+  position: relative;
+}
+  summary.qaf-wrd-faq-q {
+    list-style: none;
+  }
+  summary.qaf-wrd-faq-q::-webkit-details-marker {
+    display: none;
+  }
+  .qaf-wrd-faq-q::after {
+  content: "+";
+  position: absolute;
+  right: 22px;
+  top: 50%;
+  transform: translateY(-50%);
+  font-size: 20px;
+  color: var(--caramel);
+}
+details.qaf-wrd-faq-item[open] .qaf-wrd-faq-q::after { content: "\2013"; }
+.qaf-wrd-faq-a { overflow: hidden; }
+details.qaf-wrd-faq-item[open] > .qaf-wrd-faq-a {
+  animation: wrd-faq-reveal 0.3s ease;
+}
+@keyframes wrd-faq-reveal {
+  from { opacity: 0; transform: translateY(-6px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+.qaf-wrd-faq-a p { padding: 0 22px 20px; color: var(--taupe); }
+/* ================= ESTIMATE ================= */
+.wrd-estimate {
+  color: #fff;
+  padding: 84px 0;
+  background-image: linear-gradient(rgba(58, 42, 34, 0.9), rgba(36, 24, 18, 0.86)),
+    url("https://cdn.prod.website-files.com/6a443b24edea4ec6b8c93e11/6a4bd2895b8197f4ea48acc0_we-restore-decks-ipe-maintenance-1.jpg");
+  background-size: cover;
+  background-position: center;
+}
+.wrd-estimate-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 56px;
+  align-items: start;
+}
+.wrd-cta-phone {
+  display: inline-block;
+  margin-top: 12px;
+  font-family: "Archivo", sans-serif;
+  font-weight: 800;
+  font-size: clamp(30px, 4vw, 44px);
+  color: var(--caramel);
+}
+.wrd-cta-form {
+  background: var(--off);
+  border-radius: var(--radius);
+  padding: 26px;
+}
+.wrd-cta-form label {
+  display: block;
+  color: var(--ink);
+  font-family: "Archivo", sans-serif;
+  font-size: 13px;
+  font-weight: 700;
+  margin-bottom: 8px;
+}
+.wrd-cta-form input,
+.wrd-cta-form select,
+.wrd-cta-form textarea {
+  width: 100%;
+  margin-bottom: 14px;
+  border: 1px solid rgba(112, 99, 94, 0.35);
+  border-radius: 8px;
+  background: #fff;
+  color: var(--ink);
+  padding: 12px 14px;
+  font-family: "Inter", sans-serif;
+  font-size: 14px;
+}
+.wrd-cta-form textarea { min-height: 96px; resize: vertical; }
+.wrd-cta-form input:focus,
+.wrd-cta-form select:focus,
+.wrd-cta-form textarea:focus {
+  outline: 2px solid rgba(183, 111, 63, 0.25);
+  border-color: var(--cyan);
+}
+.wrd-cta-fineprint { color: var(--taupe); font-size: 12px; text-align: center; margin-top: 10px; }
+/* ================= RESPONSIVE ================= */
+@media (max-width: 980px) {
+  :root { --pad: 18px; }
+  .wrd-split-grid,
+  .wrd-option-grid,
+  .wrd-why-grid,
+  .process-grid,
+  .qaf-wrd-faq-grid,
+  .wrd-estimate-grid {
+    grid-template-columns: 1fr;
+    gap: 28px;
+  }
+  .wrd-split-grid.wrd-reverse .wrd-media-card,
+  .wrd-split-grid.wrd-reverse .wrd-split-copy {
+    order: initial;
+  }
+  .wrd-cards.wrd-three { grid-template-columns: 1fr; }
+  .wrd-service-hero-inner,
+  .wrd-service-band .wrd-container,
+  .wrd-featured-options .wrd-container > .wrd-eyebrow,
+  .wrd-featured-options .wrd-container > .wrd-section-title,
+  .wrd-services .wrd-container > .wrd-eyebrow,
+  .wrd-services .wrd-container > .wrd-section-title,
+  .process-grid > div:first-child,
+  .qaf-wrd-faq-grid > div:first-child,
+  .wrd-estimate-grid > div:first-child,
+  .wrd-plan-cta-inner,
+  .wrd-why-content,
+  .wrd-split-copy,
+  .wrd-center-copy {
+    text-align: center;
+  }
+  .wrd-hero-title,
+  .wrd-hero-sub,
+  .wrd-section-title,
+  .wrd-section-copy,
+  .process-sub,
+  .section-title,
+  .wrd-featured-options .wrd-section-title,
+  .wrd-services .wrd-section-title {
+    margin-inline: auto;
+    max-width: 100%;
+  }
+  .wrd-hero-actions {
+    justify-content: center;
+  }
+  .wrd-plan-cta-inner {
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+  }
+  .wrd-why-content {
+    padding: 0;
+    align-items: center;
+  }
+  .wrd-why-list {
+    text-align: left;
+    width: 100%;
+    max-width: 420px;
+    margin-inline: auto;
+  }
+  .wrd-hero-stats { grid-template-columns: 1fr; }
+  .wrd-stat,
+  .wrd-stat:nth-child(2),
+  .wrd-stat:last-child {
+    border-right: none;
+    border-bottom: 1px solid var(--line-light);
+    padding: 18px 0;
+    text-align: center;
+  }
+  .wrd-stat:last-child { border-bottom: none; padding-left: 0; }
+  .wrd-stat:nth-child(2) { padding-left: 0; }
+  .wrd-option-body,
+  .wrd-card-body {
+    text-align: center;
+  }
+  .wrd-media-card { min-height: 260px; }
+  .wrd-why-card { min-height: 300px; }
+  .step {
+    text-align: left;
+  }
+  .qaf-wrd-faq-q {
+    text-align: left;
+    padding-right: 48px;
+  }
+  .wrd-cta-phone {
+    display: block;
+    text-align: center;
+  }
+}
+@media (max-width: 620px) {
+  :root { --pad: 16px; }
+  .wrd-service-hero-inner {
+    padding-top: 100px;
+  }
+  .wrd-hero-title {
+    font-size: clamp(32px, 9vw, 44px);
+  }
+  .wrd-hero-sub {
+    font-size: 15px;
+    margin-bottom: 22px;
+  }
+  .wrd-hero-actions {
+    flex-direction: column;
+    align-items: stretch;
+    margin-bottom: 36px;
+  }
+  .wrd-hero-actions .wrd-btn,
+  .wrd-plan-cta-inner .wrd-btn,
+  .wrd-service-band .wrd-btn {
+    width: 100%;
+  }
+  .wrd-cards.wrd-three { grid-template-columns: 1fr; }
+  .wrd-option-card img { height: 180px; }
+  .wrd-card-img { height: 160px; }
+  .wrd-section-title {
+    font-size: clamp(26px, 7vw, 36px);
+  }
+  .wrd-center-copy,
+  .wrd-services,
+  .qaf-wrd-faq,
+  .process,
+  .wrd-featured-options,
+  .wrd-service-overview,
+  .wrd-service-band,
+  .wrd-estimate,
+  .wrd-why {
+    padding-block: 52px;
+  }
+  .wrd-cta-form { padding: 18px; }
+  .qaf-wrd-faq-q {
+    font-size: 15px;
+    padding: 16px 44px 16px 16px;
+  }
+  .qaf-wrd-faq-a p { padding: 0 16px 16px; }
+  .step {
+    padding: 16px;
+    gap: 14px;
+  }
+  .wrd-btn {
+    white-space: normal;
+    text-align: center;
+  }
+}
+  </style>
+      <main>
+        <section class="wrd-service-hero">
+          <div class="wrd-container wrd-service-hero-inner">
+            <p class="wrd-eyebrow wrd-eyebrow-light">Outdoor decks in Annapolis, MD</p>
+            <h1 class="wrd-hero-title">Outdoor Deck Design, Build, and Upgrades</h1>
+            <p class="wrd-hero-sub">This page covers complete outdoor deck solutions, from brand-new builds to layout updates and finish upgrades for better daily use and long-term value.</p>
+            <div class="wrd-hero-actions">
+              <a href="/contact" class="wrd-btn wrd-btn-cream">Request outdoor deck estimate</a>
+              <a href="tel:4102636270" class="wrd-btn wrd-btn-ghost">Call 410-263-6270</a>
+            </div>
+            <div class="wrd-hero-stats">
+              <div class="wrd-stat">
+                <span class="wrd-stat-num">Custom layouts</span>
+                <span class="wrd-stat-label">designed around your space and lifestyle</span>
+              </div>
+              <div class="wrd-stat">
+                <span class="wrd-stat-num">Material options</span>
+                <span class="wrd-stat-label">wood and composite systems for every budget</span>
+              </div>
+              <div class="wrd-stat">
+                <span class="wrd-stat-num">Built for longevity</span>
+                <span class="wrd-stat-label">structure, finish, and details that last</span>
+              </div>
+            </div>
+          </div>
+        </section>
+        <section class="wrd-service-band">
+          <div class="wrd-container">
+            <p class="wrd-eyebrow wrd-eyebrow-light">Outdoor deck planning</p>
+            <h2 class="wrd-section-title wrd-light">Designed for comfort, built for long-term performance.</h2>
+            <p class="wrd-section-copy wrd-light">We combine layout planning, structural best practices, and finish details so your outdoor deck looks great and performs through every season.</p>
+            <a href="/contact" class="wrd-btn wrd-btn-cream">Request deck consultation</a>
+          </div>
+        </section>
+        <section class="wrd-center-copy wrd-section-white">
+          <div class="wrd-container wrd-narrow">
+            <p class="wrd-eyebrow">Why homeowners call us</p>
+            <h2 class="wrd-section-title">Clear outdoor deck guidance from first sketch to final build.</h2>
+            <p class="wrd-section-copy">Homeowners need practical options, realistic budgets, and a design that fits how they actually live. We provide straightforward recommendations with a clear build path.</p>
+          </div>
+        </section>
+        <section class="wrd-featured-options">
+          <div class="wrd-container">
+            <p class="wrd-eyebrow wrd-eyebrow-light">Annapolis outdoor deck services</p>
+            <h2 class="wrd-section-title wrd-light">Popular Outdoor Deck Styles in Annapolis</h2>
+            <div class="wrd-option-grid">
+              <article class="wrd-option-card">
+                <img src="/images/screen-rooms-sunrooms-v2.jpg" alt="Classic wood outdoor deck with stairs and railing">
+                <div class="wrd-option-body">
+                  <h3>Classic wood outdoor deck</h3>
+                  <p>Warm, timeless wood aesthetics with layout and railing options tailored to your property.</p>
+                </div>
+              </article>
+              <article class="wrd-option-card">
+                <img src="/images/screen-room-sunroom.png" alt="Low-maintenance outdoor deck with dining area">
+                <div class="wrd-option-body">
+                  <h3>Low-maintenance composite deck</h3>
+                  <p>Durable surfaces and clean finishes designed for easy upkeep and daily outdoor living.</p>
+                </div>
+              </article>
+            </div>
+          </div>
+        </section>
+        <section class="wrd-plan-cta">
+          <div class="wrd-container wrd-plan-cta-inner">
+            <div>
+              <h2>Start Your Outdoor Deck Plan</h2>
+              <p>Share your ideas, dimensions, and photos to map the right next step.</p>
+            </div>
+            <a href="/contact" class="wrd-btn wrd-btn-gold">Start now</a>
+          </div>
+        </section>
+        <section class="wrd-services wrd-section-white">
+          <div class="wrd-container">
+            <p class="wrd-eyebrow">Outdoor deck options</p>
+            <h2 class="wrd-section-title">Service paths based on layout, materials, and project goals.</h2>
+            <div class="wrd-cards wrd-three">
+              <article class="wrd-card">
+                <img class="wrd-card-img" src="/images/13.png" alt="">
+                <div class="wrd-card-body">
+                  <h3>Waterfront outdoor decks</h3>
+                  <p>Open layouts that maximize views, circulation, and comfort in high-visibility spaces.</p>
+                </div>
+              </article>
+              <article class="wrd-card">
+                <img class="wrd-card-img" src="/images/19.png" alt="">
+                <div class="wrd-card-body">
+                  <h3>Covered and enclosed transitions</h3>
+                  <p>Integrated spaces that connect indoor and outdoor living with weather-conscious comfort.</p>
+                </div>
+              </article>
+              <article class="wrd-card">
+                <img class="wrd-card-img" src="/images/20.png" alt="">
+                <div class="wrd-card-body">
+                  <h3>Stairs and feature railings</h3>
+                  <p>Functional access paired with modern railing details for a polished finished look.</p>
+                </div>
+              </article>
+            </div>
+          </div>
+        </section>
+        <section class="wrd-why">
+          <div class="wrd-container wrd-why-grid">
+            <figure class="wrd-why-card" style="background-image:url('https://cdn.prod.website-files.com/6a443b24edea4ec6b8c93e11/6a48d5c97d3b027f52af6b17_10%20(2).wrd-png')">
+              <figcaption class="wrd-why-quote">
+                <p>Why hire us? One team from concept to completed outdoor deck keeps planning, design, and build quality aligned.</p>
+                <span>We Restore Decks</span>
+              </figcaption>
+            </figure>
+            <article class="wrd-why-content">
+              <p class="wrd-eyebrow">Project fit</p>
+              <h2 class="wrd-section-title">Is This Outdoor Deck Service Right For You?</h2>
+              <ul class="wrd-why-list">
+                <li>You want to expand how your backyard is used for dining, relaxing, and gathering.</li>
+                <li>You need a deck layout that works better with your home's doors, grade, and traffic flow.</li>
+                <li>You want material and railing options explained clearly before making final decisions.</li>
+                <li>You prefer a structured process from planning through final walkthrough.</li>
+              </ul>
+            </article>
+          </div>
+        </section>
+        <section class="process" id="process">
+          <div class="container process-grid">
+            <div class="process-left">
+              <p class="eyebrow eyebrow-light">The W.R.D. process</p>
+              <h2 class="section-title light">A clear outdoor deck workflow from planning to final walkthrough.</h2>
+              <p class="process-sub">Every project follows a structured path so homeowners understand design decisions, pricing, build timeline, and final deliverables.</p>
+            </div>
+            <div class="process-right">
+              <article class="step">
+                <span class="step-num">01</span>
+                <div>
+                  <h3>Consultation and site review</h3>
+                  <p>Review your goals, measure space, and confirm practical layout direction.</p>
+                </div>
+              </article>
+              <article class="step">
+                <span class="step-num">02</span>
+                <div>
+                  <h3>Design and scope confirmation</h3>
+                  <p>Finalize footprint, materials, railing style, and the complete build scope.</p>
+                </div>
+              </article>
+              <article class="step">
+                <span class="step-num">03</span>
+                <div>
+                  <h3>Build execution</h3>
+                  <p>Complete framing, decking, stairs, and finish details with consistent site management.</p>
+                </div>
+              </article>
+              <article class="step">
+                <span class="step-num">04</span>
+                <div>
+                  <h3>Final walkthrough</h3>
+                  <p>Review completed deck work and provide care guidance for long-term performance.</p>
+                </div>
+              </article>
+            </div>
+          </div>
+        </section>
+        <section class="qaf-wrd-faq wrd-section-white">
+          <style>
+        .qaf-wrd-faq-a { overflow: hidden; }
+details.qaf-wrd-faq-item[open] > .qaf-wrd-faq-a {
+  animation: wrd-faq-reveal 0.3s ease;
+}
+@keyframes wrd-faq-reveal {
+  from { opacity: 0; transform: translateY(-6px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+      </style>
+          <div class="wrd-container qaf-wrd-faq-grid">
+            <div class="qaf-wrd-faq-left">
+              <p class="wrd-eyebrow">FAQ</p>
+              <h2 class="wrd-section-title">Questions homeowners ask about outdoor decks.</h2>
+            </div>
+            <div class="qaf-wrd-faq-right">
+              <details class="qaf-wrd-faq-item" open>
+                <summary class="qaf-wrd-faq-q">How do I choose between wood and composite decking?</summary>
+                <div class="qaf-wrd-faq-a">
+                  <p>Wood offers a natural look at a lower upfront cost; composite costs more initially but needs far less upkeep. We help match the choice to your budget and lifestyle.</p>
+                </div>
+              </details>
+              <details class="qaf-wrd-faq-item">
+                <summary class="qaf-wrd-faq-q">Can you build a new deck where an old one existed?</summary>
+                <div class="qaf-wrd-faq-a">
+                  <p>Yes. We remove the old structure, evaluate the footings, and build a new deck designed for your space and needs.</p>
+                </div>
+              </details>
+              <details class="qaf-wrd-faq-item">
+                <summary class="qaf-wrd-faq-q">How long does an outdoor deck project usually take?</summary>
+                <div class="qaf-wrd-faq-a">
+                  <p>Most projects take from a few days to a couple of weeks, depending on size, materials, and design complexity.</p>
+                </div>
+              </details>
+              <details class="qaf-wrd-faq-item">
+                <summary class="qaf-wrd-faq-q">Can I get an estimate before an on-site visit?</summary>
+                <div class="qaf-wrd-faq-a">
+                  <p>Yes. Share your ideas, photos, and rough dimensions for an initial range, then we finalize after an on-site visit.</p>
+                </div>
+              </details>
+            </div>
+          </div>
+        </section>
+      </main>
+    </div>

@@ -1,0 +1,216 @@
+/* ── Visually-hidden text for logo link ── */
+.wrd-brand-sr {
+  position: absolute !important;
+  width: 1px !important;
+  height: 1px !important;
+  padding: 0 !important;
+  margin: -1px !important;
+  overflow: hidden !important;
+  clip: rect(0, 0, 0, 0) !important;
+  white-space: nowrap !important;
+  border: 0 !important;
+}
+
+/* ── Burger menu (hidden on desktop, shown on mobile) ── */
+.wrd-burger {
+  display: none;
+  flex-direction: column;
+  justify-content: center;
+  gap: 5px;
+  width: 36px;
+  height: 36px;
+  padding: 7px;
+  margin-left: auto;
+  cursor: pointer;
+  box-sizing: border-box;
+}
+
+.wrd-burger span {
+  display: block;
+  height: 2px;
+  width: 100%;
+  background: #f3efe7;
+  border-radius: 2px;
+  transition: 0.25s;
+}
+
+.wrd-nav-1-2-3.wrd-mobile-open .wrd-burger span:nth-child(1) {
+  transform: translateY(7px) rotate(45deg);
+}
+
+.wrd-nav-1-2-3.wrd-mobile-open .wrd-burger span:nth-child(2) {
+  opacity: 0;
+}
+
+.wrd-nav-1-2-3.wrd-mobile-open .wrd-burger span:nth-child(3) {
+  transform: translateY(-7px) rotate(-45deg);
+}
+
+/* ── Remove underlines from all nav links ── */
+.wrd-nav-wrap a,
+.wrd-dd-link,
+.wrd-nav-link-1-2-3 {
+  text-decoration: none !important;
+}
+
+/* ── Dropdown component ── */
+.wrd-dd {
+  position: relative;
+  display: flex;
+  align-items: center;
+  z-index: 20;
+}
+
+.wrd-dd-toggle {
+  appearance: none;
+  border: 0;
+  background: transparent;
+  color: inherit;
+  cursor: pointer;
+  font-family: Archivo, sans-serif;
+  font-size: 14px;
+  font-weight: 600;
+  display: flex;
+  align-items: center;
+  padding: 0;
+  color: #fff;
+}
+
+.wrd-dd-list {
+  display: none !important;
+  position: absolute !important;
+  top: calc(100% + 8px) !important;
+  left: 50% !important;
+  transform: translateX(-50%) !important;
+  z-index: 1100 !important;
+  flex-direction: column !important;
+}
+
+.wrd-dd-list::before {
+  content: "";
+  position: absolute;
+  left: 0;
+  right: 0;
+  top: -12px;
+  height: 12px;
+}
+
+.wrd-dd.is-open > .wrd-dd-list {
+  display: flex !important;
+}
+
+.wrd-dd-link {
+  display: block !important;
+  pointer-events: auto;
+}
+
+/* ── Mobile breakpoint (991px matches Webflow) ── */
+@media (max-width: 991px) {
+  .wrd-nav-1-2-3 {
+    position: relative;
+  }
+
+  .wrd-nav-links-1-2 {
+    display: none !important;
+  }
+
+  .wrd-nav-right {
+    display: none !important;
+  }
+
+  .wrd-burger {
+    display: flex !important;
+  }
+
+  .wrd-nav-1-2-3.wrd-mobile-open .wrd-nav-links-1-2 {
+    display: flex !important;
+    position: absolute;
+    top: 100%;
+    left: 0;
+    right: 0;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    gap: 6px;
+    padding: 18px 20px;
+    background: rgba(58, 42, 34, 0.98);
+    z-index: 1000;
+    box-shadow: 0 12px 24px rgba(0, 0, 0, 0.25);
+  }
+
+  .wrd-nav-1-2-3.wrd-mobile-open .wrd-nav-links-1-2 > * {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+  }
+
+  .wrd-nav-1-2-3.wrd-mobile-open .wrd-nav-link-1-2-3 {
+    width: 100%;
+    justify-content: center;
+    text-align: center;
+  }
+
+  .wrd-nav-1-2-3.wrd-mobile-open .wrd-dd-toggle {
+    justify-content: center;
+    width: 100%;
+    background: transparent;
+    color: #f3efe7;
+  }
+
+  .wrd-nav-1-2-3.wrd-mobile-open .wrd-dd {
+    width: 100%;
+    flex-direction: column;
+  }
+
+  .wrd-nav-1-2-3.wrd-mobile-open .wrd-dd-list {
+    position: static !important;
+    transform: none !important;
+    left: auto !important;
+    top: auto !important;
+    margin: 0;
+    min-width: 0;
+    width: 100%;
+    box-shadow: none;
+  }
+}
+
+/* ── Hero headroom for the oversized navbar logo ── */
+.wrd-service-hero-inner {
+  padding-top: clamp(176px, 14vw, 200px);
+}
+
+.blog-hero,
+.wrd-about-hero,
+.story-opening-copy,
+.proc-intro,
+.art-hero {
+  padding-top: 176px;
+}
+
+@media (max-width: 991px) {
+  .wrd-service-hero-inner {
+    padding-top: clamp(160px, 14vw, 176px);
+  }
+
+  .blog-hero,
+  .wrd-about-hero,
+  .story-opening-copy,
+  .proc-intro,
+  .art-hero {
+    padding-top: 160px;
+  }
+}
+
+@media (max-width: 767px) {
+  .wrd-service-hero-inner,
+  .blog-hero,
+  .wrd-about-hero,
+  .story-opening-copy,
+  .proc-intro,
+  .art-hero {
+    padding-top: 152px;
+  }
+}

@@ -1,0 +1,320 @@
+<div class="w-embed wrd-page-embed"><style>
+    :root {
+      --deep: #3A2A22;
+      --darkest: #241812;
+      --off: #F9F9F8;
+      --caramel: #B76F3F;
+      --cyan: #33AAC9;
+      --rust: #974E31;
+      --taupe: #70635E;
+      --paper: #FFFFFF;
+      --navy: var(--deep);
+      --cream: var(--off);
+      --gold: var(--caramel);
+      --slate: var(--taupe);
+      --ink: var(--deep);
+      --line: rgba(112, 99, 94, 0.22);
+      --maxw: 900px;
+      --pad: 24px;
+      --radius: 14px;
+    }
+.wrd-page-embed, .wrd-page-embed * { box-sizing: border-box; }
+    .wrd-page-embed {
+      font-family: "Inter", system-ui, sans-serif;
+      background: var(--off);
+      color: var(--ink);
+      line-height: 1.55;
+      -webkit-font-smoothing: antialiased;
+    }
+    h1, h2, h3 {
+      font-family: "Archivo", sans-serif;
+      letter-spacing: -0.02em;
+      line-height: 1.08;
+    }
+    a { color: inherit; }
+    .wrd-container {
+      width: 100%;
+      max-width: var(--maxw);
+      margin: 0 auto;
+      padding-inline: var(--pad);
+    }
+    .wrd-eyebrow {
+      font-family: "Archivo", sans-serif;
+      font-size: 11px;
+      font-weight: 700;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      color: var(--gold);
+      margin-bottom: 12px;
+    }
+    .wrd-btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      font-family: "Archivo", sans-serif;
+      font-size: 14px;
+      font-weight: 700;
+      padding: 12px 22px;
+      border-radius: 8px;
+      border: 1.5px solid transparent;
+      text-decoration: none;
+      transition: 0.2s ease;
+      white-space: nowrap;
+    }
+    .wrd-btn-light { background: var(--cream); color: var(--navy); }
+    .wrd-btn-light:hover { background: #fff; }
+    .wrd-btn-gold { background: var(--gold); color: #fff; }
+    .wrd-btn-gold:hover { background: var(--rust); }
+    .wrd-service-hero {
+      color: #fff;
+      background-image: linear-gradient(rgba(58, 42, 34, 0.72) 0%, rgba(58, 42, 34, 0.45) 55%, rgba(58, 42, 34, 0.12) 100%),
+        url("https://cdn.prod.website-files.com/6a443b24edea4ec6b8c93e11/6a49011b4272910c41f595cc_hero-waterfront.png");
+      background-size: cover;
+      background-position: center;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+  }
+    .wrd-service-hero-inner {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: flex-start;
+    text-align: left;
+    width: 100%;
+    max-width: var(--maxw);
+    margin: 0 auto;
+    padding: clamp(100px, 12vw, 140px) var(--pad);
+    box-sizing: border-box;
+  }
+    .wrd-hero-title {
+      font-size: clamp(40px, 6vw, 70px);
+      margin-bottom: 16px;
+      max-width: 12ch;
+      color: #fff;
+    }
+    .wrd-hero-sub {
+      max-width: 58ch;
+      color: rgba(249, 249, 248, 0.92);
+      margin-bottom: 22px;
+      font-size: 17px;
+    }
+    .wrd-hero-actions {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 12px;
+    }
+    .wrd-terms-section {
+      padding: 70px 0 40px;
+      background: var(--paper);
+    }
+    .wrd-terms-intro {
+      margin-bottom: 36px;
+      padding-bottom: 28px;
+      border-bottom: 1px solid var(--line);
+    }
+    .wrd-terms-intro h2 {
+      font-size: clamp(28px, 4vw, 42px);
+      margin-bottom: 12px;
+      color: #000;
+    }
+    .wrd-terms-intro p {
+      color: var(--slate);
+      max-width: 70ch;
+      font-size: 16px;
+    }
+    .wrd-updated {
+      display: inline-block;
+      margin-top: 14px;
+      font-family: "Archivo", sans-serif;
+      font-size: 12px;
+      font-weight: 700;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      color: var(--gold);
+    }
+    .wrd-terms-block {
+      margin-bottom: 34px;
+    }
+    .wrd-terms-block h3 {
+      color: #000;
+      font-size: clamp(20px, 3vw, 26px);
+      margin-bottom: 10px;
+    }
+    .wrd-terms-block p,
+    .wrd-terms-block li {
+      color: var(--slate);
+      font-size: 15px;
+    }
+    .wrd-terms-block p + p { margin-top: 10px; }
+    .wrd-terms-block ul {
+      margin-top: 12px;
+      padding-left: 20px;
+      display: grid;
+      gap: 8px;
+    }
+    .wrd-terms-cta {
+      padding: 0 0 80px;
+      background: var(--paper);
+    }
+    .wrd-terms-cta-inner {
+      background: var(--navy);
+      color: #fff;
+      border-radius: var(--radius);
+      padding: clamp(28px, 5vw, 44px);
+      text-align: center;
+    }
+    .wrd-terms-cta-inner h2 {
+      font-size: clamp(28px, 4vw, 44px);
+      margin-bottom: 10px;
+      color: #fff;
+    }
+    .wrd-terms-cta-inner p {
+      color: rgba(249, 249, 248, 0.84);
+      max-width: 48ch;
+      margin: 0 auto 20px;
+    }
+    @media (max-width: 980px) {
+      :root { --pad: 18px; }
+      .wrd-terms-intro {
+        text-align: center;
+      }
+      .wrd-terms-intro p {
+        margin-inline: auto;
+        max-width: 100%;
+      }
+      .wrd-terms-block {
+        text-align: left;
+      }
+    }
+    @media (max-width: 620px) {
+      :root { --pad: 16px; }
+      .wrd-service-hero-inner { padding-top: 100px; padding-bottom: 52px; }
+      .wrd-hero-title { font-size: clamp(32px, 9vw, 44px); }
+      .wrd-hero-sub { font-size: 15px; }
+      .wrd-hero-actions {
+        flex-direction: column;
+        align-items: stretch;
+      }
+      .wrd-hero-actions .wrd-btn,
+      .wrd-terms-cta-inner .wrd-btn {
+        width: 100%;
+      }
+      .wrd-terms-section { padding: 48px 0 24px; }
+      .wrd-terms-cta { padding-bottom: 56px; }
+      .wrd-btn { white-space: normal; text-align: center; }
+    }
+  </style>
+      <main>
+        <section class="wrd-service-hero">
+          <div class="wrd-container wrd-service-hero-inner">
+            <p class="wrd-eyebrow">We Restore Decks</p>
+            <h1 class="wrd-hero-title">Terms and Conditions</h1>
+            <p class="wrd-hero-sub">Please review these terms before requesting an estimate or scheduling service. They explain how we work, what to expect, and how projects are managed.</p>
+            <div class="wrd-hero-actions">
+              <a href="/contact" class="wrd-btn wrd-btn-light">Request an estimate</a>
+              <a href="tel:4102636270" class="wrd-btn wrd-btn-light">Call 410-263-6270</a>
+            </div>
+          </div>
+        </section>
+        <section class="wrd-terms-section">
+          <div class="wrd-container">
+            <div class="wrd-terms-intro">
+              <p class="wrd-eyebrow">Legal</p>
+              <h2>Agreement for Services and Website Use</h2>
+              <p>These Terms and Conditions apply to services provided by We Restore Decks, Inc., a division of Shambarger Services, Inc., and to your use of this website. By requesting an estimate, approving a proposal, scheduling work, or using this site, you agree to these terms.</p>
+              <span class="wrd-updated">Last updated: July 10, 2026</span>
+            </div>
+            <article class="wrd-terms-block">
+              <h3>1. Company Information</h3>
+              <p>We Restore Decks provides outdoor living services including deck repair, remodeling, restoration, IPE maintenance, screen rooms/sunrooms, dock resurfacing, pressure washing, and related work in the Annapolis, Maryland area and surrounding communities.</p>
+              <p>Business address: 804 College Pkwy Suite A, Annapolis, MD 21409. Phone: (410) 263-6270.</p>
+            </article>
+            <article class="wrd-terms-block">
+              <h3>2. Estimates and Proposals</h3>
+              <p>Estimates provided online, by phone, or from photos are preliminary ranges only. Final pricing is based on an on-site evaluation of structure, materials, access, and project scope.</p>
+              <p>A written proposal becomes binding only after both parties approve the scope, price, and schedule. Changes requested after approval may adjust cost and timeline.</p>
+            </article>
+            <article class="wrd-terms-block">
+              <h3>3. Scope of Work</h3>
+              <p>Work is limited to the items listed in the approved proposal unless a written change order is agreed to. Hidden conditions discovered after work begins (such as rot, failed flashing, unsafe framing, or code issues) may require additional repairs and revised pricing before continuing.</p>
+            </article>
+            <article class="wrd-terms-block">
+              <h3>4. Scheduling and Access</h3>
+              <p>Project dates are estimates and may shift due to weather, material lead times, permitting, or prior job conditions. You agree to provide reasonable site access, parking, water/power where needed, and a clear work area during scheduled service days.</p>
+            </article>
+            <article class="wrd-terms-block">
+              <h3>5. Weather and Outdoor Conditions</h3>
+              <p>Outdoor work depends on safe weather and surface conditions. Rain, freezing temperatures, high humidity, or other conditions that affect cleaning, staining, fastening, or curing may delay start or completion. Delays caused by weather are not considered a breach of these terms.</p>
+            </article>
+            <article class="wrd-terms-block">
+              <h3>6. Payment Terms</h3>
+              <p>Payment schedule, deposit requirements, and accepted methods are stated in your proposal. Unless otherwise written:</p>
+              <ul>
+                <li>A deposit may be required to reserve schedule and order materials.</li>
+                <li>Progress payments may be due at agreed milestones.</li>
+                <li>Final payment is due upon substantial completion of the approved scope.</li>
+              </ul>
+              <p>Unpaid balances may pause remaining work and may accrue reasonable collection costs where permitted by law.</p>
+            </article>
+            <article class="wrd-terms-block">
+              <h3>7. Customer Responsibilities</h3>
+              <ul>
+                <li>Provide accurate project information, photos, and measurements when requesting estimates.</li>
+                <li>Disclose known structural issues, prior repairs, or product history that may affect the work.</li>
+                <li>Move furniture, planters, grills, and personal items from the work area before arrival unless otherwise arranged.</li>
+                <li>Keep children, pets, and guests clear of active work zones.</li>
+                <li>Follow any post-service care instructions for stains, oils, sealers, or newly installed materials.</li>
+              </ul>
+            </article>
+            <article class="wrd-terms-block">
+              <h3>8. Materials and Product Performance</h3>
+              <p>Wood, composite, coatings, and hardware perform differently based on sun exposure, moisture, foot traffic, and maintenance. Color, grain, and weathering can vary. We select and install products according to manufacturer guidance and industry practice, but we cannot guarantee that natural materials will remain unchanged over time.</p>
+            </article>
+            <article class="wrd-terms-block">
+              <h3>9. Workmanship and Limited Warranty</h3>
+              <p>We stand behind the quality of our workmanship for the period stated in your proposal or warranty documents. Warranty coverage typically applies to defects in workmanship under normal use and proper maintenance.</p>
+              <p>Warranty does not cover damage from misuse, neglect, lack of maintenance, storms, flooding, structural movement, third-party alterations, or normal wear and weathering of outdoor materials and finishes.</p>
+            </article>
+            <article class="wrd-terms-block">
+              <h3>10. Safety and Site Conditions</h3>
+              <p>If we determine that a structure is unsafe to work on, we may pause or decline service until conditions are corrected. Recommendations made during inspection are for planning purposes and do not replace an independent engineering evaluation when one is needed.</p>
+            </article>
+            <article class="wrd-terms-block">
+              <h3>11. Limitation of Liability</h3>
+              <p>To the fullest extent allowed by law, We Restore Decks is not liable for indirect, incidental, special, or consequential damages arising from services or website use. Our total liability for any claim related to a project is limited to the amount paid for the specific service giving rise to the claim, except where prohibited by applicable law.</p>
+            </article>
+            <article class="wrd-terms-block">
+              <h3>12. Website Use</h3>
+              <p>Content on this website is for general information only and does not create a contract by itself. Pricing examples, process descriptions, and timelines are guides and may change. You agree not to misuse the site, attempt unauthorized access, or copy site content for commercial use without permission.</p>
+            </article>
+            <article class="wrd-terms-block">
+              <h3>13. Privacy</h3>
+              <p>Contact details and project information you share for estimates or service are used to respond to your request, prepare proposals, and perform work. We do not sell your personal information.</p>
+            </article>
+            <article class="wrd-terms-block">
+              <h3>14. Changes to These Terms</h3>
+              <p>We may update these Terms and Conditions from time to time. The “Last updated” date at the top of this page reflects the current version. Continued use of the website or services after updates means you accept the revised terms.</p>
+            </article>
+            <article class="wrd-terms-block">
+              <h3>15. Governing Law</h3>
+              <p>These terms are governed by the laws of the State of Maryland, without regard to conflict-of-law rules. Any dispute arising from these terms or our services will be handled in courts located in Maryland, unless otherwise required by law.</p>
+            </article>
+            <article class="wrd-terms-block">
+              <h3>16. Contact</h3>
+              <p>Questions about these Terms and Conditions can be sent through our contact page or by calling (410) 263-6270.</p>
+            </article>
+          </div>
+        </section>
+        <section class="wrd-terms-cta">
+          <div class="wrd-container">
+            <div class="wrd-terms-cta-inner">
+              <h2>Ready to Start Your Project?</h2>
+              <p>Request an estimate and we will help you choose the right repair, remodel, restoration, or maintenance path.</p>
+              <a href="/contact" class="wrd-btn wrd-btn-gold">Go to contact</a>
+            </div>
+          </div>
+        </section>
+      </main>
+    </div>
