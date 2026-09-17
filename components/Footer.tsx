@@ -124,7 +124,7 @@ export const Footer = () => {
           </div>
           <div className="wrd-footer-col">
             <span className="wrd-footer-h">Address</span>
-            <span className="wrd-footer-text">1642 St Margarets Rd</span>
+            <span className="wrd-footer-text">804 E College Parkway Suite A</span>
             <span className="wrd-footer-text">Annapolis, MD 21409</span>
             <a href="tel:4102636270" className="wrd-footer-link-1">410-263-6270</a>
           </div>
@@ -182,13 +182,13 @@ export const Footer = () => {
               Serving Annapolis, Maryland and the surrounding Chesapeake Bay area with
               expert deck and outdoor living services.
             </p>
-            <p className="ftr-location-addr">1642 St Margarets Rd, Annapolis, MD 21409</p>
+            <p className="ftr-location-addr">804 E College Parkway Suite A, Annapolis, MD 21409</p>
             <a href="tel:4102636270" className="ftr-location-phone">410-263-6270</a>
           </div>
           <div className="ftr-location-map">
             <div className="w-embed">
               <iframe
-                src="https://www.google.com/maps?ll=39.02722,-76.443523&z=10&t=m&hl=en-US&gl=US&mapclient=embed&cid=2600933677046508011&output=embed"
+                src="https://www.google.com/maps?q=804%20E%20College%20Parkway%20Suite%20A%2C%20Annapolis%2C%20MD%2021409&z=14&output=embed"
                 allowFullScreen
                 loading="lazy"
                 referrerPolicy="no-referrer-when-downgrade"
